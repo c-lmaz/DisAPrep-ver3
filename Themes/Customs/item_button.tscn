@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://2wbqkxvuw8os"]
+
+[ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_fc4a6"]
+[ext_resource type="Texture2D" uid="uid://f8eflxks6yso" path="res://Icons/Controls/shadedLight_Empty.png" id="2_7fk5p"]
+[ext_resource type="Script" path="res://Themes/Customs/item_button.gd" id="2_dexjk"]
+[ext_resource type="Texture2D" uid="uid://bf68lggu4phmy" path="res://Icons/Controls/heartFull.png" id="4_tnusn"]
+
+[node name="Item" type="Button"]
+custom_minimum_size = Vector2(250, 45)
+theme = ExtResource("1_fc4a6")
+toggle_mode = true
+flat = true
+icon_alignment = 2
+expand_icon = true
+script = ExtResource("2_dexjk")
+item_name = "Item"
+item_icon = ExtResource("4_tnusn")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(100, 45)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7fk5p")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(190, 30)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -15.0
+offset_right = 200.0
+offset_bottom = 15.0
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Item"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0.2196, 0.2196, 0.2196, 0.5882)
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -20.0
+offset_right = -10.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_tnusn")
+expand_mode = 1
+stretch_mode = 5

@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2xjosccy5wmq"]
+
+[ext_resource type="Texture2D" uid="uid://f8eflxks6yso" path="res://Icons/Controls/shadedLight_Empty.png" id="1_s35xo"]
+[ext_resource type="Script" path="res://Menus/quest_display.gd" id="2_xwoe4"]
+[ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="2_yfvn8"]
+
+[sub_resource type="Gradient" id="Gradient_drxkb"]
+colors = PackedColorArray(0.839216, 1, 0.839216, 0.588235, 0.168627, 1, 0.168627, 0.588235)
+
+[node name="QuestDisplay" type="NinePatchRect"]
+custom_minimum_size = Vector2(450, 45)
+offset_right = 450.0
+offset_bottom = 45.0
+texture = ExtResource("1_s35xo")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+script = ExtResource("2_xwoe4")
+quest = "QuestQuestQuest"
+q_total = 10
+tint_gradient = SubResource("Gradient_drxkb")
+
+[node name="QuestProgress" type="ProgressBar" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.588235)
+custom_minimum_size = Vector2(435, 35)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.5
+offset_top = -17.5
+offset_right = 217.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+step = 1.0
+value = 30.0
+show_percentage = false
+
+[node name="QuestLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(430, 35)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = -17.5
+offset_right = 215.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_yfvn8")
+theme_override_font_sizes/font_size = 26
+text = "Mitigate hazards and damages"
+vertical_alignment = 1
+
+[node name="Checkmark" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -17.5
+offset_right = -10.0
+offset_bottom = 17.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_s35xo")
+expand_mode = 1
+stretch_mode = 5

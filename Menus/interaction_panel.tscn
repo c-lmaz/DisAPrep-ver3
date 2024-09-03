@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtc51relpmt3x"]
+
+[ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_6yt46"]
+[ext_resource type="Texture2D" uid="uid://f8eflxks6yso" path="res://Icons/Controls/shadedLight_Empty.png" id="1_o4o7i"]
+[ext_resource type="PackedScene" uid="uid://cc1ww7cjd30cr" path="res://Themes/Customs/icon_button.tscn" id="2_a0vl0"]
+[ext_resource type="Script" path="res://Menus/interaction_panel.gd" id="3_81rfj"]
+[ext_resource type="Texture2D" uid="uid://bts3b3g61jenh" path="res://Icons/Controls/shadedLight_Menu.png" id="3_aygts"]
+[ext_resource type="Script" path="res://Menus/item_container.gd" id="6_58ey1"]
+
+[node name="InteractionPanel" type="NinePatchRect"]
+custom_minimum_size = Vector2(550, 435)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -430.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_6yt46")
+texture = ExtResource("1_o4o7i")
+patch_margin_left = 4
+patch_margin_top = 5
+patch_margin_right = 7
+patch_margin_bottom = 5
+script = ExtResource("3_81rfj")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(510, 0)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 80.0
+offset_right = 530.0
+offset_bottom = 415.0
+horizontal_scroll_mode = 0
+
+[node name="ItemContainer" type="GridContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(510, 0)
+layout_mode = 2
+theme_override_constants/v_separation = 10
+columns = 2
+script = ExtResource("6_58ey1")
+
+[node name="Quests" parent="." instance=ExtResource("2_a0vl0")]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 15.0
+offset_right = 65.0
+offset_bottom = 60.0
+toggle_mode = true
+normal_tex = ExtResource("3_aygts")
+
+[node name="PanelContainer" type="PanelContainer" parent="Quests"]
+visible = false
+custom_minimum_size = Vector2(490, 340)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 60.0
+offset_right = 500.0
+offset_bottom = 400.0
+
+[node name="QuestContainer" type="VBoxContainer" parent="Quests/PanelContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="Control" type="Control" parent="Quests/PanelContainer/QuestContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="CurrentQuest" type="Control" parent="."]
+custom_minimum_size = Vector2(450, 45)
+anchors_preset = 0
+offset_left = 80.0
+offset_top = 15.0
+offset_right = 530.0
+offset_bottom = 60.0
+
+[connection signal="toggled" from="Quests" to="." method="_on_quests_toggled"]

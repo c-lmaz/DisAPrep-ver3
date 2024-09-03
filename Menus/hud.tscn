@@ -1,0 +1,272 @@
+[gd_scene load_steps=10 format=3 uid="uid://chpdu7tfk38or"]
+
+[ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_1jsw5"]
+[ext_resource type="Texture2D" uid="uid://f8eflxks6yso" path="res://Icons/Controls/shadedLight_Empty.png" id="1_j5qpj"]
+[ext_resource type="Script" path="res://Menus/hud.gd" id="2_tygji"]
+[ext_resource type="FontFile" uid="uid://det7dyh78eox" path="res://Themes/Fonts/InriaSans-Bold.otf" id="3_lb3w8"]
+[ext_resource type="Script" path="res://Menus/life_display.gd" id="4_ntydd"]
+[ext_resource type="Texture2D" uid="uid://bf68lggu4phmy" path="res://Icons/Controls/heartFull.png" id="4_qn0yn"]
+[ext_resource type="Texture2D" uid="uid://dt2cldp76lye6" path="res://Icons/Controls/shadedLight_Pause.png" id="7_e6axm"]
+[ext_resource type="PackedScene" uid="uid://cc1ww7cjd30cr" path="res://Themes/Customs/icon_button.tscn" id="7_ucsp4"]
+[ext_resource type="Texture2D" uid="uid://0ifo3slvh2lo" path="res://Icons/Controls/shadedLight_Play.png" id="9_y1p1j"]
+
+[node name="HUD" type="Control"]
+custom_minimum_size = Vector2(540, 140)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1jsw5")
+script = ExtResource("2_tygji")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 200.0
+
+[node name="Exit" type="Panel" parent="."]
+process_mode = 2
+visible = false
+modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(540, 820)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -823.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Exit"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.0
+offset_top = 50.0
+offset_right = 54.0
+offset_bottom = 92.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0.894118, 0.894118, 0.894118, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_lb3w8")
+theme_override_font_sizes/font_size = 34
+text = "Paused"
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.984314, 0.984314, 0.984314, 1)
+custom_minimum_size = Vector2(550, 145)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = -820.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Displays" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(540, 50)
+layout_mode = 1
+offset_top = 75.0
+offset_right = 540.0
+offset_bottom = 125.0
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="ScoreDisplay" type="NinePatchRect" parent="Displays"]
+custom_minimum_size = Vector2(200, 45)
+layout_mode = 2
+texture = ExtResource("1_j5qpj")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Displays/ScoreDisplay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.5
+offset_top = -17.5
+offset_right = 41.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Displays/ScoreDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(70, 35)
+layout_mode = 2
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="Displays/ScoreDisplay/HBoxContainer"]
+layout_mode = 2
+text = ": "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Displays/ScoreDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(55, 35)
+layout_mode = 2
+text = "0000
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeDisplay" type="NinePatchRect" parent="Displays"]
+custom_minimum_size = Vector2(115, 45)
+layout_mode = 2
+texture = ExtResource("1_j5qpj")
+patch_margin_left = 4
+patch_margin_top = 5
+patch_margin_right = 7
+patch_margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Displays/TimeDisplay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -17.0
+offset_right = 40.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Minute" type="Label" parent="Displays/TimeDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(25, 35)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="Displays/TimeDisplay/HBoxContainer"]
+layout_mode = 2
+text = ": "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second" type="Label" parent="Displays/TimeDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LifeDisplay" type="NinePatchRect" parent="Displays"]
+custom_minimum_size = Vector2(150, 45)
+layout_mode = 2
+texture = ExtResource("1_j5qpj")
+patch_margin_left = 4
+patch_margin_top = 5
+patch_margin_right = 7
+patch_margin_bottom = 5
+
+[node name="Lives" type="HBoxContainer" parent="Displays/LifeDisplay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -17.0
+offset_right = 40.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_ntydd")
+
+[node name="1" type="TextureRect" parent="Displays/LifeDisplay/Lives"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("4_qn0yn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="Displays/LifeDisplay/Lives"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("4_qn0yn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="Displays/LifeDisplay/Lives"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("4_qn0yn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LevelPhase" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -122.0
+offset_top = 20.0
+offset_right = 122.0
+offset_bottom = 62.0
+grow_horizontal = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Level" type="Label" parent="LevelPhase"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.133333, 0.694118, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.894118, 0.894118, 0.894118, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_lb3w8")
+theme_override_font_sizes/font_size = 34
+text = "Flood"
+
+[node name="Label" type="Label" parent="LevelPhase"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.894118, 0.894118, 0.894118, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_lb3w8")
+theme_override_font_sizes/font_size = 34
+text = "-"
+
+[node name="Phase" type="Label" parent="LevelPhase"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.133333, 0.694118, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.894118, 0.894118, 0.894118, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_lb3w8")
+theme_override_font_sizes/font_size = 34
+text = "Prepare"
+
+[node name="Pause" parent="." instance=ExtResource("7_ucsp4")]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 60.0
+grow_horizontal = 0
+toggle_mode = true
+normal_tex = ExtResource("7_e6axm")
+toggled_tex = ExtResource("9_y1p1j")
+
+[connection signal="toggled" from="Pause" to="." method="_on_pause_toggled"]
