@@ -14,8 +14,6 @@ func sort_items():
 	_sort_checked_items()
 	
 	for i in range(items.size()):
-		#items[i].get_parent().remove_child(items[i])
-		#add_child(items[i])
 		move_child(items[i], i)
 
 

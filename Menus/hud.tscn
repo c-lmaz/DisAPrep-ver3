@@ -1,17 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://chpdu7tfk38or"]
+[gd_scene load_steps=12 format=3 uid="uid://chpdu7tfk38or"]
 
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_1jsw5"]
 [ext_resource type="Texture2D" uid="uid://f8eflxks6yso" path="res://Icons/Controls/shadedLight_Empty.png" id="1_j5qpj"]
 [ext_resource type="Script" path="res://Menus/hud.gd" id="2_tygji"]
 [ext_resource type="FontFile" uid="uid://det7dyh78eox" path="res://Themes/Fonts/InriaSans-Bold.otf" id="3_lb3w8"]
+[ext_resource type="PackedScene" uid="uid://c55wd2pk0aj8j" path="res://Menus/pause_menu.tscn" id="3_qp2dc"]
 [ext_resource type="Script" path="res://Menus/life_display.gd" id="4_ntydd"]
 [ext_resource type="Texture2D" uid="uid://bf68lggu4phmy" path="res://Icons/Controls/heartFull.png" id="4_qn0yn"]
 [ext_resource type="Texture2D" uid="uid://dt2cldp76lye6" path="res://Icons/Controls/shadedLight_Pause.png" id="7_e6axm"]
 [ext_resource type="PackedScene" uid="uid://cc1ww7cjd30cr" path="res://Themes/Customs/icon_button.tscn" id="7_ucsp4"]
 [ext_resource type="Texture2D" uid="uid://0ifo3slvh2lo" path="res://Icons/Controls/shadedLight_Play.png" id="9_y1p1j"]
+[ext_resource type="PackedScene" uid="uid://dtc51relpmt3x" path="res://Menus/interaction_panel.tscn" id="10_24se6"]
 
 [node name="HUD" type="Control"]
-custom_minimum_size = Vector2(540, 140)
+custom_minimum_size = Vector2(540, 960)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,37 +27,28 @@ script = ExtResource("2_tygji")
 process_callback = 0
 wait_time = 200.0
 
-[node name="Exit" type="Panel" parent="."]
+[node name="PauseMenu" parent="." instance=ExtResource("3_qp2dc")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 140.0
+offset_right = 540.0
+offset_bottom = 960.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ExitMenu" type="Panel" parent="."]
 process_mode = 2
 visible = false
-modulate = Color(1, 1, 1, 0.784314)
+self_modulate = Color(1, 1, 1, 0.588235)
 custom_minimum_size = Vector2(540, 820)
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -823.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Label" type="Label" parent="Exit"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -54.0
-offset_top = 50.0
-offset_right = 54.0
-offset_bottom = 92.0
-grow_horizontal = 2
-theme_override_colors/font_shadow_color = Color(0.894118, 0.894118, 0.894118, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource("3_lb3w8")
-theme_override_font_sizes/font_size = 34
-text = "Paused"
+layout_mode = 0
+offset_top = 140.0
+offset_right = 540.0
+offset_bottom = 960.0
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color(0.984314, 0.984314, 0.984314, 1)
@@ -106,12 +99,14 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Displays/ScoreDisplay/HBoxContainer"]
 custom_minimum_size = Vector2(70, 35)
 layout_mode = 2
+theme_override_font_sizes/font_size = 34
 text = "Score"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Time" type="Label" parent="Displays/ScoreDisplay/HBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 34
 text = ": "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -119,6 +114,7 @@ vertical_alignment = 1
 [node name="Score" type="Label" parent="Displays/ScoreDisplay/HBoxContainer"]
 custom_minimum_size = Vector2(55, 35)
 layout_mode = 2
+theme_override_font_sizes/font_size = 34
 text = "0000
 "
 horizontal_alignment = 1
@@ -150,12 +146,14 @@ grow_vertical = 2
 [node name="Minute" type="Label" parent="Displays/TimeDisplay/HBoxContainer"]
 custom_minimum_size = Vector2(25, 35)
 layout_mode = 2
+theme_override_font_sizes/font_size = 34
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Time" type="Label" parent="Displays/TimeDisplay/HBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 34
 text = ": "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -163,6 +161,7 @@ vertical_alignment = 1
 [node name="Second" type="Label" parent="Displays/TimeDisplay/HBoxContainer"]
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
+theme_override_font_sizes/font_size = 34
 text = "00"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -234,6 +233,8 @@ theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("3_lb3w8")
 theme_override_font_sizes/font_size = 34
 text = "Flood"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label" type="Label" parent="LevelPhase"]
 layout_mode = 2
@@ -253,6 +254,8 @@ theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("3_lb3w8")
 theme_override_font_sizes/font_size = 34
 text = "Prepare"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Pause" parent="." instance=ExtResource("7_ucsp4")]
 process_mode = 3
@@ -268,5 +271,8 @@ grow_horizontal = 0
 toggle_mode = true
 normal_tex = ExtResource("7_e6axm")
 toggled_tex = ExtResource("9_y1p1j")
+
+[node name="InteractionPanel" parent="." instance=ExtResource("10_24se6")]
+layout_mode = 1
 
 [connection signal="toggled" from="Pause" to="." method="_on_pause_toggled"]

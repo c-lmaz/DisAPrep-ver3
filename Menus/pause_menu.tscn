@@ -1,0 +1,154 @@
+[gd_scene load_steps=9 format=3 uid="uid://c55wd2pk0aj8j"]
+
+[ext_resource type="FontFile" uid="uid://det7dyh78eox" path="res://Themes/Fonts/InriaSans-Bold.otf" id="1_7iguw"]
+[ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_dx0dg"]
+[ext_resource type="Script" path="res://Menus/pause_menu.gd" id="1_nh3p8"]
+[ext_resource type="StyleBox" uid="uid://2mhryh7aobpp" path="res://Themes/Styleboxes/button_texticon.stylebox" id="2_w0gfe"]
+[ext_resource type="Texture2D" uid="uid://driirg0onppl4" path="res://Icons/Controls/forward.png" id="3_s2fkx"]
+[ext_resource type="Texture2D" uid="uid://ojlciqwyxbex" path="res://Icons/Controls/exitRight.png" id="4_2ej00"]
+[ext_resource type="Texture2D" uid="uid://yqordmem2beg" path="res://Icons/Controls/audioOn.png" id="5_405p3"]
+[ext_resource type="Texture2D" uid="uid://bn5a0amv6wk64" path="res://Icons/Controls/musicOn.png" id="6_aynbn"]
+
+[node name="PauseMenu" type="Panel"]
+process_mode = 2
+self_modulate = Color(1, 1, 1, 0.588235)
+custom_minimum_size = Vector2(540, 820)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -823.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_dx0dg")
+script = ExtResource("1_nh3p8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.0
+offset_top = 50.0
+offset_right = 112.0
+offset_bottom = 561.0
+grow_horizontal = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0.894118, 0.894118, 0.894118, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("1_7iguw")
+text = "Game Paused"
+
+[node name="Resume" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(205, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_7iguw")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = ExtResource("2_w0gfe")
+text = "Resume"
+icon = ExtResource("3_s2fkx")
+icon_alignment = 2
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(205, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_7iguw")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = ExtResource("2_w0gfe")
+text = "Exit"
+icon = ExtResource("4_2ej00")
+icon_alignment = 2
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0.894118, 0.894118, 0.894118, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("1_7iguw")
+theme_override_font_sizes/font_size = 34
+text = "Audio Settings"
+
+[node name="SFX" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/SFX"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="SFXIcon" type="TextureRect" parent="VBoxContainer/SFX"]
+layout_mode = 2
+texture = ExtResource("5_405p3")
+
+[node name="SFXSlider" type="HSlider" parent="VBoxContainer/SFX"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+step = 5.0
+value = 60.0
+scrollable = false
+
+[node name="BGM" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/BGM"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "BGM"
+
+[node name="BGMIcon" type="TextureRect" parent="VBoxContainer/BGM"]
+layout_mode = 2
+texture = ExtResource("6_aynbn")
+
+[node name="BGMSlider" type="HSlider" parent="VBoxContainer/BGM"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+step = 5.0
+value = 60.0
+scrollable = false
+
+[node name="Spacer2" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0.894118, 0.894118, 0.894118, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("1_7iguw")
+theme_override_font_sizes/font_size = 34
+text = "Random Tip"
+
+[node name="Tip" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Tip1"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

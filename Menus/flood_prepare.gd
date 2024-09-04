@@ -1,14 +1,18 @@
 extends CanvasLayer
 
 @onready var camera = $SubViewport/House/Camera3D
+@onready var texture_rect = $TextureRect
+
 @onready var hud = $HUD
 
 var subv_snapshot
 var subv_tex
-
+var level_phase = ["Flooood", "Prep"]
 
 func _ready():
-	pass
+	hud.set_level_name(level_phase)
+	
+	hud.game_paused.connect(_on_hud_game_paused)
 
 
 func _process(_delta):
@@ -27,3 +31,7 @@ func _process(_delta):
 			camera.position.z = 1.5
 			camera.rotation = Vector3(0,PI/-2,0)
 		else: camera.position.x -= 3
+
+
+func _on_hud_game_paused(pause_state):
+	texture_rect.visible = !pause_state
