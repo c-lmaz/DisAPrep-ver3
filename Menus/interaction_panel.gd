@@ -2,7 +2,7 @@ extends NinePatchRect
 
 @onready var scroll_container = $ScrollContainer
 @onready var item_container = $ScrollContainer/ItemContainer
-var kit_items_path = "res://Data/Flood/Emergency Kit/kit_item.json"
+var kit_items_path = "res://Data/Flood/kit_item.json"
 var kit_items = Global.read_json_file(kit_items_path)
 var kit_item_node = preload("res://Themes/Customs/item_button.tscn")
 
@@ -21,9 +21,8 @@ func _ready():
 	for i in range(kit_items.size()):
 		var child = kit_item_node.instantiate()
 		item_container.add_child(child)
-		# TODO: change kit_item json structure and update icons path
-		#child.item_name = kit_items[i][0]
-		#child.item_icon = preload(kit_items[i][1])
+		child.item_name = kit_items[i]["name"]
+		child.item_icon = load(kit_items[i]["icon"])
 	
 	quests = quests["Prepare"]
 	for i in range(quests.size()):
@@ -35,8 +34,8 @@ func _ready():
 			quest_container.add_child(child)
 			child.current = false
 		
-		child.quest = quests[i][0]
-		child.q_total = quests[i][1]
+		child.quest = quests[i]["name"]
+		child.q_total = quests[i]["total"]
 
 
 func _on_quests_toggled(toggled_on):

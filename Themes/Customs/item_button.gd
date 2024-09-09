@@ -31,7 +31,7 @@ func _ready():
 func update():
 	label.text = item_name
 	tex_rect.texture = item_icon
-	tex_rect.self_modulate = Color(0.2196, 0.2196, 0.2196, 0.5882)
+	tex_rect.self_modulate = Color(0.2196, 0.2196, 0.2196, 1)
 	name = item_name
 
 

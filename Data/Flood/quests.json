@@ -1,8 +1,8 @@
 {
 	"Prepare": [
-		["Collect emergency kit items", 17],
-		["Have emergency contacts", 6],
-		["Identify evacuation routes", 3],
-		["Mitigate hazards and damages", 8]
+		{"name": "Collect emergency kit items", "total": 17},
+		{"name": "Have emergency contacts", "total": 6},
+		{"name": "Identify evacuation routes", "total": 3},
+		{"name": "Mitigate hazards and damages", "total": 8},
 	]
 }
