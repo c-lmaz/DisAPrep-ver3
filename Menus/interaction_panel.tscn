@@ -8,15 +8,12 @@
 [ext_resource type="Script" path="res://Menus/item_container.gd" id="6_58ey1"]
 
 [node name="InteractionPanel" type="NinePatchRect"]
-custom_minimum_size = Vector2(550, 435)
+custom_minimum_size = Vector2(540, 430)
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -5.0
-offset_top = -430.0
-offset_right = 5.0
-offset_bottom = 5.0
+offset_top = -10.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_6yt46")
@@ -51,6 +48,7 @@ offset_right = 65.0
 offset_bottom = 60.0
 toggle_mode = true
 normal_tex = ExtResource("3_aygts")
+toggled_tex = ExtResource("3_aygts")
 
 [node name="PanelContainer" type="PanelContainer" parent="Quests"]
 visible = false

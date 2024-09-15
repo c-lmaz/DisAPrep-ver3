@@ -1,0 +1,424 @@
+[gd_scene load_steps=21 format=3 uid="uid://cnmnof152lgjw"]
+
+[ext_resource type="Script" path="res://Menus/kit_items.gd" id="1_hyfq4"]
+[ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_j3k50"]
+[ext_resource type="Texture2D" uid="uid://red3to85khip" path="res://Icons/Levels/exclamation1.png" id="1_n163w"]
+[ext_resource type="Texture2D" uid="uid://bwpfur0l6t3dc" path="res://Icons/Emergency Kit/flashlight.png" id="4_0u7op"]
+[ext_resource type="Texture2D" uid="uid://crphkgtyjaiom" path="res://Icons/Emergency Kit/battery.png" id="4_3whpg"]
+[ext_resource type="Texture2D" uid="uid://cs8nbabiap26t" path="res://Icons/Emergency Kit/radio.png" id="5_jfbwx"]
+[ext_resource type="Texture2D" uid="uid://bik0foi1fue2x" path="res://Icons/Emergency Kit/shoes.png" id="6_mtidh"]
+[ext_resource type="Texture2D" uid="uid://dbopx8yd145ad" path="res://Icons/Emergency Kit/phone.png" id="7_hujcq"]
+[ext_resource type="Texture2D" uid="uid://diti6nwqlon2e" path="res://Icons/Emergency Kit/clean-water.png" id="9_oghhy"]
+[ext_resource type="Texture2D" uid="uid://ckgfiofgrbacj" path="res://Icons/Emergency Kit/canned-food.png" id="10_hr86j"]
+[ext_resource type="Texture2D" uid="uid://0a4m6wmmbtpl" path="res://Icons/Emergency Kit/medicine.png" id="11_5ycsw"]
+[ext_resource type="Texture2D" uid="uid://cmrxtc4shk4vf" path="res://Icons/Emergency Kit/first-aid-kit.png" id="12_kq6m5"]
+[ext_resource type="Texture2D" uid="uid://c5uxswvhtekfs" path="res://Icons/Emergency Kit/toiletries.png" id="13_kb1b6"]
+[ext_resource type="Texture2D" uid="uid://b6p48g83pue4p" path="res://Icons/Emergency Kit/id.png" id="14_lg0lk"]
+[ext_resource type="Texture2D" uid="uid://d2gpj3xpn8we0" path="res://Icons/Emergency Kit/money.png" id="15_2w80o"]
+[ext_resource type="Texture2D" uid="uid://dwx28eke3qns2" path="res://Icons/Emergency Kit/documents.png" id="16_7hotw"]
+[ext_resource type="Texture2D" uid="uid://1f5ktcs6rkvh" path="res://Icons/Emergency Kit/power-bank.png" id="17_317n2"]
+[ext_resource type="Texture2D" uid="uid://diwkqbx7olrqh" path="res://Icons/Emergency Kit/whistle.png" id="18_h8ncy"]
+[ext_resource type="Texture2D" uid="uid://dkfdcea66xs05" path="res://Icons/Emergency Kit/blanket.png" id="19_2em1y"]
+[ext_resource type="Texture2D" uid="uid://bhwrcienc7swd" path="res://Icons/Emergency Kit/clothes.png" id="20_7cbfv"]
+
+[node name="KitItems" type="Control"]
+custom_minimum_size = Vector2(540, 390)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 140.0
+offset_bottom = 530.0
+theme = ExtResource("1_j3k50")
+script = ExtResource("1_hyfq4")
+
+[node name="Outside" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+
+[node name="Living" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="Shelf" type="TextureButton" parent="Living"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 89.0
+offset_right = 41.0
+offset_bottom = 89.0
+texture_normal = ExtResource("1_n163w")
+
+[node name="Sofa" type="TextureButton" parent="Living"]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 211.0
+offset_right = 244.0
+offset_bottom = 211.0
+texture_normal = ExtResource("1_n163w")
+
+[node name="Tv" type="TextureButton" parent="Living"]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 185.0
+offset_right = 470.0
+offset_bottom = 185.0
+texture_normal = ExtResource("1_n163w")
+
+[node name="Shoebox" type="TextureButton" parent="Living"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 210.0
+offset_right = 21.0
+offset_bottom = 210.0
+texture_normal = ExtResource("1_n163w")
+
+[node name="Kitchen" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+
+[node name="Sink" type="TextureButton" parent="Kitchen"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 157.0
+offset_right = 83.0
+offset_bottom = 157.0
+texture_normal = ExtResource("1_n163w")
+
+[node name="Storage" type="TextureButton" parent="Kitchen"]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 152.0
+offset_right = 315.0
+offset_bottom = 152.0
+texture_normal = ExtResource("1_n163w")
+
+[node name="Bathroom" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+
+[node name="Washer" type="TextureButton" parent="Bathroom"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 144.0
+offset_right = 49.0
+offset_bottom = 144.0
+texture_normal = ExtResource("1_n163w")
+
+[node name="Mirror" type="TextureButton" parent="Bathroom"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 130.0
+offset_right = 251.0
+offset_bottom = 130.0
+texture_normal = ExtResource("1_n163w")
+
+[node name="Family" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+
+[node name="Desk" type="TextureButton" parent="Family"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 148.0
+offset_right = 29.0
+offset_bottom = 148.0
+texture_normal = ExtResource("1_n163w")
+
+[node name="Drawers" type="TextureButton" parent="Family"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 161.0
+offset_right = 240.0
+offset_bottom = 161.0
+texture_normal = ExtResource("1_n163w")
+
+[node name="Bedroom" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+
+[node name="Wardrobe" type="TextureButton" parent="Bedroom"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 132.0
+offset_right = 105.0
+offset_bottom = 182.0
+texture_normal = ExtResource("1_n163w")
+
+[node name="Bed" type="TextureButton" parent="Bedroom"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 199.0
+offset_right = 467.0
+offset_bottom = 249.0
+texture_normal = ExtResource("1_n163w")
+
+[node name="KitMenu" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(540, 390)
+layout_mode = 1
+offset_right = 540.0
+offset_bottom = 390.0
+theme = ExtResource("1_j3k50")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="KitMenu"]
+custom_minimum_size = Vector2(520, 350)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -175.0
+offset_right = 260.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Prompt" type="Label" parent="KitMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Select items to collect"
+
+[node name="Shelf" type="GridContainer" parent="KitMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 70
+theme_override_constants/v_separation = 30
+columns = 2
+
+[node name="Flashlight" type="CheckBox" parent="KitMenu/VBoxContainer/Shelf"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("4_0u7op")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Radio" type="CheckBox" parent="KitMenu/VBoxContainer/Shelf"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("5_jfbwx")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Shoebox" type="GridContainer" parent="KitMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 70
+theme_override_constants/v_separation = 30
+columns = 2
+
+[node name="Shoes" type="CheckBox" parent="KitMenu/VBoxContainer/Shoebox"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("6_mtidh")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Sofa" type="GridContainer" parent="KitMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 70
+theme_override_constants/v_separation = 30
+columns = 2
+
+[node name="Phone" type="CheckBox" parent="KitMenu/VBoxContainer/Sofa"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("7_hujcq")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Tv" type="GridContainer" parent="KitMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 70
+theme_override_constants/v_separation = 30
+columns = 2
+
+[node name="Battery" type="CheckBox" parent="KitMenu/VBoxContainer/Tv"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("4_3whpg")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Sink" type="GridContainer" parent="KitMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 70
+theme_override_constants/v_separation = 30
+columns = 2
+
+[node name="Clean Water" type="CheckBox" parent="KitMenu/VBoxContainer/Sink"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("9_oghhy")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Storage" type="GridContainer" parent="KitMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 70
+theme_override_constants/v_separation = 30
+columns = 2
+
+[node name="Canned Foods" type="CheckBox" parent="KitMenu/VBoxContainer/Storage"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("10_hr86j")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Medicine" type="CheckBox" parent="KitMenu/VBoxContainer/Storage"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("11_5ycsw")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Washer" type="GridContainer" parent="KitMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 70
+theme_override_constants/v_separation = 30
+columns = 2
+
+[node name="First Aid Kit" type="CheckBox" parent="KitMenu/VBoxContainer/Washer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("12_kq6m5")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Mirror" type="GridContainer" parent="KitMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 70
+theme_override_constants/v_separation = 30
+columns = 2
+
+[node name="Toiletries" type="CheckBox" parent="KitMenu/VBoxContainer/Mirror"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("13_kb1b6")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Desk" type="GridContainer" parent="KitMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 70
+theme_override_constants/v_separation = 30
+columns = 2
+
+[node name="Id" type="CheckBox" parent="KitMenu/VBoxContainer/Desk"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("14_lg0lk")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Money" type="CheckBox" parent="KitMenu/VBoxContainer/Desk"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("15_2w80o")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Drawers" type="GridContainer" parent="KitMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 70
+theme_override_constants/v_separation = 30
+columns = 2
+
+[node name="Documents" type="CheckBox" parent="KitMenu/VBoxContainer/Drawers"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("16_7hotw")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Powerbank" type="CheckBox" parent="KitMenu/VBoxContainer/Drawers"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("17_317n2")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Whistle" type="CheckBox" parent="KitMenu/VBoxContainer/Drawers"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("18_h8ncy")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Bed" type="GridContainer" parent="KitMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 70
+theme_override_constants/v_separation = 30
+columns = 2
+
+[node name="Blanket" type="CheckBox" parent="KitMenu/VBoxContainer/Bed"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("19_2em1y")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Wardrobe" type="GridContainer" parent="KitMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 70
+theme_override_constants/v_separation = 30
+columns = 2
+
+[node name="Clothes" type="CheckBox" parent="KitMenu/VBoxContainer/Wardrobe"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("20_7cbfv")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="CollectButton" type="Button" parent="KitMenu/VBoxContainer"]
+self_modulate = Color(1, 1, 0.5, 1)
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 26
+text = "Collect items"
+
+[connection signal="pressed" from="KitMenu/VBoxContainer/CollectButton" to="." method="_on_collect_button_pressed"]
