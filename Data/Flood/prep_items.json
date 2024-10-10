@@ -1,0 +1,35 @@
+{
+	"kit_items" : [
+		{"name": "Battery", "icon": "res://Icons/Emergency Kit/battery.png"},
+		{"name": "Blanket", "icon": "res://Icons/Emergency Kit/blanket.png"},
+		{"name": "Canned Food", "icon": "res://Icons/Emergency Kit/canned-food.png"},
+		{"name": "Clean Water", "icon": "res://Icons/Emergency Kit/clean-water.png"},
+		{"name": "Clothes", "icon": "res://Icons/Emergency Kit/clothes.png"},
+		{"name": "Documents", "icon": "res://Icons/Emergency Kit/documents.png"},
+		{"name": "First Aid Kit", "icon": "res://Icons/Emergency Kit/first-aid-kit.png"},
+		{"name": "Flashlight", "icon": "res://Icons/Emergency Kit/flashlight.png"},
+		{"name": "IDs", "icon": "res://Icons/Emergency Kit/id.png"},
+		{"name": "Medicine", "icon": "res://Icons/Emergency Kit/medicine.png"},
+		{"name": "Money", "icon": "res://Icons/Emergency Kit/money.png"},
+		{"name": "Phone", "icon": "res://Icons/Emergency Kit/phone.png"},
+		{"name": "Powerbank", "icon": "res://Icons/Emergency Kit/power-bank.png"},
+		{"name": "Radio", "icon": "res://Icons/Emergency Kit/radio.png"},
+		{"name": "Shoes", "icon": "res://Icons/Emergency Kit/shoes.png"},
+		{"name": "Toiletries", "icon": "res://Icons/Emergency Kit/toiletries.png"},
+		{"name": "Whistle", "icon": "res://Icons/Emergency Kit/whistle.png"},
+	],
+	
+	"hazards_damages" : [
+		{"name": "Install temporary flood barriers", "icon": "res://Icons/Hazards/sandbag.png"},
+		{"name": "Turn off circuit breaker", "icon": "res://Icons/Hazards/breaker.png"},
+		{"name": "Close the gas valve", "icon": "res://Icons/Hazards/gas_cylinder.png"},
+		{"name": "Shut off the water valve", "icon": "res://Icons/Hazards/water_valve.png"},
+		{"name": "Store expensive rugs", "icon": "res://Icons/Hazards/rug.png"},
+		{"name": "Move console to a higher ground", "icon": "res://Icons/Hazards/game_console.png"},
+		{"name": "Tidy up desktop and cables", "icon": "res://Icons/Hazards/desktop.png"}
+	],
+	
+	"communication" : [
+		
+	],
+}

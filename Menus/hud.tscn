@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://chpdu7tfk38or"]
+[gd_scene load_steps=11 format=3 uid="uid://chpdu7tfk38or"]
 
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_1jsw5"]
 [ext_resource type="Texture2D" uid="uid://f8eflxks6yso" path="res://Icons/Controls/shadedLight_Empty.png" id="1_j5qpj"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dt2cldp76lye6" path="res://Icons/Controls/shadedLight_Pause.png" id="7_e6axm"]
 [ext_resource type="PackedScene" uid="uid://cc1ww7cjd30cr" path="res://Themes/Customs/icon_button.tscn" id="7_ucsp4"]
 [ext_resource type="Texture2D" uid="uid://0ifo3slvh2lo" path="res://Icons/Controls/shadedLight_Play.png" id="9_y1p1j"]
-[ext_resource type="PackedScene" uid="uid://dtc51relpmt3x" path="res://Menus/interaction_panel.tscn" id="10_24se6"]
 
 [node name="HUD" type="Control"]
 custom_minimum_size = Vector2(540, 960)
@@ -268,8 +267,5 @@ grow_horizontal = 0
 toggle_mode = true
 normal_tex = ExtResource("7_e6axm")
 toggled_tex = ExtResource("9_y1p1j")
-
-[node name="InteractionPanel" parent="." instance=ExtResource("10_24se6")]
-layout_mode = 1
 
 [connection signal="toggled" from="Pause" to="." method="_on_pause_toggled"]

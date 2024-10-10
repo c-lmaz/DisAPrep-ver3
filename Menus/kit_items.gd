@@ -1,5 +1,7 @@
 extends Control
 
+signal items_collected(items: Array)
+
 @onready var kit_menu = $KitMenu
 @onready var kit_menu_cont = $KitMenu/VBoxContainer
 
@@ -25,7 +27,7 @@ func _on_button_pressed(button, parent):
 
 func show_room(room: String):
 	for control in get_children():
-		if control.name == room and control.visible == false:
+		if control.name == room:
 			control.visible = true
 		else:
 			control.visible = false
@@ -33,11 +35,13 @@ func show_room(room: String):
 
 func _on_collect_button_pressed():
 	var node = kit_menu_cont.get_node(current_spot)
-	# TODO: validate choices and give score
-	# +5 if correct, -1 if wrong
+	var collected = []
 	for item in node.get_children():
 		if item.button_pressed:
-			print(item.name)
+			collected.push_back(str(item.name))
+	
+	# Send answer for validation
+	items_collected.emit(collected)
 	
 	# Toggle visiblity
 	var room = get_node(current_room)

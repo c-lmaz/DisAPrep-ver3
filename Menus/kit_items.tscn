@@ -1,32 +1,62 @@
-[gd_scene load_steps=21 format=3 uid="uid://cnmnof152lgjw"]
+[gd_scene load_steps=50 format=3 uid="uid://cnmnof152lgjw"]
 
 [ext_resource type="Script" path="res://Menus/kit_items.gd" id="1_hyfq4"]
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_j3k50"]
 [ext_resource type="Texture2D" uid="uid://red3to85khip" path="res://Icons/Levels/exclamation1.png" id="1_n163w"]
 [ext_resource type="Texture2D" uid="uid://bwpfur0l6t3dc" path="res://Icons/Emergency Kit/flashlight.png" id="4_0u7op"]
 [ext_resource type="Texture2D" uid="uid://crphkgtyjaiom" path="res://Icons/Emergency Kit/battery.png" id="4_3whpg"]
+[ext_resource type="StyleBox" uid="uid://bnorgblhsf46e" path="res://Themes/Styleboxes/inverse.stylebox" id="4_jq3hs"]
 [ext_resource type="Texture2D" uid="uid://cs8nbabiap26t" path="res://Icons/Emergency Kit/radio.png" id="5_jfbwx"]
+[ext_resource type="Texture2D" uid="uid://ciixhfoi651e8" path="res://Icons/Others/cradle.png" id="6_5x87y"]
 [ext_resource type="Texture2D" uid="uid://bik0foi1fue2x" path="res://Icons/Emergency Kit/shoes.png" id="6_mtidh"]
 [ext_resource type="Texture2D" uid="uid://dbopx8yd145ad" path="res://Icons/Emergency Kit/phone.png" id="7_hujcq"]
 [ext_resource type="Texture2D" uid="uid://diti6nwqlon2e" path="res://Icons/Emergency Kit/clean-water.png" id="9_oghhy"]
+[ext_resource type="Texture2D" uid="uid://dxbytfn5gcfr7" path="res://Icons/Others/soccer ball.png" id="9_uyj8v"]
+[ext_resource type="Texture2D" uid="uid://hsa3f3fqvfc8" path="res://Icons/Others/curtains.png" id="10_6qcjo"]
 [ext_resource type="Texture2D" uid="uid://ckgfiofgrbacj" path="res://Icons/Emergency Kit/canned-food.png" id="10_hr86j"]
 [ext_resource type="Texture2D" uid="uid://0a4m6wmmbtpl" path="res://Icons/Emergency Kit/medicine.png" id="11_5ycsw"]
+[ext_resource type="Texture2D" uid="uid://lbp2pb3jm46u" path="res://Icons/Others/high heels.png" id="11_l7mrc"]
 [ext_resource type="Texture2D" uid="uid://cmrxtc4shk4vf" path="res://Icons/Emergency Kit/first-aid-kit.png" id="12_kq6m5"]
 [ext_resource type="Texture2D" uid="uid://c5uxswvhtekfs" path="res://Icons/Emergency Kit/toiletries.png" id="13_kb1b6"]
+[ext_resource type="Texture2D" uid="uid://csfv30wsqokob" path="res://Icons/Others/tv.png" id="13_yhy8d"]
+[ext_resource type="Texture2D" uid="uid://bofovpeadn7ua" path="res://Icons/Others/photo album.png" id="14_jt6xn"]
 [ext_resource type="Texture2D" uid="uid://b6p48g83pue4p" path="res://Icons/Emergency Kit/id.png" id="14_lg0lk"]
 [ext_resource type="Texture2D" uid="uid://d2gpj3xpn8we0" path="res://Icons/Emergency Kit/money.png" id="15_2w80o"]
+[ext_resource type="Texture2D" uid="uid://l1grjgxdpe6v" path="res://Icons/Others/bluetooth speaker.png" id="15_gs6nt"]
 [ext_resource type="Texture2D" uid="uid://dwx28eke3qns2" path="res://Icons/Emergency Kit/documents.png" id="16_7hotw"]
+[ext_resource type="Texture2D" uid="uid://6akkoua5r77n" path="res://Icons/Others/digital-clock.png" id="16_ow2th"]
 [ext_resource type="Texture2D" uid="uid://1f5ktcs6rkvh" path="res://Icons/Emergency Kit/power-bank.png" id="17_317n2"]
 [ext_resource type="Texture2D" uid="uid://diwkqbx7olrqh" path="res://Icons/Emergency Kit/whistle.png" id="18_h8ncy"]
 [ext_resource type="Texture2D" uid="uid://dkfdcea66xs05" path="res://Icons/Emergency Kit/blanket.png" id="19_2em1y"]
+[ext_resource type="Texture2D" uid="uid://cex3wnujfie54" path="res://Icons/Others/board game.png" id="19_te7qq"]
 [ext_resource type="Texture2D" uid="uid://bhwrcienc7swd" path="res://Icons/Emergency Kit/clothes.png" id="20_7cbfv"]
+[ext_resource type="Texture2D" uid="uid://c1awqddoor6tk" path="res://Icons/Others/music cds.png" id="20_xtghj"]
+[ext_resource type="Texture2D" uid="uid://wjoss0aesovq" path="res://Icons/Others/hairdryer.png" id="21_okibd"]
+[ext_resource type="Texture2D" uid="uid://ce8t60t4g6fhj" path="res://Icons/Others/chair.png" id="22_w5ei6"]
+[ext_resource type="Texture2D" uid="uid://bur8pbjb20bxu" path="res://Icons/Others/mosquito repellent.png" id="24_le76h"]
+[ext_resource type="Texture2D" uid="uid://c5nag3kpfjoi0" path="res://Icons/Others/vouchers.png" id="25_ulx44"]
+[ext_resource type="Texture2D" uid="uid://cfw0nw20lrmic" path="res://Icons/Others/calendar.png" id="26_3euwc"]
+[ext_resource type="Texture2D" uid="uid://drqx21pb0eqnl" path="res://Icons/Others/gadgets.png" id="28_e3kv8"]
+[ext_resource type="Texture2D" uid="uid://bprjgqucondws" path="res://Icons/Others/make-up-bag.png" id="31_l5ymw"]
+[ext_resource type="Texture2D" uid="uid://cq0qq61c0lcpy" path="res://Icons/Others/mystery novel.png" id="32_j0twb"]
+[ext_resource type="Texture2D" uid="uid://bwoaxm78go3qc" path="res://Icons/Others/pregnancy-test.png" id="33_hgvaa"]
+[ext_resource type="Texture2D" uid="uid://c7g8sl666bxq" path="res://Icons/Others/easel stand.png" id="34_1qsup"]
+[ext_resource type="Texture2D" uid="uid://cwqe6ialhegqj" path="res://Icons/Others/hanger.png" id="35_w3ioy"]
+[ext_resource type="Texture2D" uid="uid://dg68erhsth2jw" path="res://Icons/Others/gamepad.png" id="36_ja68c"]
+[ext_resource type="Texture2D" uid="uid://dhf6ythpb36oq" path="res://Icons/Others/disinfectant.png" id="38_veqsx"]
+[ext_resource type="Texture2D" uid="uid://duxq7dejeet3q" path="res://Icons/Others/plates.png" id="41_v3yf0"]
+[ext_resource type="Texture2D" uid="uid://dv27vn0s8q38a" path="res://Icons/Others/notebook.png" id="43_pjceq"]
+[ext_resource type="Texture2D" uid="uid://coy303hatu0o4" path="res://Icons/Others/suitcase.png" id="47_t1lu2"]
+[ext_resource type="Texture2D" uid="uid://chi003iq6c6eu" path="res://Icons/Others/sleeping-bag.png" id="48_ln38k"]
+[ext_resource type="Texture2D" uid="uid://bm8lvfgyoit5u" path="res://Icons/Others/teddy-bear.png" id="49_wk717"]
 
 [node name="KitItems" type="Control"]
 custom_minimum_size = Vector2(540, 390)
 layout_mode = 3
 anchors_preset = 0
 offset_top = 140.0
-offset_bottom = 530.0
+offset_right = 540.0
+offset_bottom = 590.0
 theme = ExtResource("1_j3k50")
 script = ExtResource("1_hyfq4")
 
@@ -36,6 +66,8 @@ anchors_preset = 0
 
 [node name="Living" type="Control" parent="."]
 anchors_preset = 0
+offset_top = 50.0
+offset_bottom = 50.0
 
 [node name="Shelf" type="TextureButton" parent="Living"]
 layout_mode = 0
@@ -72,6 +104,8 @@ texture_normal = ExtResource("1_n163w")
 [node name="Kitchen" type="Control" parent="."]
 visible = false
 anchors_preset = 0
+offset_top = 50.0
+offset_bottom = 50.0
 
 [node name="Sink" type="TextureButton" parent="Kitchen"]
 layout_mode = 0
@@ -92,6 +126,8 @@ texture_normal = ExtResource("1_n163w")
 [node name="Bathroom" type="Control" parent="."]
 visible = false
 anchors_preset = 0
+offset_top = 50.0
+offset_bottom = 50.0
 
 [node name="Washer" type="TextureButton" parent="Bathroom"]
 layout_mode = 0
@@ -112,6 +148,8 @@ texture_normal = ExtResource("1_n163w")
 [node name="Family" type="Control" parent="."]
 visible = false
 anchors_preset = 0
+offset_top = 50.0
+offset_bottom = 50.0
 
 [node name="Desk" type="TextureButton" parent="Family"]
 layout_mode = 0
@@ -132,6 +170,8 @@ texture_normal = ExtResource("1_n163w")
 [node name="Bedroom" type="Control" parent="."]
 visible = false
 anchors_preset = 0
+offset_top = 50.0
+offset_bottom = 50.0
 
 [node name="Wardrobe" type="TextureButton" parent="Bedroom"]
 layout_mode = 0
@@ -150,13 +190,13 @@ offset_bottom = 249.0
 texture_normal = ExtResource("1_n163w")
 
 [node name="KitMenu" type="Panel" parent="."]
-visible = false
-self_modulate = Color(1, 1, 1, 0.784314)
-custom_minimum_size = Vector2(540, 390)
+self_modulate = Color(1, 1, 1, 0.588235)
+custom_minimum_size = Vector2(540, 450)
 layout_mode = 1
 offset_right = 540.0
 offset_bottom = 390.0
 theme = ExtResource("1_j3k50")
+theme_override_styles/panel = ExtResource("4_jq3hs")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="KitMenu"]
 custom_minimum_size = Vector2(520, 350)
@@ -178,6 +218,7 @@ alignment = 1
 [node name="Prompt" type="Label" parent="KitMenu/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
 theme_override_font_sizes/font_size = 30
 text = "Select items to collect"
 
@@ -188,6 +229,14 @@ size_flags_horizontal = 4
 theme_override_constants/h_separation = 70
 theme_override_constants/v_separation = 30
 columns = 2
+
+[node name="Cradle" type="CheckBox" parent="KitMenu/VBoxContainer/Shelf"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("6_5x87y")
+flat = true
+icon_alignment = 2
+expand_icon = true
 
 [node name="Flashlight" type="CheckBox" parent="KitMenu/VBoxContainer/Shelf"]
 custom_minimum_size = Vector2(100, 70)
@@ -205,6 +254,14 @@ flat = true
 icon_alignment = 2
 expand_icon = true
 
+[node name="Ball" type="CheckBox" parent="KitMenu/VBoxContainer/Shelf"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("9_uyj8v")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
 [node name="Shoebox" type="GridContainer" parent="KitMenu/VBoxContainer"]
 visible = false
 layout_mode = 2
@@ -213,10 +270,34 @@ theme_override_constants/h_separation = 70
 theme_override_constants/v_separation = 30
 columns = 2
 
+[node name="Curtains" type="CheckBox" parent="KitMenu/VBoxContainer/Shoebox"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("10_6qcjo")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="HighHeels" type="CheckBox" parent="KitMenu/VBoxContainer/Shoebox"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("11_l7mrc")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
 [node name="Shoes" type="CheckBox" parent="KitMenu/VBoxContainer/Shoebox"]
 custom_minimum_size = Vector2(100, 70)
 layout_mode = 2
 icon = ExtResource("6_mtidh")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="TV" type="CheckBox" parent="KitMenu/VBoxContainer/Shoebox"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("13_yhy8d")
 flat = true
 icon_alignment = 2
 expand_icon = true
@@ -228,6 +309,30 @@ size_flags_horizontal = 4
 theme_override_constants/h_separation = 70
 theme_override_constants/v_separation = 30
 columns = 2
+
+[node name="Album" type="CheckBox" parent="KitMenu/VBoxContainer/Sofa"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("14_jt6xn")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Speaker" type="CheckBox" parent="KitMenu/VBoxContainer/Sofa"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("15_gs6nt")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Clock" type="CheckBox" parent="KitMenu/VBoxContainer/Sofa"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("16_ow2th")
+flat = true
+icon_alignment = 2
+expand_icon = true
 
 [node name="Phone" type="CheckBox" parent="KitMenu/VBoxContainer/Sofa"]
 custom_minimum_size = Vector2(100, 70)
@@ -253,6 +358,30 @@ flat = true
 icon_alignment = 2
 expand_icon = true
 
+[node name="Boardgame" type="CheckBox" parent="KitMenu/VBoxContainer/Tv"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("19_te7qq")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="CD" type="CheckBox" parent="KitMenu/VBoxContainer/Tv"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("20_xtghj")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Dryer" type="CheckBox" parent="KitMenu/VBoxContainer/Tv"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("21_okibd")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
 [node name="Sink" type="GridContainer" parent="KitMenu/VBoxContainer"]
 visible = false
 layout_mode = 2
@@ -261,10 +390,34 @@ theme_override_constants/h_separation = 70
 theme_override_constants/v_separation = 30
 columns = 2
 
+[node name="Chair" type="CheckBox" parent="KitMenu/VBoxContainer/Sink"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("22_w5ei6")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
 [node name="Clean Water" type="CheckBox" parent="KitMenu/VBoxContainer/Sink"]
 custom_minimum_size = Vector2(100, 70)
 layout_mode = 2
 icon = ExtResource("9_oghhy")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Repellent" type="CheckBox" parent="KitMenu/VBoxContainer/Sink"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("24_le76h")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Voucher" type="CheckBox" parent="KitMenu/VBoxContainer/Sink"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("25_ulx44")
 flat = true
 icon_alignment = 2
 expand_icon = true
@@ -277,10 +430,26 @@ theme_override_constants/h_separation = 70
 theme_override_constants/v_separation = 30
 columns = 2
 
-[node name="Canned Foods" type="CheckBox" parent="KitMenu/VBoxContainer/Storage"]
+[node name="Calendar" type="CheckBox" parent="KitMenu/VBoxContainer/Storage"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("26_3euwc")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Canned Food" type="CheckBox" parent="KitMenu/VBoxContainer/Storage"]
 custom_minimum_size = Vector2(100, 70)
 layout_mode = 2
 icon = ExtResource("10_hr86j")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Gadget" type="CheckBox" parent="KitMenu/VBoxContainer/Storage"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("28_e3kv8")
 flat = true
 icon_alignment = 2
 expand_icon = true
@@ -309,6 +478,30 @@ flat = true
 icon_alignment = 2
 expand_icon = true
 
+[node name="Makeup" type="CheckBox" parent="KitMenu/VBoxContainer/Washer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("31_l5ymw")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Novel" type="CheckBox" parent="KitMenu/VBoxContainer/Washer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("32_j0twb")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Test" type="CheckBox" parent="KitMenu/VBoxContainer/Washer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("33_hgvaa")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
 [node name="Mirror" type="GridContainer" parent="KitMenu/VBoxContainer"]
 visible = false
 layout_mode = 2
@@ -316,6 +509,30 @@ size_flags_horizontal = 4
 theme_override_constants/h_separation = 70
 theme_override_constants/v_separation = 30
 columns = 2
+
+[node name="Easel" type="CheckBox" parent="KitMenu/VBoxContainer/Mirror"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("34_1qsup")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Hanger" type="CheckBox" parent="KitMenu/VBoxContainer/Mirror"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("35_w3ioy")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Gamepad" type="CheckBox" parent="KitMenu/VBoxContainer/Mirror"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("36_ja68c")
+flat = true
+icon_alignment = 2
+expand_icon = true
 
 [node name="Toiletries" type="CheckBox" parent="KitMenu/VBoxContainer/Mirror"]
 custom_minimum_size = Vector2(100, 70)
@@ -333,7 +550,15 @@ theme_override_constants/h_separation = 70
 theme_override_constants/v_separation = 30
 columns = 2
 
-[node name="Id" type="CheckBox" parent="KitMenu/VBoxContainer/Desk"]
+[node name="Disinfectant" type="CheckBox" parent="KitMenu/VBoxContainer/Desk"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("38_veqsx")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="IDs" type="CheckBox" parent="KitMenu/VBoxContainer/Desk"]
 custom_minimum_size = Vector2(100, 70)
 layout_mode = 2
 icon = ExtResource("14_lg0lk")
@@ -345,6 +570,14 @@ expand_icon = true
 custom_minimum_size = Vector2(100, 70)
 layout_mode = 2
 icon = ExtResource("15_2w80o")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Plates" type="CheckBox" parent="KitMenu/VBoxContainer/Desk"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("41_v3yf0")
 flat = true
 icon_alignment = 2
 expand_icon = true
@@ -361,6 +594,14 @@ columns = 2
 custom_minimum_size = Vector2(100, 70)
 layout_mode = 2
 icon = ExtResource("16_7hotw")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Notebook" type="CheckBox" parent="KitMenu/VBoxContainer/Drawers"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("43_pjceq")
 flat = true
 icon_alignment = 2
 expand_icon = true
@@ -397,6 +638,30 @@ flat = true
 icon_alignment = 2
 expand_icon = true
 
+[node name="Luggage" type="CheckBox" parent="KitMenu/VBoxContainer/Bed"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("47_t1lu2")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Sleeping" type="CheckBox" parent="KitMenu/VBoxContainer/Bed"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("48_ln38k")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Teddy" type="CheckBox" parent="KitMenu/VBoxContainer/Bed"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("49_wk717")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
 [node name="Wardrobe" type="GridContainer" parent="KitMenu/VBoxContainer"]
 visible = false
 layout_mode = 2
@@ -405,10 +670,34 @@ theme_override_constants/h_separation = 70
 theme_override_constants/v_separation = 30
 columns = 2
 
+[node name="Cradle" type="CheckBox" parent="KitMenu/VBoxContainer/Wardrobe"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("6_5x87y")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
 [node name="Clothes" type="CheckBox" parent="KitMenu/VBoxContainer/Wardrobe"]
 custom_minimum_size = Vector2(100, 70)
 layout_mode = 2
 icon = ExtResource("20_7cbfv")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Curtains" type="CheckBox" parent="KitMenu/VBoxContainer/Wardrobe"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("10_6qcjo")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Hanger" type="CheckBox" parent="KitMenu/VBoxContainer/Wardrobe"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+icon = ExtResource("35_w3ioy")
 flat = true
 icon_alignment = 2
 expand_icon = true

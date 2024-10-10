@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1npeqc463wp4"]
+
+[ext_resource type="Script" path="res://Menus/flood_prepare.gd" id="1_3tuxy"]
+[ext_resource type="PackedScene" uid="uid://gckgkulai8nq" path="res://Models/house.tscn" id="1_32g4q"]
+[ext_resource type="Texture2D" uid="uid://bpw2sj63t72ur" path="res://Icons/Controls/shadedLight_Left.png" id="2_20o8c"]
+[ext_resource type="Texture2D" uid="uid://3jjo3avpedoc" path="res://Icons/Controls/shadedLight_Right.png" id="3_it56x"]
+[ext_resource type="PackedScene" uid="uid://chpdu7tfk38or" path="res://Menus/hud.tscn" id="5_i50yh"]
+[ext_resource type="PackedScene" uid="uid://cnmnof152lgjw" path="res://Menus/kit_items.tscn" id="6_ptb0e"]
+[ext_resource type="PackedScene" uid="uid://dtc51relpmt3x" path="res://Menus/interaction_panel.tscn" id="7_e6e3e"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x5qg3"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Flood_Prepare" type="CanvasLayer"]
+script = ExtResource("1_3tuxy")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+msaa_3d = 1
+screen_space_aa = 1
+size = Vector2i(540, 450)
+
+[node name="House" parent="SubViewport" instance=ExtResource("1_32g4q")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_top = 140.0
+offset_right = 540.0
+offset_bottom = 590.0
+texture = SubResource("ViewportTexture_x5qg3")
+
+[node name="Left" type="TouchScreenButton" parent="TextureRect"]
+position = Vector2(16, 365)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("2_20o8c")
+action = "ui_left"
+
+[node name="Right" type="TouchScreenButton" parent="TextureRect"]
+position = Vector2(460, 365)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("3_it56x")
+action = "ui_right"
+
+[node name="HUD" parent="." instance=ExtResource("5_i50yh")]
+
+[node name="KitItems" parent="." instance=ExtResource("6_ptb0e")]
+
+[node name="InteractionPanel" parent="." instance=ExtResource("7_e6e3e")]

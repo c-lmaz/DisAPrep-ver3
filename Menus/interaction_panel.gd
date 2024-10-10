@@ -2,7 +2,7 @@ extends NinePatchRect
 
 @onready var scroll_container = $ScrollContainer
 @onready var item_container = $ScrollContainer/ItemContainer
-var kit_items_path = "res://Data/Flood/kit_item.json"
+var kit_items_path = "res://Data/Flood/prep_items.json"
 var kit_items = Global.read_json_file(kit_items_path)
 var kit_item_node = preload("res://Themes/Customs/item_button.tscn")
 
@@ -15,9 +15,12 @@ var quests = Global.read_json_file(quest_path)
 var quest_node = preload("res://Menus/quest_display.tscn")
 
 
-
+# TODO: handle completed quests
+# switch current quests (change parent)
+# for kit_items: 2 columns
+# for hazards_damages: 1 column
 func _ready():
-	kit_items = kit_items["items"]
+	kit_items = kit_items["kit_items"]
 	for i in range(kit_items.size()):
 		var child = kit_item_node.instantiate()
 		item_container.add_child(child)
@@ -41,3 +44,8 @@ func _ready():
 func _on_quests_toggled(toggled_on):
 	panel_container.visible = toggled_on
 	scroll_container.visible = !toggled_on
+
+
+func update_current_quest(add_prog: int):
+	var curr_quest = current_quest.get_child(0)
+	curr_quest.update_progress(add_prog)

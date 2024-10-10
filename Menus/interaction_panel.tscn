@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Menus/item_container.gd" id="6_58ey1"]
 
 [node name="InteractionPanel" type="NinePatchRect"]
-custom_minimum_size = Vector2(540, 430)
+custom_minimum_size = Vector2(540, 370)
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -27,10 +27,10 @@ script = ExtResource("3_81rfj")
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 custom_minimum_size = Vector2(510, 0)
 layout_mode = 0
-offset_left = 20.0
+offset_left = 15.0
 offset_top = 80.0
-offset_right = 530.0
-offset_bottom = 415.0
+offset_right = 525.0
+offset_bottom = 355.0
 horizontal_scroll_mode = 0
 
 [node name="ItemContainer" type="GridContainer" parent="ScrollContainer"]

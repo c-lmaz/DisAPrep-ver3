@@ -17,10 +17,6 @@ signal game_paused(pause_state: bool)
 @onready var pause_menu = $PauseMenu
 @onready var exit_menu = $ExitMenu
 
-# InteractionPanel variables
-@onready var interaction_panel = $InteractionPanel
-
-
 var life = 3
 var score = 0
 var mins
@@ -65,7 +61,6 @@ func update_score(add_score):
 
 func _on_pause_toggled(toggled_on):
 	game_paused.emit(toggled_on)
-	interaction_panel.visible = !toggled_on
 	pause_menu.visible = toggled_on
 	get_tree().paused = toggled_on
 

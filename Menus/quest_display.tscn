@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2xjosccy5wmq"]
+[gd_scene load_steps=6 format=3 uid="uid://c2xjosccy5wmq"]
 
 [ext_resource type="Texture2D" uid="uid://f8eflxks6yso" path="res://Icons/Controls/shadedLight_Empty.png" id="1_s35xo"]
 [ext_resource type="Script" path="res://Menus/quest_display.gd" id="2_xwoe4"]
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="2_yfvn8"]
 
 [sub_resource type="Gradient" id="Gradient_drxkb"]
-colors = PackedColorArray(0.839216, 1, 0.839216, 0.588235, 0.168627, 1, 0.168627, 0.588235)
+colors = PackedColorArray(0.65, 1, 0.65, 0.784314, 0.168627, 1, 0.168627, 0.784314)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7yrl8"]
 
 [node name="QuestDisplay" type="NinePatchRect"]
 custom_minimum_size = Vector2(450, 45)
@@ -22,8 +24,6 @@ q_total = 10
 tint_gradient = SubResource("Gradient_drxkb")
 
 [node name="QuestProgress" type="ProgressBar" parent="."]
-visible = false
-self_modulate = Color(1, 1, 1, 0.588235)
 custom_minimum_size = Vector2(435, 35)
 layout_mode = 1
 anchors_preset = 8
@@ -37,6 +37,7 @@ offset_right = 217.5
 offset_bottom = 17.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_7yrl8")
 step = 1.0
 value = 30.0
 show_percentage = false
