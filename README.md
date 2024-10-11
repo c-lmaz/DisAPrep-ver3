@@ -5,8 +5,14 @@ Repository for DisAPrep (v3). Part of Final Year Project for Laila Mastura 12005
 ## FYP Summary
 - An educational Android mobile game for disaster preparedness.
 - Has a 'game' section and 'information' section.
-- Includes 3 disasters: Flood, Extreme Heat, and Disease Outbreak.
-- Each disasters have 3 phases: Prepare, Respond, and Recover.
+- Includes 3 disasters:
+  - Flood
+  - Extreme Heat
+  - Disease Outbreak
+- Each disasters have 3 phases:
+  - Prepare
+  - Respond
+  - Recover
 - Information section will include
   - Emergency numbers
   - Information sources
