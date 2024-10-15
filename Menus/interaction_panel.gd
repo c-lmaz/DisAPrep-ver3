@@ -1,10 +1,12 @@
 extends NinePatchRect
 
+signal quest_completed(q_name: String)
+
 @onready var scroll_container = $ScrollContainer
 @onready var item_container = $ScrollContainer/ItemContainer
-var kit_items_path = "res://Data/Flood/prep_items.json"
-var kit_items = Global.read_json_file(kit_items_path)
-var kit_item_node = preload("res://Themes/Customs/item_button.tscn")
+var prep_items_path = "res://Data/Flood/prep_items.json"
+var prep_items = Global.read_json_file(prep_items_path)
+var prep_item_node = preload("res://Themes/Customs/item_button.tscn")
 
 
 @onready var quest_container = $Quests/PanelContainer/QuestContainer
@@ -17,20 +19,16 @@ var quest_node = preload("res://Menus/quest_display.tscn")
 
 # TODO: handle completed quests
 # switch current quests (change parent)
-# for kit_items: 2 columns
+# for prep_items: 2 columns
 # for hazards_damages: 1 column
 func _ready():
-	kit_items = kit_items["kit_items"]
-	for i in range(kit_items.size()):
-		var child = kit_item_node.instantiate()
-		item_container.add_child(child)
-		child.item_name = kit_items[i]["name"]
-		child.item_icon = load(kit_items[i]["icon"])
+	
+	set_next_quest_items(0)
 	
 	quests = quests["Prepare"]
 	for i in range(quests.size()):
 		var child = quest_node.instantiate()
-		if i == 0: 
+		if i == 1: 
 			current_quest.add_child(child)
 			child.current = true
 		else: 
@@ -38,7 +36,12 @@ func _ready():
 			child.current = false
 		
 		child.quest = quests[i]["name"]
+		child.short_name = quests[i]["short"]
 		child.q_total = quests[i]["total"]
+		
+	var curr_q_child = current_quest.get_child(0)
+	if curr_q_child is QuestDisplay:
+		curr_q_child.connect("quest_completed", _on_quest_completed)
 
 
 func _on_quests_toggled(toggled_on):
@@ -46,6 +49,36 @@ func _on_quests_toggled(toggled_on):
 	scroll_container.visible = !toggled_on
 
 
+func get_current_quest():
+	return current_quest.get_child(0).name
+
+
 func update_current_quest(add_prog: int):
 	var curr_quest = current_quest.get_child(0)
 	curr_quest.update_progress(add_prog)
+
+
+# TODO: set next quest as current 
+# DONE: prepare the items
+func set_next_quest_items(ind: int):
+	
+	for child in item_container.get_children():
+		child.queue_free()
+	
+	match ind:
+		0:
+			prep_items = prep_items["kit_items"]
+		1:
+			prep_items = prep_items["hazards"]
+	
+	for i in range(prep_items.size()):
+		var child = prep_item_node.instantiate()
+		item_container.add_child(child)
+		child.item_name = prep_items[i]["name"]
+		child.item_icon = load(prep_items[i]["icon"])
+		if prep_items[i].has("short"):
+			child.short_name = prep_items[i]["short"]
+
+
+func _on_quest_completed(q_name: String):
+	quest_completed.emit(q_name)

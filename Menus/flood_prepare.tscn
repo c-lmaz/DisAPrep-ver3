@@ -27,6 +27,7 @@ offset_top = 140.0
 offset_right = 540.0
 offset_bottom = 590.0
 texture = SubResource("ViewportTexture_x5qg3")
+expand_mode = 3
 
 [node name="Left" type="TouchScreenButton" parent="TextureRect"]
 position = Vector2(16, 365)

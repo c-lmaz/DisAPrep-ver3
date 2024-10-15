@@ -1,6 +1,7 @@
 extends Control
 
 signal game_paused(pause_state: bool)
+signal player_died
 
 # LevelPhase variables
 @onready var level = $LevelPhase/Level
@@ -25,7 +26,7 @@ var secs
 # Built-in Functions
 
 func _ready():
-	update_life()
+	update_life(0)
 	update_score(0)
 	timer.start()
 	
@@ -48,8 +49,11 @@ func set_level_name(level_name: Array):
 	phase.text = level_name[1]
 
 
-func update_life():
+func update_life(add_life):
+	life += add_life
 	lives.update_hearts(life)
+	if life == 0:
+		player_died.emit()
 
 
 func update_score(add_score):

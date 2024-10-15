@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bp4lm4bhxql7v"]
+[gd_scene load_steps=7 format=3 uid="uid://bp4lm4bhxql7v"]
 
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_exlsd"]
+[ext_resource type="Script" path="res://Menus/hazards.gd" id="2_annd6"]
 [ext_resource type="Texture2D" uid="uid://red3to85khip" path="res://Icons/Levels/exclamation1.png" id="2_ry7qr"]
 [ext_resource type="StyleBox" uid="uid://bnorgblhsf46e" path="res://Themes/Styleboxes/inverse.stylebox" id="4_jtnik"]
 [ext_resource type="FontFile" uid="uid://c4o05i4pa21je" path="res://Themes/Fonts/InriaSans-Regular.otf" id="4_ktsoa"]
@@ -14,8 +15,10 @@ offset_top = 140.0
 offset_right = 540.0
 offset_bottom = 590.0
 theme = ExtResource("1_exlsd")
+script = ExtResource("2_annd6")
 
 [node name="Outside" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 
 [node name="Sandbag" type="TextureButton" parent="Outside"]
@@ -27,7 +30,6 @@ offset_bottom = 303.0
 texture_normal = ExtResource("2_ry7qr")
 
 [node name="Living" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_top = 50.0
 offset_bottom = 50.0
@@ -105,6 +107,7 @@ offset_top = 50.0
 offset_bottom = 50.0
 
 [node name="HazardMenu" type="Panel" parent="."]
+visible = false
 self_modulate = Color(1, 1, 1, 0.588235)
 custom_minimum_size = Vector2(540, 450)
 layout_mode = 1
@@ -360,3 +363,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 26
 text = "NO"
+
+[connection signal="pressed" from="HazardMenu/VBoxContainer/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="HazardMenu/VBoxContainer/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]

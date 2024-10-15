@@ -1,14 +1,13 @@
 extends Control
 
-signal items_collected(items: Array)
-signal all_spots_done()
+signal hazard_managed(item: String, choice: bool)
 
-@onready var kit_menu = $KitMenu
-@onready var kit_menu_cont = $KitMenu/VBoxContainer
+@onready var hazard_menu = $HazardMenu
+@onready var hazard_menu_cont = $HazardMenu/VBoxContainer
 
 var current_room : String
 var current_spot : String
-var completed_spots = 0
+
 
 func _ready():
 	for control in get_children():
@@ -20,10 +19,10 @@ func _ready():
 func _on_button_pressed(button, parent):
 	current_spot = button.name
 	current_room = parent.name
-	for menu in kit_menu_cont.get_children():
+	for menu in hazard_menu_cont.get_children():
 		if menu.name == current_spot:
 			menu.visible = true
-			kit_menu.visible = true
+			hazard_menu.visible = true
 			parent.visible = false
 
 
@@ -35,26 +34,27 @@ func show_room(room: String):
 			control.visible = false
 
 
-func _on_collect_button_pressed():
-	var node = kit_menu_cont.get_node(current_spot)
-	var collected = []
-	for item in node.get_children():
-		if item.button_pressed:
-			collected.push_back(str(item.name))
+func _on_yes_button_pressed():
+	hazard_managed.emit(current_spot, true)
 	
-	# Send answer for validation
-	items_collected.emit(collected)
-	
-	# Toggle visiblity
 	var room = get_node(current_room)
 	room.visible = true
-	kit_menu.visible = false
+	hazard_menu.visible = false
 	
-	# Handle queuefree
 	var node_button = room.get_node(current_spot)
+	var node = hazard_menu_cont.get_node(current_spot)
 	node.queue_free()
 	node_button.queue_free()
+
+
+func _on_no_button_pressed():
+	hazard_managed.emit(current_spot, false)
 	
-	completed_spots += 1
-	if completed_spots == 12:
-		all_spots_done.emit()
+	var room = get_node(current_room)
+	room.visible = true
+	hazard_menu.visible = false
+	
+	var node_button = room.get_node(current_spot)
+	var node = hazard_menu_cont.get_node(current_spot)
+	node.queue_free()
+	node_button.queue_free()

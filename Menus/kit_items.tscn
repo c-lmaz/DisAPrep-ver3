@@ -190,6 +190,7 @@ offset_bottom = 249.0
 texture_normal = ExtResource("1_n163w")
 
 [node name="KitMenu" type="Panel" parent="."]
+visible = false
 self_modulate = Color(1, 1, 1, 0.588235)
 custom_minimum_size = Vector2(540, 450)
 layout_mode = 1

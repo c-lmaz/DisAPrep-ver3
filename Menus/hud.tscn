@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://chpdu7tfk38or"]
+[gd_scene load_steps=12 format=3 uid="uid://chpdu7tfk38or"]
 
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_1jsw5"]
 [ext_resource type="Texture2D" uid="uid://f8eflxks6yso" path="res://Icons/Controls/shadedLight_Empty.png" id="1_j5qpj"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c55wd2pk0aj8j" path="res://Menus/pause_menu.tscn" id="3_qp2dc"]
 [ext_resource type="Script" path="res://Menus/life_display.gd" id="4_ntydd"]
 [ext_resource type="Texture2D" uid="uid://bf68lggu4phmy" path="res://Icons/Controls/heartFull.png" id="4_qn0yn"]
+[ext_resource type="FontFile" uid="uid://c4o05i4pa21je" path="res://Themes/Fonts/InriaSans-Regular.otf" id="5_u60di"]
 [ext_resource type="Texture2D" uid="uid://dt2cldp76lye6" path="res://Icons/Controls/shadedLight_Pause.png" id="7_e6axm"]
 [ext_resource type="PackedScene" uid="uid://cc1ww7cjd30cr" path="res://Themes/Customs/icon_button.tscn" id="7_ucsp4"]
 [ext_resource type="Texture2D" uid="uid://0ifo3slvh2lo" path="res://Icons/Controls/shadedLight_Play.png" id="9_y1p1j"]
@@ -95,6 +96,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Displays/ScoreDisplay/HBoxContainer"]
 custom_minimum_size = Vector2(70, 35)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_u60di")
 theme_override_font_sizes/font_size = 34
 text = "Score"
 horizontal_alignment = 1

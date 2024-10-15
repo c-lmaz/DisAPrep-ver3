@@ -20,13 +20,13 @@
 	],
 	
 	"hazards_damages" : [
-		{"name": "Install temporary flood barriers", "icon": "res://Icons/Hazards/sandbag.png"},
-		{"name": "Turn off circuit breaker", "icon": "res://Icons/Hazards/breaker.png"},
-		{"name": "Close the gas valve", "icon": "res://Icons/Hazards/gas_cylinder.png"},
-		{"name": "Shut off the water valve", "icon": "res://Icons/Hazards/water_valve.png"},
-		{"name": "Store expensive rugs", "icon": "res://Icons/Hazards/rug.png"},
-		{"name": "Move console to a higher ground", "icon": "res://Icons/Hazards/game_console.png"},
-		{"name": "Tidy up desktop and cables", "icon": "res://Icons/Hazards/desktop.png"}
+		{"name": "Install temporary flood barriers", "icon": "res://Icons/Hazards/sandbag.png", "short": "Sandbag"},
+		{"name": "Turn off circuit breaker", "icon": "res://Icons/Hazards/breaker.png", "short": "Breaker"},
+		{"name": "Close the gas valve", "icon": "res://Icons/Hazards/gas_cylinder.png", "short": "Gas"},
+		{"name": "Shut off the water valve", "icon": "res://Icons/Hazards/water_valve.png", "short": "Water"},
+		{"name": "Store expensive rugs", "icon": "res://Icons/Hazards/rug.png", "short": "Rug"},
+		{"name": "Move console to a higher ground", "icon": "res://Icons/Hazards/game_console.png", "short": "Console"},
+		{"name": "Tidy up desktop and cables", "icon": "res://Icons/Hazards/desktop.png", "short": "Desktop"}
 	],
 	
 	"communication" : [

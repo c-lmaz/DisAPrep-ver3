@@ -9,6 +9,14 @@ extends Button
 		if is_node_ready():
 			update()
 
+@export var short_name : String :
+	set(s_name):
+		if short_name == s_name:
+			return
+		short_name = s_name
+		if is_node_ready():
+			update()
+
 @export var item_icon : CompressedTexture2D :
 	set(icon):
 		if item_icon == icon:
@@ -32,7 +40,10 @@ func update():
 	label.text = item_name
 	tex_rect.texture = item_icon
 	tex_rect.self_modulate = Color(0.2196, 0.2196, 0.2196, 1)
-	name = item_name
+	if short_name:
+		name = short_name
+	else:
+		name = item_name
 
 
 func item_collected():
