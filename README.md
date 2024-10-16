@@ -5,7 +5,7 @@ Part of Final Year Project for Laila Mastura 1200587.
 (I prefer this version compared to [ver2](https://github.com/c-lmaz/DisAPrep-ver2) as this one is heavy on logic only and not much animations to do)
 
 <details>
-<summary>FYP Summary</summary>
+<summary>**FYP Summary**</summary>
 
 - An educational Android mobile game for disaster preparedness.
 - Has a 'game' section and 'information' section.
@@ -32,14 +32,14 @@ Part of Final Year Project for Laila Mastura 1200587.
 
 ## Differences between versions
 | ver2 | ver3 |
-| ---- | ---- |
+| :--: | :--: |
 | Roleplaying game (RPG) | Hidden object & Quiz |
 | 3D graphics with 2D UI | 3D graphics with 2D UI |
 | Lots of character animations | Minimal animations |
 
 ## Current Progress (Overview)
 | Elements | Progress |
-| -------- | -------- |
+| -------- | :------: |
 | Prepare Template | ⌛ |
 | Respond Template | 🔜 |
 | Recover Template | ❌ |
@@ -50,11 +50,11 @@ Part of Final Year Project for Laila Mastura 1200587.
 | Menus | ❌ |
 
 <details>
-<summary>Current Progress (Detailed)</summary>
+<summary>**Current Progress (Detailed)**</summary>
 
 ### Level Template
 | Elements | Progress |
-| -------- | -------- |
+| -------- | :------: |
 | HUD | ✔️ |
 | Pause Menu | ⌛ |
 | Exit Menu | ⌛ |
