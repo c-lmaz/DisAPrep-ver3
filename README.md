@@ -41,7 +41,7 @@ Part of Final Year Project for Laila Mastura 1200587.
 | Lots of character animations | Minimal animations |
 
 
-## Current Progress (Overview)
+## Current Progress
 
 | Elements | Progress |
 | -------- | :------: |
@@ -72,7 +72,7 @@ Part of Final Year Project for Laila Mastura 1200587.
 ### Prepare Template - Flood
 
 | Elements | Progress |
-| -------- | -------- |
+| -------- | :------: |
 | Emergency Kit | ✔️ |
 | Hazard Mitigation | ✔️ |
 | Communication Plan | 🔜 |
@@ -83,5 +83,7 @@ Part of Final Year Project for Laila Mastura 1200587.
 
 
 ## Videos
+
+Progress as of 11 Oct 2024. Recorded on Android.
 
 https://github.com/user-attachments/assets/41c7b2b2-12a7-4b66-9528-e21514ed2b51
