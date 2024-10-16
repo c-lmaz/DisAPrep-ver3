@@ -4,8 +4,9 @@ Repository for DisAPrep (v3).
 Part of Final Year Project for Laila Mastura 1200587.
 (I prefer this version compared to [ver2](https://github.com/c-lmaz/DisAPrep-ver2) as this one is heavy on logic only and not much animations to do)
 
+
 <details>
-<summary>**FYP Summary**</summary>
+<summary>FYP Summary</summary>
 
 - An educational Android mobile game for disaster preparedness.
 - Has a 'game' section and 'information' section.
@@ -30,14 +31,18 @@ Part of Final Year Project for Laila Mastura 1200587.
 
 </details>
 
+
 ## Differences between versions
+
 | ver2 | ver3 |
 | :--: | :--: |
 | Roleplaying game (RPG) | Hidden object & Quiz |
 | 3D graphics with 2D UI | 3D graphics with 2D UI |
 | Lots of character animations | Minimal animations |
 
+
 ## Current Progress (Overview)
+
 | Elements | Progress |
 | -------- | :------: |
 | Prepare Template | ⌛ |
@@ -49,10 +54,12 @@ Part of Final Year Project for Laila Mastura 1200587.
 | Notes | 🔜 |
 | Menus | ❌ |
 
+
 <details>
-<summary>**Current Progress (Detailed)**</summary>
+<summary>Current Progress (Detailed)</summary>
 
 ### Level Template
+
 | Elements | Progress |
 | -------- | :------: |
 | HUD | ✔️ |
@@ -61,7 +68,9 @@ Part of Final Year Project for Laila Mastura 1200587.
 | Audio & Music | ❌ |
 | Quests | ✔️ |
 
+
 ### Prepare Template - Flood
+
 | Elements | Progress |
 | -------- | -------- |
 | Emergency Kit | ✔️ |
@@ -71,6 +80,7 @@ Part of Final Year Project for Laila Mastura 1200587.
 | Level logic | ⌛ |
 
 </details>
+
 
 ## Videos
 
