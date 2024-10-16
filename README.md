@@ -5,7 +5,7 @@ Part of Final Year Project for Laila Mastura 1200587.
 (I prefer this version compared to [ver2](https://github.com/c-lmaz/DisAPrep-ver2) as this one is heavy on logic only and not much animations to do)
 
 <details>
-<summary>## FYP Summary</summary>
+<summary>FYP Summary</summary>
 
 - An educational Android mobile game for disaster preparedness.
 - Has a 'game' section and 'information' section.
@@ -50,7 +50,8 @@ Part of Final Year Project for Laila Mastura 1200587.
 | Menus | ❌ |
 
 <details>
-<summary>## Current Progress (Detailed)</summary>
+<summary>Current Progress (Detailed)</summary>
+
 ### Level Template
 | Elements | Progress |
 | -------- | -------- |
