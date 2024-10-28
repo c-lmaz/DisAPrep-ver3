@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8134h23eroyk"]
+
+[ext_resource type="Script" path="res://global.gd" id="1_xqm1w"]
+[ext_resource type="AudioStream" uid="uid://hbc0d7hlj5yc" path="res://Themes/Audios/20. Diving into Spring.wav" id="2_jru4c"]
+
+[node name="Global" type="Node"]
+script = ExtResource("1_xqm1w")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jru4c")
+autoplay = true
+bus = &"BGM"

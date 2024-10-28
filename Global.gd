@@ -1,5 +1,8 @@
 extends Node
 
+@onready var sfx = $SFX
+@onready var bgm = $BGM
+
 var default_progress = {
 	"Flood": {
 		"Prepare": {
@@ -45,7 +48,6 @@ var default_progress = {
 		},
 	},
 }
-
 
 func read_json_file(path: String):
 	var file = FileAccess.open(path, FileAccess.READ)

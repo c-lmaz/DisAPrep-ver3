@@ -11,11 +11,11 @@ signal exit_pressed
 @onready var bgm_slider = $VBoxContainer/BGM/BGMSlider
 
 var tip_path = "res://Data/tip_list.json"
-var tip_list = Global.read_json_file(tip_path)
+var tip_list = Global.read_json_file("res://Data/tip_list.json")
 
 # TODO: everytime menu becomes visible, change tip
 func _on_visibility_changed():
-	pass # Replace with function body.
+	pass
 
 
 func _on_resume_pressed():
@@ -24,3 +24,4 @@ func _on_resume_pressed():
 
 func _on_exit_pressed():
 	exit_pressed.emit()
+

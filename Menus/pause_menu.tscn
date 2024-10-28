@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c55wd2pk0aj8j"]
+[gd_scene load_steps=10 format=3 uid="uid://c55wd2pk0aj8j"]
 
 [ext_resource type="FontFile" uid="uid://det7dyh78eox" path="res://Themes/Fonts/InriaSans-Bold.otf" id="1_7iguw"]
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_dx0dg"]
@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://ojlciqwyxbex" path="res://Icons/Controls/exitRight.png" id="4_2ej00"]
 [ext_resource type="Texture2D" uid="uid://yqordmem2beg" path="res://Icons/Controls/audioOn.png" id="5_405p3"]
 [ext_resource type="Texture2D" uid="uid://bn5a0amv6wk64" path="res://Icons/Controls/musicOn.png" id="6_aynbn"]
+[ext_resource type="PackedScene" uid="uid://cx8def184ppmk" path="res://Themes/Customs/vol_slider.tscn" id="8_wtw0w"]
 
 [node name="PauseMenu" type="Panel"]
-process_mode = 2
 self_modulate = Color(1, 1, 1, 0.588235)
 custom_minimum_size = Vector2(540, 820)
 anchors_preset = 12
@@ -83,7 +83,6 @@ text = "Audio Settings"
 
 [node name="SFX" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="VBoxContainer/SFX"]
 custom_minimum_size = Vector2(70, 0)
@@ -96,38 +95,29 @@ horizontal_alignment = 1
 layout_mode = 2
 texture = ExtResource("5_405p3")
 
-[node name="SFXSlider" type="HSlider" parent="VBoxContainer/SFX"]
-custom_minimum_size = Vector2(210, 0)
+[node name="SFXSlider" parent="VBoxContainer/SFX" instance=ExtResource("8_wtw0w")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-step = 5.0
-value = 60.0
-scrollable = false
+size_flags_vertical = 4
+bus_name = "SFX"
 
 [node name="BGM" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
-alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/BGM"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "BGM"
+horizontal_alignment = 1
 
 [node name="BGMIcon" type="TextureRect" parent="VBoxContainer/BGM"]
 layout_mode = 2
 texture = ExtResource("6_aynbn")
 
-[node name="BGMSlider" type="HSlider" parent="VBoxContainer/BGM"]
-custom_minimum_size = Vector2(210, 0)
+[node name="BGMSlider" parent="VBoxContainer/BGM" instance=ExtResource("8_wtw0w")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-step = 5.0
-value = 60.0
-scrollable = false
+size_flags_vertical = 4
+bus_name = "BGM"
 
 [node name="Spacer2" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)

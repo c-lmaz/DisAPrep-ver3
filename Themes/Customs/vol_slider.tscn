@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx8def184ppmk"]
+
+[ext_resource type="Script" path="res://Themes/Customs/vol_slider.gd" id="1_84l0e"]
+
+[node name="VolSlider" type="HSlider"]
+custom_minimum_size = Vector2(210, 0)
+offset_right = 210.0
+offset_bottom = 16.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_84l0e")
