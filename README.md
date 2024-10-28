@@ -65,7 +65,8 @@ Repository for DisAPrep (v3). Part of Final Year Project for Laila Mastura 12005
 | HUD | ✔️ |
 | Pause Menu | ⌛ |
 | Exit Menu | ⌛ |
-| Audio & Music | ❌ |
+| Music | ✔️ |
+| SFX | 🔜 |
 | Quests | ✔️ |
 
 
