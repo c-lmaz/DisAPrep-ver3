@@ -66,7 +66,7 @@ Repository for DisAPrep (v3). Part of Final Year Project for Laila Mastura 12005
 | Pause Menu | ⌛ |
 | Exit Menu | ⌛ |
 | Music | ✔️ |
-| SFX | 🔜 |
+| SFX | ⌛ |
 | Quests | ✔️ |
 
 
@@ -76,8 +76,7 @@ Repository for DisAPrep (v3). Part of Final Year Project for Laila Mastura 12005
 | -------- | :------: |
 | Emergency Kit | ✔️ |
 | Hazard Mitigation | ✔️ |
-| Communication Plan | 🔜 |
-| Evacuation Plan | 🔜 |
+| Communication Plan | ⌛ |
 | Level logic | ⌛ |
 
 </details>
