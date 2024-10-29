@@ -1,0 +1,223 @@
+[gd_scene load_steps=11 format=3 uid="uid://bvphx6gyqgtrm"]
+
+[ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_d378g"]
+[ext_resource type="Texture2D" uid="uid://bccg28e5s83eo" path="res://Icons/Communication/phone_bg.png" id="1_yrhjq"]
+[ext_resource type="Texture2D" uid="uid://f8eflxks6yso" path="res://Icons/Controls/shadedLight_Empty.png" id="2_vqx17"]
+[ext_resource type="Script" path="res://Menus/comm_plans.gd" id="3_16tr2"]
+[ext_resource type="FontFile" uid="uid://c4o05i4pa21je" path="res://Themes/Fonts/InriaSans-Regular.otf" id="4_ignut"]
+[ext_resource type="Texture2D" uid="uid://cvo1r4fum7jgf" path="res://Icons/Controls/shadedLight_EmptyInverse.png" id="5_5jau4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bg5xl"]
+texture = ExtResource("2_vqx17")
+texture_margin_left = 4.0
+texture_margin_top = 5.0
+texture_margin_right = 7.0
+texture_margin_bottom = 5.0
+modulate_color = Color(1, 1, 1, 0.588235)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4d11t"]
+bg_color = Color(0.941176, 0.941176, 0.941176, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_he36i"]
+texture = ExtResource("5_5jau4")
+texture_margin_left = 4.0
+texture_margin_top = 5.0
+texture_margin_right = 7.0
+texture_margin_bottom = 5.0
+modulate_color = Color(1, 1, 1, 0.392157)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7wism"]
+texture = ExtResource("2_vqx17")
+
+[node name="CommPlans" type="Panel"]
+custom_minimum_size = Vector2(540, 800)
+offset_top = 140.0
+offset_right = 540.0
+offset_bottom = 960.0
+theme = ExtResource("1_d378g")
+theme_override_styles/panel = SubResource("StyleBoxTexture_bg5xl")
+script = ExtResource("3_16tr2")
+
+[node name="Phone" type="Panel" parent="."]
+custom_minimum_size = Vector2(330, 560)
+layout_mode = 0
+offset_left = 111.0
+offset_top = 76.0
+offset_right = 441.0
+offset_bottom = 641.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4d11t")
+
+[node name="PhoneBG" type="TextureRect" parent="Phone"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.5
+offset_top = -67.0
+offset_right = 200.5
+offset_bottom = 661.0
+grow_horizontal = 2
+texture = ExtResource("1_yrhjq")
+expand_mode = 1
+
+[node name="EmergNo" type="VBoxContainer" parent="Phone"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -233.0
+offset_right = 150.0
+offset_bottom = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="Prompt" type="Label" parent="Phone/EmergNo"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_ignut")
+theme_override_font_sizes/font_size = 30
+text = "What is the emergency number?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="TextEdit" type="Label" parent="Phone/EmergNo"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_he36i")
+text = "XXX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Keypad" type="GridContainer" parent="Phone/EmergNo"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="1" type="Button" parent="Phone/EmergNo/Keypad"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
+text = "1"
+
+[node name="2" type="Button" parent="Phone/EmergNo/Keypad"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
+text = "2
+"
+
+[node name="3" type="Button" parent="Phone/EmergNo/Keypad"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
+text = "3"
+
+[node name="4" type="Button" parent="Phone/EmergNo/Keypad"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
+text = "4"
+
+[node name="5" type="Button" parent="Phone/EmergNo/Keypad"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
+text = "5"
+
+[node name="6" type="Button" parent="Phone/EmergNo/Keypad"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
+text = "6"
+
+[node name="7" type="Button" parent="Phone/EmergNo/Keypad"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
+text = "7"
+
+[node name="8" type="Button" parent="Phone/EmergNo/Keypad"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
+text = "8"
+
+[node name="9" type="Button" parent="Phone/EmergNo/Keypad"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
+text = "9"
+
+[node name="Del" type="Button" parent="Phone/EmergNo/Keypad"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
+text = "Del"
+
+[node name="0" type="Button" parent="Phone/EmergNo/Keypad"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
+text = "0"
+
+[node name="OK" type="Button" parent="Phone/EmergNo/Keypad"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
+text = "OK"
+
+[node name="ContactPeople" type="VBoxContainer" parent="Phone"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -233.0
+offset_right = 150.0
+offset_bottom = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="Prompt" type="Label" parent="Phone/ContactPeople"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_ignut")
+theme_override_font_sizes/font_size = 30
+text = "What is the emergency number?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="TextEdit" type="Label" parent="Phone/ContactPeople"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_he36i")
+text = "XXX"
+horizontal_alignment = 1
+vertical_alignment = 1

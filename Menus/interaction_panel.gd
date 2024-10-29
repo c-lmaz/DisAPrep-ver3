@@ -28,16 +28,15 @@ func _ready():
 	quests = quests["Prepare"]
 	for i in range(quests.size()):
 		var child = quest_node.instantiate()
+		child.quest = quests[i]["name"]
+		child.short_name = quests[i]["short"]
+		child.q_total = quests[i]["total"]
 		if i == 1: 
 			current_quest.add_child(child)
 			child.current = true
 		else: 
 			quest_container.add_child(child)
 			child.current = false
-		
-		child.quest = quests[i]["name"]
-		child.short_name = quests[i]["short"]
-		child.q_total = quests[i]["total"]
 		
 	var curr_q_child = current_quest.get_child(0)
 	if curr_q_child is QuestDisplay:

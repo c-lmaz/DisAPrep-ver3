@@ -30,6 +30,6 @@
 	],
 	
 	"communication" : [
-		
+		{"name": "Remember the emergency number", "icon": "res://Icons/Hazards/sandbag.png", "short": "Sandbag"},
 	],
 }

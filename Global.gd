@@ -1,8 +1,5 @@
 extends Node
 
-@onready var sfx = $SFX
-@onready var bgm = $BGM
-
 var default_progress = {
 	"Flood": {
 		"Prepare": {

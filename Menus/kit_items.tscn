@@ -51,7 +51,7 @@
 [ext_resource type="Texture2D" uid="uid://bm8lvfgyoit5u" path="res://Icons/Others/teddy-bear.png" id="49_wk717"]
 
 [node name="KitItems" type="Control"]
-custom_minimum_size = Vector2(540, 390)
+custom_minimum_size = Vector2(540, 450)
 layout_mode = 3
 anchors_preset = 0
 offset_top = 140.0
