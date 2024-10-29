@@ -2,8 +2,6 @@
 
 Repository for DisAPrep (v3). Part of Final Year Project for Laila Mastura 1200587.
 
-(I prefer this version compared to [ver2](https://github.com/c-lmaz/DisAPrep-ver2) as this one is heavy on logic only and not much animations to do)
-
 
 <details>
 <summary>FYP Summary</summary>
