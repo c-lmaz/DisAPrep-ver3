@@ -30,6 +30,8 @@
 	],
 	
 	"communication" : [
-		{"name": "Remember the emergency number", "icon": "res://Icons/Hazards/sandbag.png", "short": "Sandbag"},
+		{"name": "Remember the emergency number", "icon": "res://Icons/Communication/emergency.png", "short": "Emergency"},
+		{"name": "Set up a communication channel", "icon": "res://Icons/Communication/family-pic.png", "short": "Family1"},
+		{"name": "Choose a meeting place", "icon": "res://Icons/Communication/family-pic.png", "short": "Family2"},
 	],
 }

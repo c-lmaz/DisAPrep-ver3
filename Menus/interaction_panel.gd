@@ -16,6 +16,10 @@ var quest_path = "res://Data/Flood/quests.json"
 var quests = Global.read_json_file(quest_path)
 var quest_node = preload("res://Menus/quest_display.tscn")
 
+@export var is_small = false
+enum QuestToggle{OFF, QUEST, ALLQUEST}
+var next_toggle = QuestToggle.QUEST
+
 
 # TODO: handle completed quests
 # switch current quests (change parent)
@@ -44,8 +48,26 @@ func _ready():
 
 
 func _on_quests_toggled(toggled_on):
-	panel_container.visible = toggled_on
-	scroll_container.visible = !toggled_on
+	if is_small:
+		match next_toggle:
+			QuestToggle.OFF:
+				next_toggle = QuestToggle.QUEST
+				custom_minimum_size.y = 80
+				panel_container.visible = false
+				scroll_container.visible = true
+			
+			QuestToggle.QUEST:
+				next_toggle = QuestToggle.ALLQUEST
+				custom_minimum_size.y = 370
+			
+			QuestToggle.ALLQUEST:
+				next_toggle = QuestToggle.OFF
+				panel_container.visible = true
+				scroll_container.visible = false
+	
+	else:
+		panel_container.visible = toggled_on
+		scroll_container.visible = !toggled_on
 
 
 func get_current_quest():

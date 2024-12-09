@@ -30,6 +30,7 @@ wait_time = 200.0
 [node name="PauseMenu" parent="." instance=ExtResource("3_qp2dc")]
 process_mode = 2
 visible = false
+top_level = true
 layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
@@ -45,6 +46,7 @@ grow_vertical = 1
 process_mode = 2
 visible = false
 self_modulate = Color(1, 1, 1, 0.588235)
+top_level = true
 custom_minimum_size = Vector2(540, 820)
 layout_mode = 0
 offset_top = 140.0

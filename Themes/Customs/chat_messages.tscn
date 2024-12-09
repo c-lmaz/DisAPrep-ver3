@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://lcmtubp3tcb3"]
+
+[ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_352cp"]
+[ext_resource type="Script" path="res://Themes/Customs/chat_messages.gd" id="2_peees"]
+[ext_resource type="FontFile" uid="uid://c4o05i4pa21je" path="res://Themes/Fonts/InriaSans-Regular.otf" id="2_wphrw"]
+[ext_resource type="Texture2D" uid="uid://f8eflxks6yso" path="res://Icons/Controls/shadedLight_Empty.png" id="3_plx27"]
+[ext_resource type="Script" path="res://addons/GameGUI/GGFiller.gd" id="3_w3w08"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oq4kf"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+texture = ExtResource("3_plx27")
+texture_margin_left = 4.0
+texture_margin_top = 5.0
+texture_margin_right = 7.0
+texture_margin_bottom = 5.0
+
+[node name="ChatMessage" type="VBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_352cp")
+script = ExtResource("2_peees")
+is_player = null
+
+[node name="GGFiller" type="Container" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+script = ExtResource("3_w3w08")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
+[node name="ChatName" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b][i]Name[/i][/b]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Message" type="Label" parent="."]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wphrw")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_oq4kf")
+autowrap_mode = 3

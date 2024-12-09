@@ -3,6 +3,5 @@
 		{"name": "Collect emergency kit items", "total": 17, "short": "Kit"},
 		{"name": "Mitigate hazards and damages", "total": 7, "short": "Hazards"},
 		{"name": "Have emergency contacts", "total": 6, "short": "Contact"},
-		{"name": "Identify evacuation routes", "total": 3, "short": "Route"},
 	]
 }

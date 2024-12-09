@@ -1,11 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvphx6gyqgtrm"]
+[gd_scene load_steps=15 format=3 uid="uid://bvphx6gyqgtrm"]
 
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_d378g"]
-[ext_resource type="Texture2D" uid="uid://bccg28e5s83eo" path="res://Icons/Communication/phone_bg.png" id="1_yrhjq"]
+[ext_resource type="Texture2D" uid="uid://d4f1lbv3drh7s" path="res://Icons/Communication/phone_bg.png" id="1_yrhjq"]
 [ext_resource type="Texture2D" uid="uid://f8eflxks6yso" path="res://Icons/Controls/shadedLight_Empty.png" id="2_vqx17"]
 [ext_resource type="Script" path="res://Menus/comm_plans.gd" id="3_16tr2"]
 [ext_resource type="FontFile" uid="uid://c4o05i4pa21je" path="res://Themes/Fonts/InriaSans-Regular.otf" id="4_ignut"]
 [ext_resource type="Texture2D" uid="uid://cvo1r4fum7jgf" path="res://Icons/Controls/shadedLight_EmptyInverse.png" id="5_5jau4"]
+[ext_resource type="Script" path="res://addons/GameGUI/GGFiller.gd" id="7_lfjb2"]
+[ext_resource type="StyleBox" uid="uid://ev2mbtfnm0jq" path="res://Themes/Styleboxes/default.stylebox" id="7_vvd0v"]
+[ext_resource type="Script" path="res://Themes/Customs/scrollcont_scrollbottom.gd" id="9_8kob1"]
+[ext_resource type="PackedScene" uid="uid://lcmtubp3tcb3" path="res://Themes/Customs/chat_messages.tscn" id="9_44nsh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bg5xl"]
 texture = ExtResource("2_vqx17")
@@ -30,21 +34,25 @@ modulate_color = Color(1, 1, 1, 0.392157)
 texture = ExtResource("2_vqx17")
 
 [node name="CommPlans" type="Panel"]
-custom_minimum_size = Vector2(540, 800)
+custom_minimum_size = Vector2(540, 740)
 offset_top = 140.0
 offset_right = 540.0
-offset_bottom = 960.0
+offset_bottom = 860.0
 theme = ExtResource("1_d378g")
 theme_override_styles/panel = SubResource("StyleBoxTexture_bg5xl")
 script = ExtResource("3_16tr2")
 
 [node name="Phone" type="Panel" parent="."]
-custom_minimum_size = Vector2(330, 560)
-layout_mode = 0
-offset_left = 111.0
-offset_top = 76.0
-offset_right = 441.0
-offset_bottom = 641.0
+custom_minimum_size = Vector2(360, 560)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -180.0
+offset_top = 75.0
+offset_right = 180.0
+offset_bottom = 635.0
+grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4d11t")
 
 [node name="PhoneBG" type="TextureRect" parent="Phone"]
@@ -62,6 +70,7 @@ expand_mode = 1
 
 [node name="EmergNo" type="VBoxContainer" parent="Phone"]
 visible = false
+custom_minimum_size = Vector2(330, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -69,13 +78,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = -233.0
+offset_top = -242.0
 offset_right = 150.0
-offset_bottom = 233.0
+offset_bottom = 242.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 35
-alignment = 1
+theme_override_constants/separation = 15
 
 [node name="Prompt" type="Label" parent="Phone/EmergNo"]
 custom_minimum_size = Vector2(300, 0)
@@ -96,23 +104,35 @@ text = "XXX"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="GGFiller" type="Container" parent="Phone/EmergNo"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+script = ExtResource("7_lfjb2")
+vertical_mode = 5
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
 [node name="Keypad" type="GridContainer" parent="Phone/EmergNo"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 8
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 10
 columns = 3
 
 [node name="1" type="Button" parent="Phone/EmergNo/Keypad"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(70, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
 text = "1"
 
 [node name="2" type="Button" parent="Phone/EmergNo/Keypad"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(70, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
@@ -120,74 +140,94 @@ text = "2
 "
 
 [node name="3" type="Button" parent="Phone/EmergNo/Keypad"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(70, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
 text = "3"
 
 [node name="4" type="Button" parent="Phone/EmergNo/Keypad"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(70, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
 text = "4"
 
 [node name="5" type="Button" parent="Phone/EmergNo/Keypad"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(70, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
 text = "5"
 
 [node name="6" type="Button" parent="Phone/EmergNo/Keypad"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(70, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
 text = "6"
 
 [node name="7" type="Button" parent="Phone/EmergNo/Keypad"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(70, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
 text = "7"
 
 [node name="8" type="Button" parent="Phone/EmergNo/Keypad"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(70, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
 text = "8"
 
 [node name="9" type="Button" parent="Phone/EmergNo/Keypad"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(70, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
 text = "9"
 
 [node name="Del" type="Button" parent="Phone/EmergNo/Keypad"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(70, 60)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
 text = "Del"
 
 [node name="0" type="Button" parent="Phone/EmergNo/Keypad"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(70, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
 text = "0"
 
 [node name="OK" type="Button" parent="Phone/EmergNo/Keypad"]
-custom_minimum_size = Vector2(75, 75)
+custom_minimum_size = Vector2(70, 60)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_7wism")
 text = "OK"
 
-[node name="ContactPeople" type="VBoxContainer" parent="Phone"]
+[node name="Warning" type="Label" parent="Phone"]
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 200.0
+offset_right = 150.0
+offset_bottom = 229.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_ignut")
+theme_override_font_sizes/font_size = 24
+text = "The number is 3 digits only."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="FamilyChannel" type="VBoxContainer" parent="Phone"]
+custom_minimum_size = Vector2(340, 550)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -195,29 +235,376 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = -233.0
+offset_top = -262.5
 offset_right = 150.0
-offset_bottom = 233.0
+offset_bottom = 262.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 35
-alignment = 1
+theme_override_constants/separation = 20
 
-[node name="Prompt" type="Label" parent="Phone/ContactPeople"]
-custom_minimum_size = Vector2(300, 0)
+[node name="GroupName" type="Label" parent="Phone/FamilyChannel"]
+custom_minimum_size = Vector2(330, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("4_ignut")
 theme_override_font_sizes/font_size = 30
-text = "What is the emergency number?"
+theme_override_styles/normal = ExtResource("7_vvd0v")
+text = "Family
+"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="TextEdit" type="Label" parent="Phone/ContactPeople"]
-custom_minimum_size = Vector2(150, 50)
+[node name="Prompt" type="Label" parent="Phone/FamilyChannel"]
+visible = false
+custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_he36i")
-text = "XXX"
+theme_override_fonts/font = ExtResource("4_ignut")
+theme_override_font_sizes/font_size = 28
+text = "Add people to your 'Family' chatroom."
 horizontal_alignment = 1
-vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AddPeople" type="VBoxContainer" parent="Phone/FamilyChannel"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Father" type="Button" parent="Phone/FamilyChannel/AddPeople"]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_ignut")
+text = "Father"
+
+[node name="Mother" type="Button" parent="Phone/FamilyChannel/AddPeople"]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_ignut")
+text = "Mother"
+
+[node name="Sister" type="Button" parent="Phone/FamilyChannel/AddPeople"]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_ignut")
+text = "Sister"
+
+[node name="Brother" type="Button" parent="Phone/FamilyChannel/AddPeople"]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_ignut")
+text = "Brother"
+
+[node name="SIL" type="Button" parent="Phone/FamilyChannel/AddPeople"]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_ignut")
+text = "Sister-in-law"
+
+[node name="AddedNotif" type="Label" parent="Phone/FamilyChannel"]
+visible = false
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.137255, 0.686275, 0, 1)
+theme_override_fonts/font = ExtResource("4_ignut")
+theme_override_font_sizes/font_size = 24
+text = "added to the chatroom 'Family'."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Messages" type="ScrollContainer" parent="Phone/FamilyChannel"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+vertical_scroll_mode = 3
+script = ExtResource("9_8kob1")
+
+[node name="Messages" type="VBoxContainer" parent="Phone/FamilyChannel/Messages"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="1" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "Father"
+chat_message = "Heads up everyone."
+
+[node name="2" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+chat_message = "Flood is coming and I need to make sure yall are ready for it."
+
+[node name="3" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "Mother"
+chat_message = "Yes, make sure all of you have already made preparations."
+
+[node name="4" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "Sister"
+chat_message = "I haven't yet but I am scared that I might need to evacuate."
+
+[node name="5" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "Mother"
+chat_message = "It's okay to be scared but do not panic."
+
+[node name="6" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+chat_message = "There is still time to pack your things."
+
+[node name="Player1" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+focus_mode = 2
+is_player = true
+has_name = true
+chat_name = "You"
+chat_message = "I have packed the essentials and already secure my house."
+
+[node name="7" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "Brother"
+chat_message = "Good for you, little sibling."
+
+[node name="8" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+chat_message = "Both of us are also ready in case of evacuation too, mom."
+
+[node name="9" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "Father"
+chat_message = "So most of us are ready. Now, we need to make a plan for the family."
+
+[node name="10" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "SIL"
+chat_message = "Plan for what, dad?"
+
+[node name="11" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "Sister"
+chat_message = "Where to meet and when and things like that."
+
+[node name="12" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+chat_message = "It is to keep track of everyone's location."
+
+[node name="13" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "Father"
+chat_message = "So, anyone has suggestions for our meeting place?"
+
+[node name="Player2" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+focus_mode = 2
+is_player = true
+has_name = true
+chat_name = "You"
+chat_message = "I suggest grandma's house."
+
+[node name="14" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "SIL"
+chat_message = "I think grandma's house is a good option. It's safe and we can all stay together."
+
+[node name="15" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "Sister"
+chat_message = "I agree. But what if we can't get there?"
+
+[node name="16" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "Brother"
+chat_message = "We need a backup plan. How about the nearest evacuation center?"
+
+[node name="Player3" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+focus_mode = 2
+is_player = true
+has_name = true
+chat_name = "You"
+chat_message = "Agreed. So grandma's first, then the evacuation center."
+
+[node name="17" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "Mother"
+chat_message = "I think grandma's first is better. It's closer and we know the area well."
+
+[node name="18" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "Brother"
+chat_message = "I agree. Grandma's first."
+
+[node name="19" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "Sister"
+chat_message = "Okay, Grandma's it is. But how will we contact each other if the phone lines go down?"
+
+[node name="Player4" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+focus_mode = 2
+is_player = true
+has_name = true
+chat_name = "You"
+chat_message = "Agree on a meeting time and location."
+
+[node name="20" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "SIL"
+chat_message = "Good idea. Let's agree to meet at Grandma's by 7.00 pm."
+
+[node name="21" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+chat_message = "And if we can't reach anyone, we try contacting our cousins and other relatives."
+
+[node name="22" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "Brother"
+chat_message = "Smart. Let's write that down."
+
+[node name="23" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "Mother"
+chat_message = "Okay, everyone, let's stay calm and be prepared. We'll get through this together."
+
+[node name="24" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+is_player = false
+has_name = true
+chat_name = "Father"
+chat_message = "Agreed. Stay safe, everyone."
+
+[node name="GGFiller" type="Container" parent="Phone/FamilyChannel/Messages/Messages"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("7_lfjb2")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}

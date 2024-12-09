@@ -24,7 +24,6 @@ size = Vector2i(540, 450)
 [node name="House" parent="SubViewport" instance=ExtResource("1_32g4q")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 offset_top = 140.0
 offset_right = 540.0
 offset_bottom = 590.0
@@ -43,6 +42,8 @@ scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("3_it56x")
 action = "ui_right"
 
+[node name="HUD" parent="." instance=ExtResource("5_i50yh")]
+
 [node name="KitItems" parent="." instance=ExtResource("6_ptb0e")]
 visible = false
 
@@ -52,6 +53,5 @@ visible = false
 [node name="CommPlans" parent="." instance=ExtResource("8_11vgn")]
 
 [node name="InteractionPanel" parent="." instance=ExtResource("7_e6e3e")]
-custom_minimum_size = Vector2(0, 80)
-
-[node name="HUD" parent="." instance=ExtResource("5_i50yh")]
+custom_minimum_size = Vector2(540, 80)
+is_small = true
