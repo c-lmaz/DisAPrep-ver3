@@ -18,32 +18,6 @@ var default_progress = {
 			"FuturePrep": false
 		},
 	},
-	"Heat": {
-		"Prepare": {
-			"Score": 0,
-			"TimeLeft": 0,
-			"CompleteKit": false
-		},
-		"Respond": {
-			"Score": 0,
-		},
-		"Recover": {
-			"Score": 0,
-		},
-	},
-	"Outbreak": {
-		"Prepare": {
-			"CompleteKit": false,
-			"Score": 0,
-			"TimeLeft": 0,
-		},
-		"Respond": {
-			"Score": 0,
-		},
-		"Recover": {
-			"Score": 0,
-		},
-	},
 }
 
 func read_json_file(path: String):

@@ -18,7 +18,7 @@ signal player_died
 @onready var pause_menu = $PauseMenu
 @onready var exit_menu = $ExitMenu
 
-var life = 3
+var life = 6
 var score = 0
 var mins
 var secs
@@ -72,3 +72,7 @@ func _on_pause_toggled(toggled_on):
 func _on_exit_pressed():
 	pause_menu.visible = false
 	exit_menu.visible = false
+
+
+func _on_timer_timeout():
+	player_died.emit()

@@ -12,8 +12,11 @@ extends VBoxContainer
 @onready var filler = $GGFiller
 
 
-
 func _ready():
+	_update()
+
+
+func update_chat():
 	_update()
 
 
@@ -31,4 +34,3 @@ func _update():
 		ch_name.text = "[b][i]" + chat_name + "[/i][/b]"
 	
 	message.text = chat_message
-

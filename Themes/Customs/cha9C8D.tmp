@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctaki4m05hlau"]
+
+[ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_bdi7e"]
+[ext_resource type="Script" path="res://addons/GameGUI/GGFiller.gd" id="2_actb2"]
+[ext_resource type="Script" path="res://Themes/Customs/chat_option.gd" id="2_pjww5"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_bdi7e")
+script = ExtResource("2_pjww5")
+chat_option_1 = "option 1"
+chat_option_2 = "option 2"
+
+[node name="GGFiller" type="Container" parent="."]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+script = ExtResource("2_actb2")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
+[node name="Prompt" type="RichTextLabel" parent="."]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]Select your message"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+
+[node name="1" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(280, 34)
+layout_mode = 2
+text = "option 1"
+
+[node name="2" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(280, 34)
+layout_mode = 2
+text = "option 2"

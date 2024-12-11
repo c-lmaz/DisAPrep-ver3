@@ -1,14 +1,20 @@
 extends Panel
 
 signal keypad_ok(emerg_no: String)
+signal chat_selected(option: String)
+signal comm_plans_completed()
 
-
+@onready var emerg_no = $Phone/EmergNo
 @onready var keypad = $Phone/EmergNo/Keypad
 @onready var add_people = $Phone/FamilyChannel/AddPeople
 @onready var messages_box = $Phone/FamilyChannel/Messages
+@onready var messages = $Phone/FamilyChannel/Messages/Messages
+@onready var family_channel = $Phone/FamilyChannel
 
 var no_people_added = 0
-
+var curr_opt_ind = 0
+var wait_for_input = false
+var opt_eval = false
 
 func _ready():
 	
@@ -20,7 +26,9 @@ func _ready():
 		if person is Button:
 			person.connect("pressed", _on_add_people_pressed.bind(person))
 	
-	_messages_start()
+	for option in messages.get_children():
+		if option is ChatOption:
+			option.connect("chat_selected", _on_chat_selected)
 
 
 func _on_keypad_pressed(key):
@@ -41,9 +49,17 @@ func _on_keypad_pressed(key):
 	elif text_edit.text.length() == 3: warning.visible = true
 
 
-# TODO: connect keypad_ok in floodprepare
-# TODO: once 999 is accepted, queuefree emergno & warning, start familychannel
 func _on_keypad_ok(emerno: String): keypad_ok.emit(emerno)
+
+
+func start_family():
+	emerg_no.visible = false
+	family_channel.visible = true
+	add_people.visible = true
+	$Phone/FamilyChannel/Prompt.visible = true
+	
+	emerg_no.queue_free()
+	$Phone/Warning.queue_free()
 
 
 func _on_add_people_pressed(person): _add_people(person.name)
@@ -61,23 +77,60 @@ func _add_people(person: String):
 	
 	no_people_added += 1
 	if no_people_added == 5:
+		add_people.visible = false
+		added_notif.visible = false
+		$Phone/FamilyChannel/Prompt.visible = false
+		
+		messages_box.visible = true
+		
 		add_people.queue_free()
 		added_notif.queue_free()
 		$Phone/FamilyChannel/Prompt.queue_free()
-		messages_box.visible = true
+		
 		_messages_start()
 
 
 func _messages_start():
-	var messages = $Phone/FamilyChannel/Messages/Messages
+	var next_message = false
 	for message in messages.get_children():
-		if not message.name.contains("Player"):
-			message.visible = true
-			await get_tree().create_timer(0.7).timeout
+		var is_correct = message.name.contains("Correct")
+		var is_wrong = message.name.contains("Wrong")
+		var is_choice = message.name.contains("Choice")
 		
-		# TODO: add player options
+		if (is_correct):
+			if next_message: 
+				message.visible = true
+				await get_tree().create_timer(0.8).timeout
+			else: continue
+		
+		elif (is_wrong):
+			if not next_message: 
+				message.visible = true
+				await get_tree().create_timer(0.8).timeout
+			else: continue
+		
+		elif is_choice:
+			message.visible = true
+			wait_for_input = true
+			curr_opt_ind = message.get_index()
+			while wait_for_input:
+				await get_tree().create_timer(0.1).timeout
+			
+			message.visible = false
+			if opt_eval: next_message = true
+			else: next_message = false
+		
 		else:
 			message.visible = true
-			await get_tree().create_timer(0.7).timeout
-		
-		
+			await get_tree().create_timer(0.8).timeout
+	
+	emit_signal("comm_plans_completed")
+
+
+func _on_chat_selected(opt_name, text):
+	var next_message = messages.get_child(curr_opt_ind+1)
+	next_message.chat_message = text
+	next_message.update_chat()
+	chat_selected.emit(opt_name)
+	wait_for_input = false
+

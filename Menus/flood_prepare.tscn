@@ -51,6 +51,7 @@ visible = false
 visible = false
 
 [node name="CommPlans" parent="." instance=ExtResource("8_11vgn")]
+visible = false
 
 [node name="InteractionPanel" parent="." instance=ExtResource("7_e6e3e")]
 custom_minimum_size = Vector2(540, 80)

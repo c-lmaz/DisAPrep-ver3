@@ -25,7 +25,7 @@ script = ExtResource("2_tygji")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 200.0
+wait_time = 300.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_qp2dc")]
 process_mode = 2
@@ -44,6 +44,16 @@ grow_vertical = 1
 
 [node name="ExitMenu" type="Panel" parent="."]
 process_mode = 2
+visible = false
+self_modulate = Color(1, 1, 1, 0.588235)
+top_level = true
+custom_minimum_size = Vector2(540, 820)
+layout_mode = 0
+offset_top = 140.0
+offset_right = 540.0
+offset_bottom = 960.0
+
+[node name="LevelEndMenu" type="Panel" parent="."]
 visible = false
 self_modulate = Color(1, 1, 1, 0.588235)
 top_level = true
@@ -273,4 +283,5 @@ toggle_mode = true
 normal_tex = ExtResource("7_e6axm")
 toggled_tex = ExtResource("9_y1p1j")
 
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="toggled" from="Pause" to="." method="_on_pause_toggled"]

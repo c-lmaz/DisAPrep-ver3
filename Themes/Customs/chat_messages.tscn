@@ -21,7 +21,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("1_352cp")
 script = ExtResource("2_peees")
-is_player = null
 
 [node name="GGFiller" type="Container" parent="."]
 visible = false
@@ -40,7 +39,7 @@ visible = false
 layout_mode = 2
 theme_override_font_sizes/bold_italics_font_size = 20
 bbcode_enabled = true
-text = "[b][i]Name[/i][/b]"
+text = "[b][i][/i][/b]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0

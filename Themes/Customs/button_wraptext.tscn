@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bknxsi5vea1cb"]
+
+[ext_resource type="FontFile" uid="uid://c4o05i4pa21je" path="res://Themes/Fonts/InriaSans-Regular.otf" id="1_aelfu"]
+[ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_n833j"]
+[ext_resource type="Script" path="res://Themes/Customs/button_wraptext.gd" id="3_6tcw2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o18ic"]
+
+[node name="PanelContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(290, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_n833j")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_o18ic")
+script = ExtResource("3_6tcw2")
+button_text = "I don't agree. Evacuation center first, then Grandma's house."
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(290, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_aelfu")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -8,7 +8,7 @@ var rooms = ["Outside", "Living", "Kitchen", "Bathroom", "Family", "Bedroom"]
 var room_ind = 1
 
 @onready var hud = $HUD
-var level_phase = ["Flooood", "Prep"]
+var level_phase = ["Flood", "Prep"]
 var current_quest : String
 
 @onready var interaction_panel = $InteractionPanel
@@ -18,6 +18,11 @@ var current_quest : String
 var correct_items: Array
 
 @onready var hazards = $Hazards
+
+@onready var comm_plans = $CommPlans
+var correct_chat = [2, 1, 1]
+var current_opt = 0
+
 
 func _ready():
 	hud.set_level_name(level_phase)
@@ -31,6 +36,10 @@ func _ready():
 	kit_items.all_spots_done.connect(_kit_items_done)
 	
 	hazards.hazard_managed.connect(_on_hazards_hazard_managed)
+	
+	comm_plans.keypad_ok.connect(_on_comm_plans_keypad_ok)
+	comm_plans.chat_selected.connect(_on_comm_plans_chat_selected)
+	comm_plans.comm_plans_completed.connect(_comm_plans_done)
 	
 	for child in item_container.get_children():
 		correct_items.push_back(str(child.name))
@@ -86,6 +95,7 @@ func _on_hud_game_paused(pause_state):
 	interaction_panel.visible = !pause_state
 
 
+# TODO: handle player_died
 func _on_hud_player_died():
 	print("Player died")
 
@@ -93,7 +103,7 @@ func _on_hud_player_died():
 # TODO: when a quest is completed:
 # move current quest to q_list, move next quest as current (in interaction_panel.gd)
 # DONE: remove old quest items and add new quest items (in interaction_panel.gd)
-# set new quest_scene 
+# set new quest_scene
 # change current_quest
 func _on_int_panel_quest_completed(q_name: String):
 	match q_name:
@@ -101,14 +111,10 @@ func _on_int_panel_quest_completed(q_name: String):
 			_kit_items_done()
 		"Hazards":
 			_hazards_done()
+		"Comm":
+			_comm_plans_done()
 
 
-
-# TODO: handle these situations
-# DONE: all items collected
-# DONE: all spots done
-# timeout
-# life empty
 func _on_kit_items_collected(items: Array):
 	for i in items:
 		if correct_items.has(i):
@@ -122,11 +128,11 @@ func _on_kit_items_collected(items: Array):
 			hud.update_life(-1)
 
 
+# TODO: queue free kititems, mark quest as complete and start hazards
 func _kit_items_done():
 	pass
 
 
-# TODO: validate answers
 func _on_hazards_hazard_managed(hazard: String, status: bool):
 	if status:
 		hud.update_score(5)
@@ -139,5 +145,30 @@ func _on_hazards_hazard_managed(hazard: String, status: bool):
 		hud.update_life(-1)
 
 
+# TODO: queue free hazards, mark quest as complete, start commplans
 func _hazards_done():
+	pass
+
+
+func _on_comm_plans_keypad_ok(number: String):
+	if number.match("999"):
+		hud.update_score(10)
+		comm_plans.start_family()
+	else:
+		hud.update_score(-2)
+		hud.update_life(-1)
+
+
+func _on_comm_plans_chat_selected(option: String):
+	if option.contains(str(correct_chat[current_opt])):
+		hud.update_score(5)
+		comm_plans.opt_eval = true
+	else:
+		comm_plans.opt_eval = false
+		hud.update_score(-1)
+	
+	current_opt += 1
+
+
+func _comm_plans_done():
 	pass

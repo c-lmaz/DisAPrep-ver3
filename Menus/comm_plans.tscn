@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bvphx6gyqgtrm"]
+[gd_scene load_steps=16 format=3 uid="uid://bvphx6gyqgtrm"]
 
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_d378g"]
 [ext_resource type="Texture2D" uid="uid://d4f1lbv3drh7s" path="res://Icons/Communication/phone_bg.png" id="1_yrhjq"]
@@ -10,6 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://ev2mbtfnm0jq" path="res://Themes/Styleboxes/default.stylebox" id="7_vvd0v"]
 [ext_resource type="Script" path="res://Themes/Customs/scrollcont_scrollbottom.gd" id="9_8kob1"]
 [ext_resource type="PackedScene" uid="uid://lcmtubp3tcb3" path="res://Themes/Customs/chat_messages.tscn" id="9_44nsh"]
+[ext_resource type="PackedScene" uid="uid://ctaki4m05hlau" path="res://Themes/Customs/chat_option.tscn" id="11_abv1v"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bg5xl"]
 texture = ExtResource("2_vqx17")
@@ -69,7 +70,6 @@ texture = ExtResource("1_yrhjq")
 expand_mode = 1
 
 [node name="EmergNo" type="VBoxContainer" parent="Phone"]
-visible = false
 custom_minimum_size = Vector2(330, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -227,6 +227,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="FamilyChannel" type="VBoxContainer" parent="Phone"]
+visible = false
 custom_minimum_size = Vector2(340, 550)
 layout_mode = 1
 anchors_preset = 8
@@ -333,7 +334,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "Father"
 chat_message = "Heads up everyone."
@@ -343,7 +343,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 chat_message = "Flood is coming and I need to make sure yall are ready for it."
 
 [node name="3" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
@@ -351,7 +350,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "Mother"
 chat_message = "Yes, make sure all of you have already made preparations."
@@ -361,7 +359,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "Sister"
 chat_message = "I haven't yet but I am scared that I might need to evacuate."
@@ -371,7 +368,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "Mother"
 chat_message = "It's okay to be scared but do not panic."
@@ -381,10 +377,9 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 chat_message = "There is still time to pack your things."
 
-[node name="Player1" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+[node name="p1" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 8
@@ -392,14 +387,13 @@ focus_mode = 2
 is_player = true
 has_name = true
 chat_name = "You"
-chat_message = "I have packed the essentials and already secure my house."
+chat_message = "I already packed my bags and secured the house."
 
 [node name="7" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "Brother"
 chat_message = "Good for you, little sibling."
@@ -409,7 +403,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 chat_message = "Both of us are also ready in case of evacuation too, mom."
 
 [node name="9" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
@@ -417,7 +410,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "Father"
 chat_message = "So most of us are ready. Now, we need to make a plan for the family."
@@ -427,7 +419,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "SIL"
 chat_message = "Plan for what, dad?"
@@ -437,7 +428,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "Sister"
 chat_message = "Where to meet and when and things like that."
@@ -447,7 +437,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 chat_message = "It is to keep track of everyone's location."
 
 [node name="13" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
@@ -455,12 +444,18 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "Father"
 chat_message = "So, anyone has suggestions for our meeting place?"
 
-[node name="Player2" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+[node name="Choice1" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("11_abv1v")]
+visible = false
+layout_mode = 2
+chat_option_1 = "My place. It's on higher ground."
+chat_option_2 = "Grandma's house."
+chat_option_3 = "The nearest evacuation center."
+
+[node name="p2" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 8
@@ -470,22 +465,29 @@ has_name = true
 chat_name = "You"
 chat_message = "I suggest grandma's house."
 
-[node name="14" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+[node name="14_Correct" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "SIL"
 chat_message = "I think grandma's house is a good option. It's safe and we can all stay together."
+
+[node name="14_Wrong" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+has_name = true
+chat_name = "SIL"
+chat_message = "That is an option but I think grandma's house is better. It's safe and we can all stay together."
 
 [node name="15" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "Sister"
 chat_message = "I agree. But what if we can't get there?"
@@ -495,12 +497,18 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "Brother"
-chat_message = "We need a backup plan. How about the nearest evacuation center?"
+chat_message = "We need a backup plan. How about we meet at the nearest evacuation center if we can't go to grandma's?"
 
-[node name="Player3" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+[node name="Choice2" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("11_abv1v")]
+visible = false
+layout_mode = 2
+chat_option_1 = "Agree. Grandma's house first, then the evacuation center."
+chat_option_2 = "I don't agree. Evacuation center first, then Grandma's house."
+chat_option_3 = ""
+
+[node name="p3" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 8
@@ -510,22 +518,29 @@ has_name = true
 chat_name = "You"
 chat_message = "Agreed. So grandma's first, then the evacuation center."
 
-[node name="17" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+[node name="17_Wrong" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "Mother"
 chat_message = "I think grandma's first is better. It's closer and we know the area well."
+
+[node name="17_Correct" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+has_name = true
+chat_name = "Mother"
+chat_message = "That is an excellent idea. It's closer and we know the area well."
 
 [node name="18" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "Brother"
 chat_message = "I agree. Grandma's first."
@@ -535,12 +550,18 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "Sister"
 chat_message = "Okay, Grandma's it is. But how will we contact each other if the phone lines go down?"
 
-[node name="Player4" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+[node name="Choice3" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("11_abv1v")]
+visible = false
+layout_mode = 2
+chat_option_1 = "Let's decide on a meeting time and location."
+chat_option_2 = "Let's have a backup communication method."
+chat_option_3 = ""
+
+[node name="p4" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 8
@@ -550,22 +571,29 @@ has_name = true
 chat_name = "You"
 chat_message = "Agree on a meeting time and location."
 
-[node name="20" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+[node name="20_Correct" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "SIL"
 chat_message = "Good idea. Let's agree to meet at Grandma's by 7.00 pm."
+
+[node name="20_Wrong" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 2
+has_name = true
+chat_name = "SIL"
+chat_message = "I think we need to have a meeting time. Let's agree to meet at Grandma's by 7.00 pm."
 
 [node name="21" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 chat_message = "And if we can't reach anyone, we try contacting our cousins and other relatives."
 
 [node name="22" parent="Phone/FamilyChannel/Messages/Messages" instance=ExtResource("9_44nsh")]
@@ -573,7 +601,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "Brother"
 chat_message = "Smart. Let's write that down."
@@ -583,7 +610,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "Mother"
 chat_message = "Okay, everyone, let's stay calm and be prepared. We'll get through this together."
@@ -593,7 +619,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 2
-is_player = false
 has_name = true
 chat_name = "Father"
 chat_message = "Agreed. Stay safe, everyone."

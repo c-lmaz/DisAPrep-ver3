@@ -2,6 +2,6 @@
 	"Prepare": [
 		{"name": "Collect emergency kit items", "total": 17, "short": "Kit"},
 		{"name": "Mitigate hazards and damages", "total": 7, "short": "Hazards"},
-		{"name": "Have emergency contacts", "total": 6, "short": "Contact"},
+		{"name": "Have emergency contacts", "total": 4, "short": "Comm"},
 	]
 }
