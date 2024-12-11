@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1hnk81d5s5ud"]
+[gd_scene load_steps=34 format=3 uid="uid://c1hnk81d5s5ud"]
 
 [ext_resource type="MeshLibrary" uid="uid://dg0sfuah3ayq3" path="res://Models/Maze/Road/roads.meshlib" id="1_33pur"]
+[ext_resource type="PackedScene" uid="uid://bueeove187tdj" path="res://Models/Maze/Road/construction_pylon.glb" id="1_pudbd"]
 [ext_resource type="MeshLibrary" uid="uid://bxucecbgbntqo" path="res://Models/Maze/Building/buildings.meshlib" id="2_50d2t"]
+[ext_resource type="PackedScene" uid="uid://dw1reoj03ya44" path="res://Models/Maze/Road/construction_light.glb" id="2_fsxfj"]
+[ext_resource type="PackedScene" uid="uid://depo81trft3l5" path="res://Models/Maze/Road/construction_barrier.glb" id="3_xv76g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_676tt"]
 sky_top_color = Color(0, 0.592157, 1, 1)
 sky_horizon_color = Color(0.517647, 0.811765, 0.984314, 1)
+ground_bottom_color = Color(0.647059, 0.690196, 0.831373, 1)
 ground_horizon_color = Color(0.517647, 0.811765, 0.984314, 1)
 use_debanding = false
 
@@ -17,56 +21,199 @@ background_mode = 2
 sky = SubResource("Sky_pj67q")
 glow_normalized = true
 
+[sub_resource type="Curve3D" id="Curve3D_dox5u"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -2, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_f0wq6"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, -3, 0, 0, 0, 0, 1, 0, 0, -0.1, -4, 0, -0.9, 0.1, 0, 0, 0, 0, 0, -4.1, 0, -1),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_e4pp3"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, -1, 0, -1, 0, 0, 0, 0, 0, 0, -1, 0, -2),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_75vbw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, -1, 0, 0, -3, 0, 1, 0, 0, 1, 0, 0, 0.1, -4, 0, 0.1, 0.1, 0, 0, 0, 0, 0, -4.1, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_2u635"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 3, 0, 1),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_f2l0a"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, -1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, -2, 1, 0, 0, 0, 0, 0, -1, 0, -3),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_hf20n"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, -1, -1, 0, 0, -1, 0, 1),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_yyxpd"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, -1, 0, 0, 0, -0.5, 0, 0, 0.5, 0, 0, 0.5, 0, -1, 0, 0, -0.5, 0, 0, 0.5, 1, 0, -0.5, -1, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0, -1, 0, 0, 0, 0, 0, 0, 3, 0, -3),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_1bsdn"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, -1, 0, -1, 0, 0, 0, -1, 0, 0, -2, 0, -1, 0, 0, 1, 0, 0, 0, -3, 0, -2, 0, 0, 0, 0, 0, 0, -3, 0, -4),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_p00fi"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_il55p"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, -0.5, 0, 0, 0.5, 2, 0, 0.5, -1, 0, 0, 1, 0, 0, 3, 0, 1, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, -2),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_ohjfr"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, -3, 0, 0, 0, 0, 1, 0, 0, 0, -4, 0, -1, 0, 0, 0, 0, 0, 0, -4, 0, -3),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_e8iku"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0, 0, 0, -1, 0, 2),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_183y6"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -4),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_dkdu4"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 1, 0, 0, -1, 0, 0, -1, 0, -1, 0, 0, 1, 0, 0, 0, -2, 0, -2, 0, 0, 0, 0, 0, -1, -2, 0, -3, 1, 0, 0, 0, 0, 0, -3, 0, -4, 0, 0, 0, 0, 0, 0, -5, 0, -4),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_jcjoq"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 3, 1, 0, 0, -1, 0, 0, 0, 0, 4, 0, 0, 1, 0, 0, 0, -1, 0, 3.1, 0.1, 0, 0, 0, 0, 0, -1.1, 0, 3),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_hulx2"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0, 0, 0, 1, 0, -3),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_u0lh7"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -2, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_anlyr"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, -1, 0, 1),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_v42vm"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 1, 0, 0, 3, 0, -1, 0, 0, -1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 1, 4, 0, 1, -1, 0, 0, 0, 0, 0, 5, 0, 2),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_jfnoe"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, -1, 0, -1),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_tx07f"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, -1, 0, 1),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_pblss"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 4, -1, 0, 0, 0, 0, 0, 1, 0, 5, 0, 0, 0, 0, 0, 0, 2, 0, 5),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_7ye2r"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -2),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_qoivh"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, -1, 0, -1),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [node name="maze" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yxe6n")
 
 [node name="maze1" type="GridMap" parent="."]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.11, 0)
 mesh_library = ExtResource("1_33pur")
-cell_size = Vector3(1, 2, 1)
+cell_size = Vector3(1, 1, 1)
 cell_center_x = false
 cell_center_y = false
 cell_center_z = false
 data = {
-"cells": PackedInt32Array(65535, 65535, 5, 65535, 65534, 4, 65535, 65533, 5, 65535, 65532, 5, 65535, 65531, 4, 65535, 0, 9, 65535, 1, 1, 65535, 2, 15, 65535, 3, 11, 65535, 4, 4, 65534, 65535, 15, 65533, 65535, 5, 65532, 65535, 7, 65531, 65535, 10, 65531, 65531, 5, 65531, 65532, 5, 65531, 65533, 5, 65531, 65534, 5, 65532, 65534, 5, 65532, 65533, 5, 65532, 65532, 5, 65533, 65532, 5, 65532, 65531, 5, 65533, 65533, 4, 65533, 65534, 5, 65534, 65533, 12, 65534, 65532, 15, 65534, 65531, 13, 65533, 65531, 10, 65534, 65534, 14, 65534, 0, 15, 65534, 1, 3, 65534, 2, 5, 65534, 3, 5, 65534, 4, 4, 65533, 4, 0, 65533, 3, 7, 65532, 2, 15, 65532, 1, 15, 65532, 0, 15, 65531, 0, 5, 65531, 1, 5, 65531, 2, 5, 65531, 3, 8, 65532, 3, 3, 65532, 4, 5, 65533, 2, 5, 65533, 1, 10, 65533, 0, 5, 65531, 4, 11, 0, 3, 5, 1, 3, 15, 0, 4, 4, 1, 4, 3, 2, 4, 4, 3, 4, 4, 4, 4, 2, 4, 3, 5, 4, 2, 6, 4, 1, 15, 4, 0, 15, 3, 0, 5, 2, 0, 5, 1, 0, 15, 1, 1, 1, 0, 1, 4, 0, 2, 5, 1, 2, 15, 2, 3, 5, 3, 2, 4, 3, 1, 5, 2, 2, 0, 3, 3, 5, 2, 1, 7, 0, 0, 5, 0, 65535, 10, 0, 65534, 4, 0, 65532, 5, 0, 65531, 4, 1, 65531, 4, 2, 65531, 7, 3, 65531, 5, 4, 65531, 9, 4, 65532, 15, 4, 65533, 15, 4, 65534, 12, 4, 65535, 15, 3, 65535, 5, 3, 65534, 4, 3, 65533, 5, 3, 65532, 5, 2, 65532, 15, 1, 65532, 5, 1, 65533, 5, 1, 65534, 13, 2, 65534, 3, 2, 65535, 5, 1, 65535, 12, 0, 65533, 5, 2, 65533, 15)
+"cells": PackedInt32Array(65535, 65535, 5, 65535, 65534, 4, 65535, 65533, 5, 65535, 65532, 5, 65535, 65531, 4, 65535, 0, 9, 65535, 1, 1, 65535, 2, 15, 65535, 3, 11, 65535, 4, 4, 65534, 65535, 15, 65533, 65535, 5, 65532, 65535, 7, 65531, 65535, 10, 65531, 65531, 5, 65531, 65532, 5, 65531, 65533, 5, 65531, 65534, 5, 65532, 65534, 5, 65532, 65533, 5, 65532, 65532, 5, 65533, 65532, 5, 65532, 65531, 5, 65533, 65533, 4, 65533, 65534, 5, 65534, 65533, 12, 65534, 65532, 15, 65534, 65531, 13, 65533, 65531, 10, 65534, 65534, 14, 65534, 0, 15, 65534, 1, 0, 65534, 2, 5, 65534, 3, 5, 65534, 4, 4, 65533, 4, 0, 65533, 3, 7, 65532, 2, 15, 65532, 1, 15, 65532, 0, 15, 65531, 0, 5, 65531, 1, 5, 65531, 2, 5, 65531, 3, 8, 65532, 3, 3, 65532, 4, 5, 65533, 2, 5, 65533, 1, 5, 65533, 0, 5, 65531, 4, 11, 0, 3, 5, 1, 3, 15, 0, 4, 4, 1, 4, 3, 2, 4, 4, 3, 4, 4, 4, 4, 2, 4, 3, 5, 4, 2, 6, 4, 1, 15, 4, 0, 15, 3, 0, 5, 2, 0, 5, 1, 0, 15, 1, 1, 1, 0, 1, 4, 0, 2, 5, 1, 2, 15, 2, 3, 5, 3, 2, 4, 3, 1, 5, 2, 2, 0, 3, 3, 5, 2, 1, 7, 0, 0, 5, 0, 65535, 10, 0, 65534, 4, 0, 65532, 5, 0, 65531, 4, 1, 65531, 4, 2, 65531, 7, 3, 65531, 5, 4, 65531, 9, 4, 65532, 15, 4, 65533, 15, 4, 65534, 12, 4, 65535, 15, 3, 65535, 5, 3, 65534, 4, 3, 65533, 5, 3, 65532, 5, 2, 65532, 15, 1, 65532, 5, 1, 65533, 5, 1, 65534, 13, 2, 65534, 3, 2, 65535, 5, 1, 65535, 12, 0, 65533, 5, 2, 65533, 15, 5, 5, 5, 5, 4, 5, 5, 3, 5, 5, 2, 5, 5, 1, 5, 5, 0, 5, 5, 65535, 5, 5, 65534, 5, 5, 65533, 5, 5, 65532, 5, 5, 65531, 5, 5, 65530, 5, 4, 65530, 5, 3, 65530, 5, 2, 65530, 5, 1, 65530, 5, 0, 65530, 5, 65535, 65530, 5, 65534, 65530, 5, 65533, 65530, 5, 65532, 65530, 5, 65531, 65530, 5, 65530, 65530, 5, 65530, 65531, 5, 65530, 65532, 5, 65530, 65533, 5, 65530, 65534, 5, 65530, 65535, 5, 65530, 0, 5, 65530, 1, 5, 65530, 2, 5, 65530, 3, 5, 65530, 4, 5, 65530, 5, 5, 65531, 5, 5, 65532, 5, 5, 65533, 5, 5, 65534, 5, 5, 65535, 5, 5, 0, 5, 5, 1, 5, 5, 2, 5, 5, 3, 5, 5, 4, 5, 5)
 }
 
-[node name="maze2" type="GridMap" parent="."]
-mesh_library = ExtResource("1_33pur")
-cell_size = Vector3(1, 2, 1)
-cell_center_x = false
-cell_center_y = false
-cell_center_z = false
-data = {
-"cells": PackedInt32Array(65535, 65535, 4, 65535, 65534, 5, 65535, 65533, 4, 65535, 65532, 5, 65535, 65531, 5, 65535, 0, 5, 65535, 1, 5, 65535, 2, 5, 65535, 3, 5, 65535, 4, 4, 65534, 65535, 3, 65533, 65535, 4, 65532, 65535, 8, 65531, 65535, 5, 65531, 65531, 5, 65531, 65532, 5, 65531, 65533, 5, 65531, 65534, 5, 65532, 65534, 5, 65532, 65533, 5, 65532, 65532, 5, 65533, 65532, 5, 65532, 65531, 5, 65533, 65533, 4, 65533, 65534, 5, 65534, 65533, 1, 65534, 65532, 15, 65534, 65531, 9, 65533, 65531, 5, 65534, 65534, 15, 65534, 0, 5, 65534, 1, 7, 65534, 2, 15, 65534, 3, 15, 65534, 4, 0, 65533, 4, 5, 65533, 3, 5, 65532, 2, 6, 65532, 1, 14, 65532, 0, 15, 65531, 0, 5, 65531, 1, 5, 65531, 2, 8, 65531, 3, 15, 65532, 3, 5, 65532, 4, 5, 65533, 2, 5, 65533, 1, 4, 65533, 0, 5, 65531, 4, 11, 0, 3, 15, 1, 3, 15, 0, 4, 6, 1, 4, 0, 2, 4, 4, 3, 4, 3, 4, 4, 2, 4, 3, 5, 4, 2, 5, 4, 1, 5, 4, 0, 2, 3, 0, 1, 2, 0, 4, 1, 0, 1, 1, 1, 15, 0, 1, 15, 0, 2, 15, 1, 2, 15, 2, 3, 5, 3, 2, 15, 3, 1, 15, 2, 2, 5, 3, 3, 15, 2, 1, 5, 0, 0, 8, 0, 65535, 4, 0, 65534, 5, 0, 65532, 5, 0, 65531, 5, 1, 65531, 5, 2, 65531, 5, 3, 65531, 9, 4, 65531, 5, 4, 65532, 5, 4, 65533, 5, 4, 65534, 5, 4, 65535, 5, 3, 65535, 15, 3, 65534, 15, 3, 65533, 12, 3, 65532, 15, 2, 65532, 5, 1, 65532, 5, 1, 65533, 13, 1, 65534, 15, 2, 65534, 5, 2, 65535, 5, 1, 65535, 12, 0, 65533, 4, 2, 65533, 4)
-}
-
-[node name="maze3" type="GridMap" parent="."]
-visible = false
-mesh_library = ExtResource("1_33pur")
-cell_size = Vector3(1, 2, 1)
-cell_center_x = false
-cell_center_y = false
-cell_center_z = false
-data = {
-"cells": PackedInt32Array(65535, 65535, 2, 65535, 65534, 5, 65535, 65533, 4, 65535, 65532, 5, 65535, 65531, 10, 65535, 0, 5, 65535, 1, 4, 65535, 2, 4, 65535, 3, 5, 65535, 4, 4, 65534, 65535, 4, 65533, 65535, 4, 65532, 65535, 14, 65531, 65535, 5, 65531, 65531, 10, 65531, 65532, 5, 65531, 65533, 5, 65531, 65534, 5, 65532, 65534, 15, 65532, 65533, 14, 65532, 65532, 15, 65533, 65532, 5, 65532, 65531, 7, 65533, 65533, 4, 65533, 65534, 5, 65534, 65533, 4, 65534, 65532, 5, 65534, 65531, 5, 65533, 65531, 5, 65534, 65534, 5, 65534, 0, 9, 65534, 1, 14, 65534, 2, 14, 65534, 3, 15, 65534, 4, 3, 65533, 4, 4, 65533, 3, 5, 65532, 2, 15, 65532, 1, 15, 65532, 0, 15, 65531, 0, 5, 65531, 1, 5, 65531, 2, 5, 65531, 3, 5, 65532, 3, 15, 65532, 4, 3, 65533, 2, 5, 65533, 1, 5, 65533, 0, 5, 65531, 4, 10, 0, 3, 15, 1, 3, 5, 0, 4, 6, 1, 4, 5, 2, 4, 11, 3, 4, 5, 4, 4, 11, 4, 3, 7, 4, 2, 5, 4, 1, 5, 4, 0, 5, 3, 0, 12, 2, 0, 4, 1, 0, 4, 1, 1, 5, 0, 1, 6, 0, 2, 13, 1, 2, 4, 2, 3, 15, 3, 2, 15, 3, 1, 15, 2, 2, 7, 3, 3, 0, 2, 1, 5, 0, 0, 14, 0, 65535, 15, 0, 65534, 15, 0, 65532, 15, 0, 65531, 7, 1, 65531, 8, 2, 65531, 4, 3, 65531, 7, 4, 65531, 5, 4, 65532, 5, 4, 65533, 2, 4, 65534, 5, 4, 65535, 5, 3, 65535, 15, 3, 65534, 15, 3, 65533, 1, 3, 65532, 15, 2, 65532, 5, 1, 65532, 15, 1, 65533, 3, 1, 65534, 5, 2, 65534, 5, 2, 65535, 5, 1, 65535, 5, 0, 65533, 1, 2, 65533, 4)
-}
-
-[node name="maze4" type="GridMap" parent="."]
-visible = false
-mesh_library = ExtResource("1_33pur")
-cell_size = Vector3(1, 2, 1)
-cell_center_x = false
-cell_center_y = false
-cell_center_z = false
-data = {
-"cells": PackedInt32Array(65535, 65535, 5, 65535, 65534, 4, 65535, 65533, 5, 65535, 65532, 5, 65535, 65531, 4, 65535, 0, 4, 65535, 1, 5, 65535, 2, 5, 65535, 3, 5, 65535, 4, 4, 65534, 65535, 15, 65533, 65535, 5, 65532, 65535, 15, 65531, 65535, 15, 65531, 65531, 9, 65531, 65532, 15, 65531, 65533, 15, 65531, 65534, 14, 65532, 65534, 13, 65532, 65533, 5, 65532, 65532, 5, 65533, 65532, 5, 65532, 65531, 5, 65533, 65533, 5, 65533, 65534, 4, 65534, 65533, 15, 65534, 65532, 15, 65534, 65531, 8, 65533, 65531, 5, 65534, 65534, 1, 65534, 0, 1, 65534, 1, 15, 65534, 2, 15, 65534, 3, 11, 65534, 4, 4, 65533, 4, 4, 65533, 3, 5, 65532, 2, 15, 65532, 1, 7, 65532, 0, 0, 65531, 0, 15, 65531, 1, 0, 65531, 2, 5, 65531, 3, 5, 65532, 3, 15, 65532, 4, 0, 65533, 2, 5, 65533, 1, 5, 65533, 0, 4, 65531, 4, 5, 0, 3, 15, 1, 3, 5, 0, 4, 3, 1, 4, 4, 2, 4, 2, 3, 4, 5, 4, 4, 11, 4, 3, 15, 4, 2, 15, 4, 1, 12, 4, 0, 15, 3, 0, 5, 2, 0, 5, 1, 0, 5, 1, 1, 10, 0, 1, 15, 0, 2, 15, 1, 2, 5, 2, 3, 5, 3, 2, 5, 3, 1, 4, 2, 2, 5, 3, 3, 5, 2, 1, 4, 0, 0, 7, 0, 65535, 5, 0, 65534, 4, 0, 65532, 5, 0, 65531, 4, 1, 65531, 4, 2, 65531, 7, 3, 65531, 5, 4, 65531, 5, 4, 65532, 5, 4, 65533, 7, 4, 65534, 12, 4, 65535, 15, 3, 65535, 5, 3, 65534, 4, 3, 65533, 4, 3, 65532, 5, 2, 65532, 15, 1, 65532, 5, 1, 65533, 5, 1, 65534, 4, 2, 65534, 4, 2, 65535, 5, 1, 65535, 5, 0, 65533, 5, 2, 65533, 0)
-}
-
-[node name="buildings1" type="GridMap" parent="."]
-visible = false
+[node name="buildings1" type="GridMap" parent="maze1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 mesh_library = ExtResource("2_50d2t")
 cell_size = Vector3(1, 1, 0.5)
 cell_center_x = false
@@ -76,12 +223,169 @@ data = {
 "cells": PackedInt32Array(65531, 65533, 23, 3, 4, 4, 65531, 5, 35, 3, 65528, 30, 65535, 0, 30, 65532, 10, 28, 1, 65532, 26, 0, 65532, 26, 65535, 65532, 26, 0, 65530, 20, 2, 2, 21, 65533, 1, 14, 0, 8, 11, 65534, 8, 13, 2, 8, 8, 0, 2, 7, 3, 0, 31)
 }
 
-[node name="buildings2" type="GridMap" parent="."]
-mesh_library = ExtResource("2_50d2t")
-cell_size = Vector3(1, 1, 0.5)
-cell_center_x = false
-cell_center_y = false
-cell_center_z = false
-data = {
-"cells": PackedInt32Array(65531, 65533, 23)
-}
+[node name="Obstruction" type="Node3D" parent="maze1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11, 0)
+
+[node name="construction_pylon2" parent="maze1/Obstruction" instance=ExtResource("1_pudbd")]
+transform = Transform3D(1.85, 0, -0.759946, 0, 2, 0, 0.759946, 0, 1.85, 1.75238, -0.0891127, -0.319813)
+
+[node name="construction_pylon3" parent="maze1/Obstruction" instance=ExtResource("1_pudbd")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.3629, -0.0891127, -0.493511)
+
+[node name="construction_pylon4" parent="maze1/Obstruction" instance=ExtResource("1_pudbd")]
+transform = Transform3D(1.99915, 0, 0.0581811, 0, 2, 0, -0.0581811, 0, 1.99915, 1.47178, -0.0891127, -0.569504)
+
+[node name="construction_pylon5" parent="maze1/Obstruction" instance=ExtResource("1_pudbd")]
+transform = Transform3D(1.98534, 0, -0.241694, 0, 2, 0, 0.241694, 0, 1.98534, 1.84204, -0.0891127, -0.425457)
+
+[node name="construction_pylon6" parent="maze1/Obstruction" instance=ExtResource("1_pudbd")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.82, -0.089, -0.494)
+
+[node name="Obstruction2" type="Node3D" parent="maze1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.932318, 0.11, 0)
+
+[node name="construction_pylon2" parent="maze1/Obstruction2" instance=ExtResource("1_pudbd")]
+transform = Transform3D(1.85, 0, -0.759946, 0, 2, 0, 0.759946, 0, 1.85, 1.75238, -0.0891127, -0.319813)
+
+[node name="construction_pylon3" parent="maze1/Obstruction2" instance=ExtResource("1_pudbd")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.3629, -0.0891127, -0.493511)
+
+[node name="construction_pylon4" parent="maze1/Obstruction2" instance=ExtResource("1_pudbd")]
+transform = Transform3D(1.99915, 0, 0.0581811, 0, 2, 0, -0.0581811, 0, 1.99915, 1.47178, -0.0891127, -0.569504)
+
+[node name="construction_pylon5" parent="maze1/Obstruction2" instance=ExtResource("1_pudbd")]
+transform = Transform3D(1.98534, 0, -0.241694, 0, 2, 0, 0.241694, 0, 1.98534, 1.84204, -0.0891127, -0.425457)
+
+[node name="construction_pylon6" parent="maze1/Obstruction2" instance=ExtResource("1_pudbd")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.82, -0.089, -0.494)
+
+[node name="Obstruction3" type="Node3D" parent="maze1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0894818, 0.11, -3.01234)
+
+[node name="construction_pylon2" parent="maze1/Obstruction3" instance=ExtResource("1_pudbd")]
+transform = Transform3D(1.85, 0, -0.759946, 0, 2, 0, 0.759946, 0, 1.85, 1.75238, -0.0891127, -0.319813)
+
+[node name="construction_pylon3" parent="maze1/Obstruction3" instance=ExtResource("1_pudbd")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.3629, -0.0891127, -0.493511)
+
+[node name="construction_pylon4" parent="maze1/Obstruction3" instance=ExtResource("1_pudbd")]
+transform = Transform3D(1.99915, 0, 0.0581811, 0, 2, 0, -0.0581811, 0, 1.99915, 1.47178, -0.0891127, -0.569504)
+
+[node name="construction_pylon5" parent="maze1/Obstruction3" instance=ExtResource("1_pudbd")]
+transform = Transform3D(1.98534, 0, -0.241694, 0, 2, 0, 0.241694, 0, 1.98534, 1.84204, -0.0891127, -0.425457)
+
+[node name="construction_pylon6" parent="maze1/Obstruction3" instance=ExtResource("1_pudbd")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.82, -0.089, -0.494)
+
+[node name="construction_light2" parent="maze1" instance=ExtResource("2_fsxfj")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -1.631, 0.01, 1.911)
+
+[node name="construction_barrier2" parent="maze1" instance=ExtResource("3_xv76g")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -2.005, 0.01, 0.997)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.5, 0, -0.5)
+fov = 85.0
+far = 10.0
+
+[node name="Paths" type="Node3D" parent="."]
+
+[node name="Start_1" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.4, 4.5)
+curve = SubResource("Curve3D_dox5u")
+
+[node name="1_Straight_2" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.4, 4.5)
+curve = SubResource("Curve3D_f0wq6")
+
+[node name="1_Right_3" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.4, 4.5)
+curve = SubResource("Curve3D_e4pp3")
+
+[node name="1A_Right_2" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.4, 3.5)
+curve = SubResource("Curve3D_75vbw")
+
+[node name="1A_Left_Start" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.4, 3.5)
+curve = SubResource("Curve3D_2u635")
+
+[node name="2_Right_DEAD" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.4, 2.5)
+curve = SubResource("Curve3D_f2l0a")
+
+[node name="2_Straight_DEAD" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.4, 3.5)
+curve = SubResource("Curve3D_hf20n")
+
+[node name="3_Right_4" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.4, 2.5)
+curve = SubResource("Curve3D_yyxpd")
+
+[node name="3_Left_6A" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.4, 2.5)
+curve = SubResource("Curve3D_1bsdn")
+
+[node name="3A_Right_1A" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.4, 1.5)
+curve = SubResource("Curve3D_p00fi")
+
+[node name="3A_Straight_4" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.4, 1.5)
+curve = SubResource("Curve3D_il55p")
+
+[node name="3B_Straight_6A" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.4, 1.5)
+curve = SubResource("Curve3D_ohjfr")
+
+[node name="3B_Left_1A" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.4, 1.5)
+curve = SubResource("Curve3D_e8iku")
+
+[node name="4_Straight_DEAD" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.4, -0.5)
+curve = SubResource("Curve3D_183y6")
+
+[node name="4_Left_5" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.4, -0.5)
+curve = SubResource("Curve3D_dkdu4")
+
+[node name="4A_Right_3B" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.4, -1.5)
+curve = SubResource("Curve3D_jcjoq")
+
+[node name="4A_Left_DEAD" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.4, -1.5)
+curve = SubResource("Curve3D_hulx2")
+
+[node name="5_Straight_DEAD" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.4, -4.5)
+curve = SubResource("Curve3D_u0lh7")
+
+[node name="5_Left_6" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.4, -4.5)
+curve = SubResource("Curve3D_anlyr")
+
+[node name="5A_Right_4A" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.4, -3.5)
+curve = SubResource("Curve3D_v42vm")
+
+[node name="5A_Left_DEAD" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.4, -3.5)
+curve = SubResource("Curve3D_jfnoe")
+
+[node name="6_Right_GOAL" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.4, -3.5)
+curve = SubResource("Curve3D_tx07f")
+
+[node name="6_Straight_3A" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.4, -3.5)
+curve = SubResource("Curve3D_pblss")
+
+[node name="6A_Straight_5A" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.4, -1.5)
+curve = SubResource("Curve3D_7ye2r")
+
+[node name="6A_Left_GOAL" type="Path3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.4, -1.5)
+curve = SubResource("Curve3D_qoivh")
