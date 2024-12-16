@@ -45,7 +45,6 @@ action = "ui_right"
 [node name="HUD" parent="." instance=ExtResource("5_i50yh")]
 
 [node name="KitItems" parent="." instance=ExtResource("6_ptb0e")]
-visible = false
 
 [node name="Hazards" parent="." instance=ExtResource("7_q5egp")]
 visible = false
@@ -54,5 +53,3 @@ visible = false
 visible = false
 
 [node name="InteractionPanel" parent="." instance=ExtResource("7_e6e3e")]
-custom_minimum_size = Vector2(540, 80)
-is_small = true

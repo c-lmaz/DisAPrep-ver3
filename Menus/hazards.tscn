@@ -107,7 +107,6 @@ offset_top = 50.0
 offset_bottom = 50.0
 
 [node name="HazardMenu" type="Panel" parent="."]
-visible = false
 self_modulate = Color(1, 1, 1, 0.588235)
 custom_minimum_size = Vector2(540, 450)
 layout_mode = 1
@@ -228,46 +227,13 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Image" type="TextureRect" parent="HazardMenu/VBoxContainer/Breaker"]
-custom_minimum_size = Vector2(0, 90)
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 texture = ExtResource("5_h2n02")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Prompt" type="Label" parent="HazardMenu/VBoxContainer/Breaker"]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
-theme_override_font_sizes/font_size = 30
-text = "Do you want to turn off the circuit breaker?"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Water" type="VBoxContainer" parent="HazardMenu/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="Description" type="Label" parent="HazardMenu/VBoxContainer/Water"]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
-theme_override_fonts/font = ExtResource("4_ktsoa")
-theme_override_font_sizes/font_size = 24
-text = "A circuit breaker is an electrical safety device that doubles as a switch to connect and disconnect electrical power."
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Image" type="TextureRect" parent="HazardMenu/VBoxContainer/Water"]
-custom_minimum_size = Vector2(0, 90)
-layout_mode = 2
-texture = ExtResource("5_h2n02")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Prompt" type="Label" parent="HazardMenu/VBoxContainer/Water"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -288,17 +254,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
 theme_override_fonts/font = ExtResource("4_ktsoa")
-theme_override_font_sizes/font_size = 24
-text = "A circuit breaker is an electrical safety device that doubles as a switch to connect and disconnect electrical power."
+theme_override_font_sizes/font_size = 26
+text = "Floodwater can cause huge problems if it get into the plumbing system. These problems can be costly to fix."
 horizontal_alignment = 1
 autowrap_mode = 2
-
-[node name="Image" type="TextureRect" parent="HazardMenu/VBoxContainer/Gas"]
-custom_minimum_size = Vector2(0, 90)
-layout_mode = 2
-texture = ExtResource("5_h2n02")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="Prompt" type="Label" parent="HazardMenu/VBoxContainer/Gas"]
 custom_minimum_size = Vector2(500, 0)
@@ -306,12 +265,37 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
 theme_override_font_sizes/font_size = 30
-text = "Do you want to turn off the circuit breaker?"
+text = "Do you want to close the water supply?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Water" type="VBoxContainer" parent="HazardMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Description" type="Label" parent="HazardMenu/VBoxContainer/Water"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_fonts/font = ExtResource("4_ktsoa")
+theme_override_font_sizes/font_size = 26
+text = "Floodwater can move and damage gas lines and cause gas leaks. Gas leaks cause fire and explosion."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Prompt" type="Label" parent="HazardMenu/VBoxContainer/Water"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_font_sizes/font_size = 30
+text = "Do you want to close the gas valve?"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Desktop" type="VBoxContainer" parent="HazardMenu/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 20
 
@@ -321,17 +305,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
 theme_override_fonts/font = ExtResource("4_ktsoa")
-theme_override_font_sizes/font_size = 24
-text = "A circuit breaker is an electrical safety device that doubles as a switch to connect and disconnect electrical power."
+theme_override_font_sizes/font_size = 26
+text = "Any electronic devices and cables must be placed somewhere high to prevent damages and cause injuries if left messy."
 horizontal_alignment = 1
 autowrap_mode = 2
-
-[node name="Image" type="TextureRect" parent="HazardMenu/VBoxContainer/Desktop"]
-custom_minimum_size = Vector2(0, 90)
-layout_mode = 2
-texture = ExtResource("5_h2n02")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="Prompt" type="Label" parent="HazardMenu/VBoxContainer/Desktop"]
 custom_minimum_size = Vector2(500, 0)
@@ -339,7 +316,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
 theme_override_font_sizes/font_size = 30
-text = "Do you want to turn off the circuit breaker?"
+text = "Do you want to tidy up your desktop?"
 horizontal_alignment = 1
 autowrap_mode = 2
 

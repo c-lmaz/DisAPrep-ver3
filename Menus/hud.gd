@@ -23,12 +23,9 @@ var score = 0
 var mins
 var secs
 
-# Built-in Functions
-
 func _ready():
 	update_life(0)
 	update_score(0)
-	timer.start()
 	
 	pause_menu.resume_pressed.connect(_on_pause_toggled)
 	pause_menu.exit_pressed.connect(_on_exit_pressed)
@@ -42,15 +39,23 @@ func _process(_delta):
 	second.text = "%02d" % secs
 
 
-# Set and Update Functions
+func get_time_left(): 
+	#timer.stop()
+	return int(timer.time_left)
 
 func set_level_name(level_name: Array):
 	level.text = level_name[0]
 	phase.text = level_name[1]
 
 
+func set_timer(time: int):
+	timer.wait_time = time
+	timer.start()
+
+
 func update_life(add_life):
 	life += add_life
+	print(life)
 	lives.update_hearts(life)
 	if life == 0:
 		player_died.emit()

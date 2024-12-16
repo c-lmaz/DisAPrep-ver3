@@ -1,3 +1,60 @@
-[gd_scene format=3 uid="uid://dn2gu6554kow1"]
+[gd_scene load_steps=10 format=3 uid="uid://dn2gu6554kow1"]
+
+[ext_resource type="Script" path="res://Menus/flood_respond.gd" id="1_ng378"]
+[ext_resource type="PackedScene" uid="uid://c1hnk81d5s5ud" path="res://Models/maze.tscn" id="2_yvcwq"]
+[ext_resource type="Texture2D" uid="uid://dhswe1b54bh2l" path="res://Icons/Controls/shadedLight_Up.png" id="3_835rp"]
+[ext_resource type="PackedScene" uid="uid://chpdu7tfk38or" path="res://Menus/hud.tscn" id="3_bafyd"]
+[ext_resource type="PackedScene" uid="uid://dtc51relpmt3x" path="res://Menus/interaction_panel.tscn" id="4_uipw3"]
+[ext_resource type="Texture2D" uid="uid://3jjo3avpedoc" path="res://Icons/Controls/shadedLight_Right.png" id="4_uo7ip"]
+[ext_resource type="Texture2D" uid="uid://bpw2sj63t72ur" path="res://Icons/Controls/shadedLight_Left.png" id="5_y2tli"]
+[ext_resource type="Texture2D" uid="uid://cnwus1y8vvk7i" path="res://Icons/Controls/shadedLight_Down.png" id="6_ltnig"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ht0hi"]
+viewport_path = NodePath("SubViewport")
 
 [node name="Flood_Respond" type="CanvasLayer"]
+script = ExtResource("1_ng378")
+metadata/_edit_vertical_guides_ = [291.0]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(540, 750)
+
+[node name="maze" parent="SubViewport" instance=ExtResource("2_yvcwq")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_top = 140.0
+offset_right = 540.0
+offset_bottom = 780.0
+texture = SubResource("ViewportTexture_ht0hi")
+stretch_mode = 5
+
+[node name="Straight" type="TouchScreenButton" parent="TextureRect"]
+visible = false
+position = Vector2(231, 405)
+texture_normal = ExtResource("3_835rp")
+action = "ui_up"
+
+[node name="Right" type="TouchScreenButton" parent="TextureRect"]
+visible = false
+position = Vector2(430, 470)
+texture_normal = ExtResource("4_uo7ip")
+action = "ui_right"
+
+[node name="Left" type="TouchScreenButton" parent="TextureRect"]
+visible = false
+position = Vector2(20, 470)
+texture_normal = ExtResource("5_y2tli")
+action = "ui_left"
+
+[node name="DEAD" type="TouchScreenButton" parent="TextureRect"]
+visible = false
+position = Vector2(231, 620)
+texture_normal = ExtResource("6_ltnig")
+action = "ui_down"
+
+[node name="HUD" parent="." instance=ExtResource("3_bafyd")]
+
+[node name="InteractionPanel" parent="." instance=ExtResource("4_uipw3")]
+custom_minimum_size = Vector2(540, 80)
+phase = 1
+is_small = true

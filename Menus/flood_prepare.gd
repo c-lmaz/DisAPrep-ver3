@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+signal prepare_ends(score: int, quests: Dictionary, time_left: int)
+
+@onready var house = $SubViewport/House
 @onready var camera = $SubViewport/House/Camera3D
 @onready var texture_rect = $TextureRect
 @onready var right = $TextureRect/Right
@@ -8,8 +11,9 @@ var rooms = ["Outside", "Living", "Kitchen", "Bathroom", "Family", "Bedroom"]
 var room_ind = 1
 
 @onready var hud = $HUD
-var level_phase = ["Flood", "Prep"]
+var level_phase = ["Flood", "Prepare"]
 var current_quest : String
+var hud_timer = 300
 
 @onready var interaction_panel = $InteractionPanel
 @onready var item_container = $InteractionPanel/ScrollContainer/ItemContainer
@@ -26,6 +30,7 @@ var current_opt = 0
 
 func _ready():
 	hud.set_level_name(level_phase)
+	hud.set_timer(hud_timer)
 	
 	hud.game_paused.connect(_on_hud_game_paused)
 	hud.player_died.connect(_on_hud_player_died)
@@ -48,39 +53,34 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_right"):
 		if camera.position.x < 0:
-			camera.position.x = 1.5
-			camera.position.z = 3.1
-			camera.rotation = Vector3(0,0,0)
 			room_ind = 1
 			_show_room(room_ind)
 			left.visible = true
 		
-		elif camera.position.x < 13.5: 
-			camera.position.x += 3
+		elif camera.position.x < 13.5:
 			room_ind += 1
 			_show_room(room_ind)
 			if camera.position.x == 13.5:
 				right.visible = false
 		
 		else: 
-			camera.position.x = 13.5
 			room_ind = 5
 			_show_room(room_ind)
+		
+		house.move_right()
 	
 	if Input.is_action_just_pressed("ui_left"):
 		if camera.position.x <= 1.5:
-			camera.position.x = -1.9
-			camera.position.z = 1.5
-			camera.rotation = Vector3(0,PI/-2,0)
 			room_ind = 0
 			_show_room(room_ind)
 			left.visible = false
 		
 		else: 
-			camera.position.x -= 3
 			room_ind -= 1
 			_show_room(room_ind)
 			right.visible = true
+		
+		house.move_left()
 
 
 func _show_room(index: int):
@@ -98,19 +98,19 @@ func _on_hud_game_paused(pause_state):
 # TODO: handle player_died
 func _on_hud_player_died():
 	print("Player died")
+	_level_ends()
 
 
-# TODO: when a quest is completed:
-# move current quest to q_list, move next quest as current (in interaction_panel.gd)
-# DONE: remove old quest items and add new quest items (in interaction_panel.gd)
-# set new quest_scene
-# change current_quest
 func _on_int_panel_quest_completed(q_name: String):
 	match q_name:
 		"Kit":
 			_kit_items_done()
+			interaction_panel.set_next_quest()
+			interaction_panel.set_next_quest_items(1)
 		"Hazards":
 			_hazards_done()
+			interaction_panel.set_next_quest()
+			interaction_panel.set_next_quest_items(2)
 		"Comm":
 			_comm_plans_done()
 
@@ -128,9 +128,15 @@ func _on_kit_items_collected(items: Array):
 			hud.update_life(-1)
 
 
-# TODO: queue free kititems, mark quest as complete and start hazards
 func _kit_items_done():
-	pass
+	camera.position = Vector3(1.5, 0.6, 3.1)
+	room_ind = 1
+	_show_room(room_ind)
+	left.visible = true
+	right.visible = true
+	hazards.visible = true
+	kit_items.visible = false
+	kit_items.queue_free()
 
 
 func _on_hazards_hazard_managed(hazard: String, status: bool):
@@ -140,19 +146,36 @@ func _on_hazards_hazard_managed(hazard: String, status: bool):
 		node.item_collected()
 		item_container.sort_items()
 		interaction_panel.update_current_quest(1)
+		
+		match hazard:
+			"Sandbag":
+				house.get_node("Outside").visible = false
+				house.get_node("OutsideBagged").visible = true
+			"Rug":
+				var house_nodes = house.get_children(true)
+				for hnode in house_nodes:
+					if node.name.contains("Carpet"):
+						node.visible = false
+	
 	else:
 		hud.update_score(-2)
 		hud.update_life(-1)
 
 
-# TODO: queue free hazards, mark quest as complete, start commplans
 func _hazards_done():
-	pass
+	comm_plans.visible = true
+	hazards.visible = false
+	texture_rect.visible = false
+	hazards.queue_free()
 
 
 func _on_comm_plans_keypad_ok(number: String):
 	if number.match("999"):
 		hud.update_score(10)
+		var node = item_container.get_node("Emergency")
+		node.item_collected()
+		item_container.sort_items()
+		interaction_panel.update_current_quest(1)
 		comm_plans.start_family()
 	else:
 		hud.update_score(-2)
@@ -163,6 +186,16 @@ func _on_comm_plans_chat_selected(option: String):
 	if option.contains(str(correct_chat[current_opt])):
 		hud.update_score(5)
 		comm_plans.opt_eval = true
+		if current_opt == 1:
+			var node = item_container.get_node("Family1")
+			node.item_collected()
+			item_container.sort_items()
+			interaction_panel.update_current_quest(1)
+		elif current_opt == 2:
+			var node = item_container.get_node("Family2")
+			node.item_collected()
+			item_container.sort_items()
+			interaction_panel.update_current_quest(1)
 	else:
 		comm_plans.opt_eval = false
 		hud.update_score(-1)
@@ -171,4 +204,11 @@ func _on_comm_plans_chat_selected(option: String):
 
 
 func _comm_plans_done():
-	pass
+	_level_ends()
+
+
+func _level_ends():
+	var prep_quests = interaction_panel.get_quests_progress()
+	var prep_time = hud.get_time_left()
+	prepare_ends.emit(hud.score, prep_quests, prep_time)
+	print(prep_quests+" "+prep_time)

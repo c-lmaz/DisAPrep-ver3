@@ -5,17 +5,18 @@ var default_progress = {
 		"Prepare": {
 			"Score": 0,
 			"TimeLeft": 0,
-			"CompleteKit": false
+			"Kit": 0,
+			"Hazards": 0,
+			"Comm": 0,
 		},
 		"RespondEvac": {
 			"Score": 0,
 			"TimeLeft": 0,
-			"AllCorrect": false
+			"Evac": 0,
 		},
 		"Recover": {
 			"Score": 0,
 			"TimeLeft": 0,
-			"FuturePrep": false
 		},
 	},
 }

@@ -26,6 +26,7 @@ script = ExtResource("2_tygji")
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 300.0
+one_shot = true
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_qp2dc")]
 process_mode = 2

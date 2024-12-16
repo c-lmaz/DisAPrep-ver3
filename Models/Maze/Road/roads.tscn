@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://gwrsuilrhwyt"]
+[gd_scene load_steps=38 format=3 uid="uid://gwrsuilrhwyt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r20qa"]
 resource_name = "pavement"
@@ -590,6 +590,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0er2r")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44xs7"]
+shading_mode = 0
+specular_mode = 2
+albedo_color = Color(0.356863, 0.372549, 0.419608, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xxiaw"]
+material = SubResource("StandardMaterial3D_44xs7")
+flip_faces = true
+size = Vector2(1, 1)
+orientation = 2
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_awxhb"]
 resource_name = "pavement"
 albedo_color = Color(0.884383, 0.884383, 0.906332, 1)
@@ -627,75 +638,100 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7bytn")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5ey3"]
+shading_mode = 0
+specular_mode = 2
+albedo_color = Color(0.52549, 0.54902, 0.619608, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ga6x8"]
+material = SubResource("StandardMaterial3D_l5ey3")
+flip_faces = true
+size = Vector2(1, 1)
+orientation = 2
+
 [node name="Roads" type="Node3D"]
 
 [node name="road_bendSquare" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = SubResource("ArrayMesh_53crc")
 skeleton = NodePath("")
 
 [node name="road_bendSquare2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, 0.5)
+visible = false
 mesh = SubResource("ArrayMesh_53crc")
 skeleton = NodePath("")
 
 [node name="road_bendSquare3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, 0, 0.5)
+visible = false
 mesh = SubResource("ArrayMesh_53crc")
 skeleton = NodePath("")
 
 [node name="road_bendSquare4" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0.5, 0, 0.5)
+visible = false
 mesh = SubResource("ArrayMesh_53crc")
 skeleton = NodePath("")
 
 [node name="road_crossroad" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = SubResource("ArrayMesh_afmja")
 skeleton = NodePath("")
 
 [node name="road_end" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = SubResource("ArrayMesh_phrbr")
 skeleton = NodePath("")
 
 [node name="road_end2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, 0.5)
+visible = false
 mesh = SubResource("ArrayMesh_phrbr")
 skeleton = NodePath("")
 
 [node name="road_end3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, 0, 0.5)
+visible = false
 mesh = SubResource("ArrayMesh_phrbr")
 skeleton = NodePath("")
 
 [node name="road_end4" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0.5, 0, 0.5)
+visible = false
 mesh = SubResource("ArrayMesh_phrbr")
 skeleton = NodePath("")
 
 [node name="road_intersection" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = SubResource("ArrayMesh_vwugl")
 skeleton = NodePath("")
 
 [node name="road_intersection2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, 0.5)
+visible = false
 mesh = SubResource("ArrayMesh_vwugl")
 skeleton = NodePath("")
 
 [node name="road_intersection3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, 0, 0.5)
+visible = false
 mesh = SubResource("ArrayMesh_vwugl")
 skeleton = NodePath("")
 
 [node name="road_intersection4" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0.5, 0, 0.5)
+visible = false
 mesh = SubResource("ArrayMesh_vwugl")
 skeleton = NodePath("")
 
 [node name="road_straight" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = SubResource("ArrayMesh_jpn5y")
 skeleton = NodePath("")
 
@@ -704,7 +740,19 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0
 mesh = SubResource("ArrayMesh_jpn5y")
 skeleton = NodePath("")
 
+[node name="road" type="MeshInstance3D" parent="road_straight2"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, 1, 0)
+layers = 2
+mesh = SubResource("PlaneMesh_xxiaw")
+skeleton = NodePath("../..")
+
 [node name="tile_low" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 mesh = SubResource("ArrayMesh_bl6la")
 skeleton = NodePath("")
+
+[node name="tile" type="MeshInstance3D" parent="tile_low"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0)
+layers = 2
+mesh = SubResource("PlaneMesh_ga6x8")
+skeleton = NodePath("../..")

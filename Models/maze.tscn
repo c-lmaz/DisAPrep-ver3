@@ -1,20 +1,18 @@
-[gd_scene load_steps=34 format=3 uid="uid://c1hnk81d5s5ud"]
+[gd_scene load_steps=38 format=3 uid="uid://c1hnk81d5s5ud"]
 
+[ext_resource type="Script" path="res://Models/maze.gd" id="1_1wo02"]
 [ext_resource type="MeshLibrary" uid="uid://dg0sfuah3ayq3" path="res://Models/Maze/Road/roads.meshlib" id="1_33pur"]
 [ext_resource type="PackedScene" uid="uid://bueeove187tdj" path="res://Models/Maze/Road/construction_pylon.glb" id="1_pudbd"]
 [ext_resource type="MeshLibrary" uid="uid://bxucecbgbntqo" path="res://Models/Maze/Building/buildings.meshlib" id="2_50d2t"]
 [ext_resource type="PackedScene" uid="uid://dw1reoj03ya44" path="res://Models/Maze/Road/construction_light.glb" id="2_fsxfj"]
+[ext_resource type="Material" uid="uid://cm7p8oaipwnsi" path="res://Models/Materials/main_sky.tres" id="2_mbax6"]
+[ext_resource type="Texture2D" uid="uid://cuflkya1tkol5" path="res://Icons/Levels/maze_sprite.png" id="3_50imy"]
 [ext_resource type="PackedScene" uid="uid://depo81trft3l5" path="res://Models/Maze/Road/construction_barrier.glb" id="3_xv76g"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_676tt"]
-sky_top_color = Color(0, 0.592157, 1, 1)
-sky_horizon_color = Color(0.517647, 0.811765, 0.984314, 1)
-ground_bottom_color = Color(0.647059, 0.690196, 0.831373, 1)
-ground_horizon_color = Color(0.517647, 0.811765, 0.984314, 1)
-use_debanding = false
+[ext_resource type="FontFile" uid="uid://c4o05i4pa21je" path="res://Themes/Fonts/InriaSans-Regular.otf" id="7_db7e7"]
+[ext_resource type="Texture2D" uid="uid://jmq61dfdsb2u" path="res://Icons/Controls/flatLightStar_resized.png" id="9_piptu"]
 
 [sub_resource type="Sky" id="Sky_pj67q"]
-sky_material = SubResource("ProceduralSkyMaterial_676tt")
+sky_material = ExtResource("2_mbax6")
 
 [sub_resource type="Environment" id="Environment_yxe6n"]
 background_mode = 2
@@ -30,7 +28,7 @@ point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_f0wq6"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, -3, 0, 0, 0, 0, 1, 0, 0, -0.1, -4, 0, -0.9, 0.1, 0, 0, 0, 0, 0, -4.1, 0, -1),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, -3, 0, 0, 0, 0, 0.5, 0, 0, -0.5, -4, 0, -0.5, 0.5, 0, 0, 0, 0, 0, -4.5, 0, -1),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
@@ -44,7 +42,7 @@ point_count = 3
 
 [sub_resource type="Curve3D" id="Curve3D_75vbw"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, -1, 0, 0, -3, 0, 1, 0, 0, 1, 0, 0, 0.1, -4, 0, 0.1, 0.1, 0, 0, 0, 0, 0, -4.1, 0, 0),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, -1, 0, 0, -3, 0, 1, 0, 0, 0.5, 0, 0, -0.5, -4, 0, 0.5, 0.5, 0, 0, 0, 0, 0, -4.5, 0, 0),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
@@ -58,14 +56,14 @@ point_count = 3
 
 [sub_resource type="Curve3D" id="Curve3D_f2l0a"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, -1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, -2, 1, 0, 0, 0, 0, 0, -1, 0, -3),
+"points": PackedVector3Array(0, 0, 0, -0.5, 0, 0, 0.5, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, -2, 0.5, 0, 0, 0, 0, 0, -0.5, 0, -3),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
 
 [sub_resource type="Curve3D" id="Curve3D_hf20n"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, -1, -1, 0, 0, -1, 0, 1),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, -0.5, -1, 0, 0, -1, 0, 0.5),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
@@ -100,21 +98,21 @@ point_count = 6
 
 [sub_resource type="Curve3D" id="Curve3D_ohjfr"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, -3, 0, 0, 0, 0, 1, 0, 0, 0, -4, 0, -1, 0, 0, 0, 0, 0, 0, -4, 0, -3),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.5, 0, 0, 0, 0, 0, -1, 0, 0, -3, 0, 0, 0, 0, 1, 0, 0, 0, -4, 0, -1, 0, 0, 0, 0, 0, 0, -4, 0, -3),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
 
 [sub_resource type="Curve3D" id="Curve3D_e8iku"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0, 0, 0, -1, 0, 2),
+"points": PackedVector3Array(0, 0, 0, -0.5, 0, 0, -0.5, 0, 0, 0, 0, -1, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0, 0, 0, -1, 0, 2),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
 
 [sub_resource type="Curve3D" id="Curve3D_183y6"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -4),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -3.5),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -128,21 +126,21 @@ point_count = 6
 
 [sub_resource type="Curve3D" id="Curve3D_jcjoq"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 3, 1, 0, 0, -1, 0, 0, 0, 0, 4, 0, 0, 1, 0, 0, 0, -1, 0, 3.1, 0.1, 0, 0, 0, 0, 0, -1.1, 0, 3),
+"points": PackedVector3Array(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 3, 1, 0, 0, -1, 0, 0, 0, 0, 4, 0, 0, 0.5, 0, 0, 0, -1, 0, 3.5, 0.5, 0, 0, 0, 0, 0, -1.5, 0, 3),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
 }
 point_count = 6
 
 [sub_resource type="Curve3D" id="Curve3D_hulx2"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0, 0, 0, 1, 0, -3),
+"points": PackedVector3Array(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0, 0, 0, 1, 0, -2.5),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
 
 [sub_resource type="Curve3D" id="Curve3D_u0lh7"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -2, 0, 0),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.5, 0, 0),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -163,7 +161,7 @@ point_count = 6
 
 [sub_resource type="Curve3D" id="Curve3D_jfnoe"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, -1, 0, -1),
+"points": PackedVector3Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, -0.5, 0, -1),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -197,9 +195,26 @@ _data = {
 point_count = 2
 
 [node name="maze" type="Node3D"]
+script = ExtResource("1_1wo02")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yxe6n")
+
+[node name="maze_sprite" type="Sprite3D" parent="."]
+layers = 2
+pixel_size = 0.0239
+axis = 1
+double_sided = false
+texture = ExtResource("3_50imy")
+
+[node name="goal_sprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3, -2.5)
+layers = 2
+modulate = Color(1, 1, 0.529412, 1)
+pixel_size = 0.02
+axis = 1
+double_sided = false
+texture = ExtResource("9_piptu")
 
 [node name="maze1" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.11, 0)
@@ -277,115 +292,204 @@ transform = Transform3D(1.98534, 0, -0.241694, 0, 2, 0, 0.241694, 0, 1.98534, 1.
 [node name="construction_pylon6" parent="maze1/Obstruction3" instance=ExtResource("1_pudbd")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.82, -0.089, -0.494)
 
-[node name="construction_light2" parent="maze1" instance=ExtResource("2_fsxfj")]
+[node name="Obstruction4" type="Node3D" parent="maze1"]
+
+[node name="construction_light2" parent="maze1/Obstruction4" instance=ExtResource("2_fsxfj")]
 transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -1.631, 0.01, 1.911)
 
-[node name="construction_barrier2" parent="maze1" instance=ExtResource("3_xv76g")]
+[node name="construction_barrier2" parent="maze1/Obstruction4" instance=ExtResource("3_xv76g")]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -2.005, 0.01, 0.997)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.5, 0, -0.5)
+[node name="Deadends" type="Node3D" parent="maze1"]
+
+[node name="1" type="Label3D" parent="maze1/Deadends"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.5, 0.5, 5)
+visibility_range_begin = 1.0
+visibility_range_end = 2.0
+double_sided = false
+text = "Deadend.
+Going back to 
+previous intersection."
+font = ExtResource("7_db7e7")
+font_size = 16
+
+[node name="2" type="Label3D" parent="maze1/Deadends"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 0.5, -0.5)
+visibility_range_begin = 1.0
+visibility_range_end = 2.0
+double_sided = false
+text = "Deadend.
+Going back to 
+previous intersection."
+font = ExtResource("7_db7e7")
+font_size = 16
+
+[node name="3" type="Label3D" parent="maze1/Deadends"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0.5, -4.5)
+visibility_range_begin = 1.0
+visibility_range_end = 2.0
+double_sided = false
+text = "Deadend.
+Going back to 
+previous intersection."
+font = ExtResource("7_db7e7")
+font_size = 16
+
+[node name="4" type="Label3D" parent="maze1/Deadends"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, -5)
+visibility_range_begin = 1.0
+visibility_range_end = 2.0
+double_sided = false
+text = "Deadend.
+Going back to 
+previous intersection."
+font = ExtResource("7_db7e7")
+font_size = 16
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, 0.2, 4.5)
+cull_mask = 1048573
 fov = 85.0
 far = 10.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+light_cull_mask = 4294967293
+
+[node name="Sprite3D" type="Sprite3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0)
+layers = 2
+modulate = Color(0.780392, 0.156863, 0.164706, 1)
+pixel_size = 0.02
+no_depth_test = true
+texture = ExtResource("9_piptu")
 
 [node name="Paths" type="Node3D" parent="."]
 
 [node name="Start_1" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.4, 4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.2, 4.5)
 curve = SubResource("Curve3D_dox5u")
 
+[node name="PathFollow3D" type="PathFollow3D" parent="Paths/Start_1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+loop = false
+tilt_enabled = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Paths/Start_1/PathFollow3D"]
+remote_path = NodePath("../../../../Camera")
+
 [node name="1_Straight_2" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.4, 4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.2, 4.5)
 curve = SubResource("Curve3D_f0wq6")
 
 [node name="1_Right_3" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.4, 4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.2, 4.5)
 curve = SubResource("Curve3D_e4pp3")
 
 [node name="1A_Right_2" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.4, 3.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.2, 3.5)
 curve = SubResource("Curve3D_75vbw")
 
 [node name="1A_Left_Start" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.4, 3.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.2, 3.5)
 curve = SubResource("Curve3D_2u635")
 
 [node name="2_Right_DEAD" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.4, 2.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.2, 2.5)
 curve = SubResource("Curve3D_f2l0a")
 
 [node name="2_Straight_DEAD" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.4, 3.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.2, 3.5)
 curve = SubResource("Curve3D_hf20n")
 
 [node name="3_Right_4" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.4, 2.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.2, 2.5)
 curve = SubResource("Curve3D_yyxpd")
 
 [node name="3_Left_6A" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.4, 2.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.2, 2.5)
 curve = SubResource("Curve3D_1bsdn")
 
 [node name="3A_Right_1A" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.4, 1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.2, 1.5)
 curve = SubResource("Curve3D_p00fi")
 
 [node name="3A_Straight_4" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.4, 1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.2, 1.5)
 curve = SubResource("Curve3D_il55p")
 
 [node name="3B_Straight_6A" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.4, 1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.2, 1.5)
 curve = SubResource("Curve3D_ohjfr")
 
 [node name="3B_Left_1A" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.4, 1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.2, 1.5)
 curve = SubResource("Curve3D_e8iku")
 
 [node name="4_Straight_DEAD" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.4, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.2, -0.5)
 curve = SubResource("Curve3D_183y6")
 
 [node name="4_Left_5" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.4, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.2, -0.5)
 curve = SubResource("Curve3D_dkdu4")
 
 [node name="4A_Right_3B" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.4, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.2, -1.5)
 curve = SubResource("Curve3D_jcjoq")
 
 [node name="4A_Left_DEAD" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.4, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.2, -1.5)
 curve = SubResource("Curve3D_hulx2")
 
 [node name="5_Straight_DEAD" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.4, -4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.2, -4.5)
 curve = SubResource("Curve3D_u0lh7")
 
 [node name="5_Left_6" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.4, -4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.2, -4.5)
 curve = SubResource("Curve3D_anlyr")
 
 [node name="5A_Right_4A" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.4, -3.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.2, -3.5)
 curve = SubResource("Curve3D_v42vm")
 
 [node name="5A_Left_DEAD" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.4, -3.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.2, -3.5)
 curve = SubResource("Curve3D_jfnoe")
 
 [node name="6_Right_GOAL" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.4, -3.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.2, -3.5)
 curve = SubResource("Curve3D_tx07f")
 
 [node name="6_Straight_3A" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.4, -3.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.2, -3.5)
 curve = SubResource("Curve3D_pblss")
 
 [node name="6A_Straight_5A" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.4, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.2, -1.5)
 curve = SubResource("Curve3D_7ye2r")
 
 [node name="6A_Left_GOAL" type="Path3D" parent="Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.4, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.2, -1.5)
 curve = SubResource("Curve3D_qoivh")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+custom_minimum_size = Vector2(200, 200)
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 215.0
+offset_bottom = 215.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(200, 200)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
+keep_aspect = 0
+cull_mask = 1048574
+projection = 1
+size = 11.0

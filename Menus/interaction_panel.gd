@@ -2,12 +2,15 @@ extends NinePatchRect
 
 signal quest_completed(q_name: String)
 
+enum Phases{PREPARE, RESPOND, RECOVER}
+@export var phase : Phases
+
 @onready var scroll_container = $ScrollContainer
 @onready var item_container = $ScrollContainer/ItemContainer
-var prep_items_path = "res://Data/Flood/prep_items.json"
-var prep_items = Global.read_json_file(prep_items_path)
-var prep_item_node = preload("res://Themes/Customs/item_button.tscn")
-
+var item_node = preload("res://Themes/Customs/item_button.tscn")
+var prep_items_path
+var prep_items_all
+var prep_items
 
 @onready var quest_container = $Quests/PanelContainer/QuestContainer
 @onready var panel_container = $Quests/PanelContainer
@@ -21,34 +24,129 @@ enum QuestToggle{OFF, QUEST, ALLQUEST}
 var next_toggle = QuestToggle.QUEST
 
 
-# TODO: handle completed quests
-# switch current quests (change parent)
-# for prep_items: 2 columns
-# for hazards_damages: 1 column
 func _ready():
 	
+	set_quests()
 	set_next_quest_items(0)
+	_draw_small()
+
+
+func _draw_small():
+	if is_small:
+		custom_minimum_size.y = 80
+	else:
+		custom_minimum_size.y = 370
+
+
+# TODO: handle recover
+func set_quests():
+	match phase:
+		Phases.PREPARE:
+			prep_items_path = "res://Data/Flood/prep_items.json"
+			prep_items_all = Global.read_json_file(prep_items_path)
+			quests = quests["Prepare"]
+		Phases.RESPOND:
+			quests = quests["Respond"]
+			scroll_container.queue_free()
+			scroll_container = null
+			is_small = true
+		Phases.RECOVER:
+			quests = quests["Recover"]
 	
-	quests = quests["Prepare"]
 	for i in range(quests.size()):
 		var child = quest_node.instantiate()
 		child.quest = quests[i]["name"]
 		child.short_name = quests[i]["short"]
 		child.q_total = quests[i]["total"]
-		if i == 1: 
+		if child is QuestDisplay:
+			child.connect("quest_completed", _on_quest_completed)
+		if i == 0: 
 			current_quest.add_child(child)
 			child.current = true
 		else: 
 			quest_container.add_child(child)
 			child.current = false
+
+
+func get_current_quest(): return current_quest.get_child(0).name
+
+
+func update_current_quest(add_prog: int):
+	var curr_quest = current_quest.get_child(0)
+	curr_quest.update_progress(add_prog)
+
+
+func set_next_quest():
+	var comp_quest = current_quest.get_child(0)
+	comp_quest.reparent(quest_container)
+	comp_quest.current = false
+	
+	var next_quest = quest_container.get_child(1)
+	next_quest.reparent(current_quest)
+	next_quest.position = Vector2(0,0)
+	next_quest.current = true
+	
+	match next_quest.name:
+		"Hazards":
+			item_container.columns = 1
+
+# TODO: handle recover
+func set_next_quest_items(ind: int):
+	for child in item_container.get_children():
+		child.queue_free()
+	
+	match phase:
+		Phases.PREPARE:
+			match ind:
+				0:
+					prep_items = prep_items_all["kit_items"]
+					is_small = false
+				1:
+					prep_items = prep_items_all["hazards"]
+					is_small = false
+				2:
+					prep_items = prep_items_all["communication"]
+					is_small = true
+			
+			for i in range(prep_items.size()):
+				var child = item_node.instantiate()
+				item_container.add_child(child)
+				child.item_name = prep_items[i]["name"]
+				child.item_icon = load(prep_items[i]["icon"])
+				if prep_items[i].has("short"):
+					child.short_name = prep_items[i]["short"]
 		
-	var curr_q_child = current_quest.get_child(0)
-	if curr_q_child is QuestDisplay:
-		curr_q_child.connect("quest_completed", _on_quest_completed)
+		Phases.RESPOND:
+			pass
+		
+		Phases.RECOVER:
+			pass
+	
+	_draw_small()
+
+
+func get_quests_progress():
+	var comp_quest = current_quest.get_child(0)
+	if comp_quest:
+		comp_quest.reparent(quest_container)
+		comp_quest.current = false
+	
+	var quest_progress = {}
+	
+	for quest in quest_container.get_children():
+		if quest is QuestDisplay:
+			var quest_name = quest.name
+			var quest_value = quest.curr_val
+			quest_progress[quest_name] = quest_value
+	
+	return quest_progress
+
+
+func _on_quest_completed(q_name: String): quest_completed.emit(q_name)
 
 
 func _on_quests_toggled(toggled_on):
-	if is_small:
+	if is_small and scroll_container:
 		match next_toggle:
 			QuestToggle.OFF:
 				next_toggle = QuestToggle.QUEST
@@ -65,41 +163,7 @@ func _on_quests_toggled(toggled_on):
 				panel_container.visible = true
 				scroll_container.visible = false
 	
-	else:
+	elif scroll_container:
 		panel_container.visible = toggled_on
 		scroll_container.visible = !toggled_on
 
-
-func get_current_quest():
-	return current_quest.get_child(0).name
-
-
-func update_current_quest(add_prog: int):
-	var curr_quest = current_quest.get_child(0)
-	curr_quest.update_progress(add_prog)
-
-
-# TODO: set next quest as current 
-# DONE: prepare the items
-func set_next_quest_items(ind: int):
-	
-	for child in item_container.get_children():
-		child.queue_free()
-	
-	match ind:
-		0:
-			prep_items = prep_items["kit_items"]
-		1:
-			prep_items = prep_items["hazards"]
-	
-	for i in range(prep_items.size()):
-		var child = prep_item_node.instantiate()
-		item_container.add_child(child)
-		child.item_name = prep_items[i]["name"]
-		child.item_icon = load(prep_items[i]["icon"])
-		if prep_items[i].has("short"):
-			child.short_name = prep_items[i]["short"]
-
-
-func _on_quest_completed(q_name: String):
-	quest_completed.emit(q_name)

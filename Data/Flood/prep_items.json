@@ -19,7 +19,7 @@
 		{"name": "Whistle", "icon": "res://Icons/Emergency Kit/whistle.png"},
 	],
 	
-	"hazards_damages" : [
+	"hazards" : [
 		{"name": "Install temporary flood barriers", "icon": "res://Icons/Hazards/sandbag.png", "short": "Sandbag"},
 		{"name": "Turn off circuit breaker", "icon": "res://Icons/Hazards/breaker.png", "short": "Breaker"},
 		{"name": "Close the gas valve", "icon": "res://Icons/Hazards/gas_cylinder.png", "short": "Gas"},
