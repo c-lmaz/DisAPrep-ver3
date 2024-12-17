@@ -2,21 +2,19 @@ extends CanvasLayer
 
 signal recover_ends(score: int, quests: Dictionary, time_left: int)
 
-@onready var house = $SubViewport/House
-@onready var camera = $SubViewport/House/Camera3D
+@onready var character = $SubViewport/Character
 @onready var texture_rect = $TextureRect
-@onready var right = $TextureRect/Right
-@onready var left = $TextureRect/Left
-var rooms = ["Outside", "Living", "Kitchen", "Bathroom", "Family", "Bedroom"]
-var room_ind = 1
 
 @onready var hud = $HUD
-var level_phase = ["Flood", "Respond"]
+var level_phase = ["Flood", "Recover"]
 var current_quest : String
 var hud_timer = 120
 
 @onready var interaction_panel = $InteractionPanel
 @onready var item_container = $InteractionPanel/ScrollContainer/ItemContainer
+
+@onready var health = $Health
+var health_correct = Global.read_json_file("res://Data/Flood/rec_items.json")["correct"]["health"]
 
 
 func _ready():
@@ -26,51 +24,9 @@ func _ready():
 	hud.game_paused.connect(_on_hud_game_paused)
 	hud.player_died.connect(_on_hud_player_died)
 	
+	health.items_selected.connect(_on_health_items_selected)
+	
 	interaction_panel.quest_completed.connect(_on_int_panel_quest_completed)
-	
-	#for child in item_container.get_children():
-		#correct_items.push_back(str(child.name))
-
-
-func _process(_delta):
-	if Input.is_action_just_pressed("ui_right"):
-		if camera.position.x < 0:
-			room_ind = 1
-			_show_room(room_ind)
-			left.visible = true
-		
-		elif camera.position.x < 13.5:
-			room_ind += 1
-			_show_room(room_ind)
-			if camera.position.x == 13.5:
-				right.visible = false
-		
-		else: 
-			room_ind = 5
-			_show_room(room_ind)
-		
-		house.move_right()
-	
-	if Input.is_action_just_pressed("ui_left"):
-		if camera.position.x <= 1.5:
-			room_ind = 0
-			_show_room(room_ind)
-			left.visible = false
-		
-		else: 
-			room_ind -= 1
-			_show_room(room_ind)
-			right.visible = true
-		
-		house.move_left()
-
-
-# TODO
-func _show_room(index: int):
-	current_quest = interaction_panel.get_current_quest()
-	#match current_quest:
-		#"Kit": kit_items.show_room(rooms[index])
-		#"Hazards": hazards.show_room(rooms[index])
 
 
 func _on_hud_game_paused(pause_state):
@@ -98,6 +54,21 @@ func _on_int_panel_quest_completed(q_name: String):
 		#"Comm":
 			#_comm_plans_done()
 	pass
+
+
+func _on_health_items_selected(items: Array, spot: String):
+	for i in items:
+		if health_correct.has(i):
+			hud.update_score(5)
+			var node = item_container.get_node(spot)
+			node.item_collected()
+			item_container.sort_items()
+		else:
+			hud.update_score(-1)
+			hud.update_life(-1)
+	
+	interaction_panel.update_current_quest(1)
+
 
 
 func _level_ends():

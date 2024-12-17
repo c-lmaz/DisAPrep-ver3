@@ -10,6 +10,8 @@
 	],
 	
 	"Recover": [
-		
+		{"name": "Assess health and injuries", "total": 5, "short": "Health"},
+		{"name": "Identify property damages", "total": 5, "short": "Repair"},
+		{"name": "Plan for the future", "total": 3, "short": "Future"}
 	]
 }

@@ -1,5 +1,9 @@
 extends Control
 
+
+# TODO: handle exit menu
+# TODO: handle level/phase end menu
+
 signal game_paused(pause_state: bool)
 signal player_died
 

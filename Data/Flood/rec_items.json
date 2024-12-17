@@ -1,0 +1,27 @@
+{
+	"health" : [
+		{"name": "Drink clean drinking water to rehydrate", "icon": "res://Icons/Emergency Kit/clean-water.png", "short": "Hydrate"},
+		{"name": "Check for wounds", "icon": "res://Icons/Recover/wound.png", "short": "Wound"},
+		{"name": "Sanitise wounds", "icon": "res://Icons/Recover/bandage.png", "short": "Sanitise"},
+		{"name": "Check for infections", "icon": "res://Icons/Recover/infection.png", "short": "Infection"},
+		{"name": "Get treatment for infection", "icon": "res://Icons/Recover/treatment.png", "short": "Treatment"},
+	],
+	
+	"repair" : [
+		{"name": "Clean debris from the house", "icon": "", "short": "Debris"},
+		{"name": "Dry out flooded furniture and belongings", "icon": "", "short": "Dry"},
+		{"name": "Patch leaks and repair damaged roofs", "icon": "", "short": "Patch"},
+		{"name": "Restore electrical systems safely", "icon": "", "short": "Electricity"},
+		{"name": "Inspect and repair water supply systems", "icon": "", "short": "Pipes"},
+	],
+	
+	"future" : [
+		{"name": "Make a checklist", "icon": "", "short": "Checklist"},
+		{"name": "Learn and practice flood safety drills", "icon": "", "short": "Drills"},
+		{"name": "Understand the benefits of flood insurance", "icon": "", "short": "Insurance"}
+	],
+	
+	"correct" : {
+		"health": [ "Drinking", "Arm", "Leg", "Cholera", "Leptospirosis", "Malaria", "Typhoid", "Iodine", "Water", "Antibiotics", "IV"],
+	},
+}

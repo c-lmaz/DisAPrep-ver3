@@ -8,9 +8,10 @@ enum Phases{PREPARE, RESPOND, RECOVER}
 @onready var scroll_container = $ScrollContainer
 @onready var item_container = $ScrollContainer/ItemContainer
 var item_node = preload("res://Themes/Customs/item_button.tscn")
-var prep_items_path
-var prep_items_all
+var items_path
+var items_all
 var prep_items
+var rec_items
 
 @onready var quest_container = $Quests/PanelContainer/QuestContainer
 @onready var panel_container = $Quests/PanelContainer
@@ -38,12 +39,11 @@ func _draw_small():
 		custom_minimum_size.y = 370
 
 
-# TODO: handle recover
 func set_quests():
 	match phase:
 		Phases.PREPARE:
-			prep_items_path = "res://Data/Flood/prep_items.json"
-			prep_items_all = Global.read_json_file(prep_items_path)
+			items_path = "res://Data/Flood/prep_items.json"
+			items_all = Global.read_json_file(items_path)
 			quests = quests["Prepare"]
 		Phases.RESPOND:
 			quests = quests["Respond"]
@@ -51,6 +51,9 @@ func set_quests():
 			scroll_container = null
 			is_small = true
 		Phases.RECOVER:
+			items_path = "res://Data/Flood/rec_items.json"
+			items_all = Global.read_json_file(items_path)
+			item_container.columns = 1
 			quests = quests["Recover"]
 	
 	for i in range(quests.size()):
@@ -90,7 +93,7 @@ func set_next_quest():
 		"Hazards":
 			item_container.columns = 1
 
-# TODO: handle recover
+
 func set_next_quest_items(ind: int):
 	for child in item_container.get_children():
 		child.queue_free()
@@ -99,13 +102,13 @@ func set_next_quest_items(ind: int):
 		Phases.PREPARE:
 			match ind:
 				0:
-					prep_items = prep_items_all["kit_items"]
+					prep_items = items_all["kit_items"]
 					is_small = false
 				1:
-					prep_items = prep_items_all["hazards"]
+					prep_items = items_all["hazards"]
 					is_small = false
 				2:
-					prep_items = prep_items_all["communication"]
+					prep_items = items_all["communication"]
 					is_small = true
 			
 			for i in range(prep_items.size()):
@@ -120,7 +123,18 @@ func set_next_quest_items(ind: int):
 			pass
 		
 		Phases.RECOVER:
-			pass
+			match ind:
+				0: rec_items = items_all["health"]
+				1: rec_items = items_all["repair"]
+				2: rec_items = items_all["future"]
+			
+			for i in range(rec_items.size()):
+				var child = item_node.instantiate()
+				item_container.add_child(child)
+				child.item_name = rec_items[i]["name"]
+				child.item_icon = load(rec_items[i]["icon"])
+				if rec_items[i].has("short"):
+					child.short_name = rec_items[i]["short"]
 	
 	_draw_small()
 
