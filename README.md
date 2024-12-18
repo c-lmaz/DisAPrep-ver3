@@ -43,39 +43,44 @@ Repository for DisAPrep (v3). Part of Final Year Project for Laila Mastura 12005
 
 | Elements | Progress |
 | -------- | :------: |
-| Prepare Template | ⌛ |
-| Respond Template | 🔜 |
-| Recover Template | ❌ |
-| Flood | ⌛ |
-| Extreme Heat | ❌ |
-| Disease Outbreak | ❌ |
+| Flood Prepare | 🐛 |
+| Flood Respond | ✔️ |
+| Flood Recover | ✔️ |
 | Notes | 🔜 |
-| Menus | ❌ |
+| Menus | ⏳ |
+| Tutorial | 🔜 |
+| Settings | 🔜 |
 
 
 <details>
 <summary>Current Progress (Detailed)</summary>
 
-### Level Template
-
-| Elements | Progress |
-| -------- | :------: |
-| HUD | ✔️ |
-| Pause Menu | ⌛ |
-| Exit Menu | ⌛ |
-| Music | ✔️ |
-| SFX | ⌛ |
-| Quests | ✔️ |
-
-
-### Prepare Template - Flood
+### Flood Prepare
 
 | Elements | Progress |
 | -------- | :------: |
 | Emergency Kit | ✔️ |
-| Hazard Mitigation | ✔️ |
-| Communication Plan | ⌛ |
-| Level logic | ⌛ |
+| Hazard Mitigation | 🐛 |
+| Communication Plan | ✔️ |
+| Level logic | 🐛 |
+
+
+### Flood Respond
+
+| Elements | Progress |
+| -------- | :------: |
+| Evacuation | ✔️ |
+| Level logic | ✔️ |
+
+
+### Flood Recover
+
+| Elements | Progress |
+| -------- | :------: |
+| Health Assessment | ✔️ |
+| Property Assessment | ⏳ |
+| Future Planning | ⏳ |
+| Level logic | ⏳ |
 
 </details>
 
