@@ -140,8 +140,8 @@ func set_next_quest_items(ind: int):
 
 
 func get_quests_progress():
-	var comp_quest = current_quest.get_child(0)
-	if comp_quest:
+	if current_quest.get_child(0):
+		var comp_quest = current_quest.get_child(0)
 		comp_quest.reparent(quest_container)
 		comp_quest.current = false
 	

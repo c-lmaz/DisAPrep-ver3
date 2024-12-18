@@ -35,6 +35,7 @@ modulate_color = Color(1, 1, 1, 0.392157)
 texture = ExtResource("2_vqx17")
 
 [node name="CommPlans" type="Panel"]
+process_mode = 1
 custom_minimum_size = Vector2(540, 740)
 offset_top = 140.0
 offset_right = 540.0

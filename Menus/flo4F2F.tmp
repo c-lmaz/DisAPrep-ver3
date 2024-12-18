@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ch6bjsxx40ss6"]
+[gd_scene load_steps=8 format=3 uid="uid://ch6bjsxx40ss6"]
 
+[ext_resource type="PackedScene" uid="uid://d1npeqc463wp4" path="res://Menus/flood_prepare.tscn" id="1_3cu4p"]
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_dtwha"]
 [ext_resource type="Script" path="res://Menus/flood_main.gd" id="2_ohybh"]
+[ext_resource type="PackedScene" uid="uid://dn2gu6554kow1" path="res://Menus/flood_respond.tscn" id="2_rp7ph"]
+[ext_resource type="PackedScene" uid="uid://lvl78x7od1k" path="res://Menus/flood_recover.tscn" id="3_6tvdl"]
 [ext_resource type="StyleBox" uid="uid://c4lrh7ayx0rtf" path="res://Themes/Styleboxes/inverse_transparent.stylebox" id="5_pe6w0"]
 [ext_resource type="FontFile" uid="uid://c2vmrfflofwy0" path="res://Themes/Fonts/InriaSans-Italic.otf" id="6_x67s0"]
 
@@ -14,6 +17,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_dtwha")
 script = ExtResource("2_ohybh")
+
+[node name="Flood_Prepare" parent="." instance=ExtResource("1_3cu4p")]
+visible = false
+
+[node name="Flood_Respond" parent="." instance=ExtResource("2_rp7ph")]
+visible = false
+
+[node name="FloodRecover" parent="." instance=ExtResource("3_6tvdl")]
+visible = false
 
 [node name="LevelStartMenu" type="Panel" parent="."]
 layout_mode = 1
@@ -53,6 +65,14 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
 theme_override_fonts/font = ExtResource("6_x67s0")
 text = "PHASE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quests" type="Label" parent="LevelStartMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_fonts/font = ExtResource("6_x67s0")
+text = "QUESTS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -129,20 +149,7 @@ text = "QUESTS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="LevelEndMenu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-alignment = 1
-
-[node name="Score2" type="Label" parent="LevelEndMenu/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
-theme_override_fonts/font = ExtResource("6_x67s0")
-text = "TOTAL SCORE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TotalScore" type="Label" parent="LevelEndMenu/VBoxContainer/HBoxContainer2"]
+[node name="TotalScore" type="Label" parent="LevelEndMenu/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
 theme_override_fonts/font = ExtResource("6_x67s0")

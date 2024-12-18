@@ -2,7 +2,6 @@ extends Control
 
 
 # TODO: handle exit menu
-# TODO: handle level/phase end menu
 
 signal game_paused(pause_state: bool)
 signal player_died
@@ -52,14 +51,14 @@ func set_level_name(level_name: Array):
 	phase.text = level_name[1]
 
 
-func set_timer(time: int):
-	timer.wait_time = time
-	timer.start()
+func set_timer(time: int): timer.wait_time = time
+
+
+func start(): timer.start()
 
 
 func update_life(add_life):
 	life += add_life
-	print(life)
 	lives.update_hearts(life)
 	if life == 0:
 		player_died.emit()

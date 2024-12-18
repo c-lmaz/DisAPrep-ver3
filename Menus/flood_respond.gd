@@ -44,6 +44,8 @@ func _on_hud_game_paused(pause_state):
 	buttons.visible = !pause_state
 	interaction_panel.visible = !pause_state
 
+func start_level(): hud.start()
+
 
 # TODO: handle player_died
 func _on_hud_player_died():

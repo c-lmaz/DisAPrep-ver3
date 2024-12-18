@@ -31,6 +31,7 @@ var current_opt = 0
 func _ready():
 	hud.set_level_name(level_phase)
 	hud.set_timer(hud_timer)
+	start_level()
 	
 	hud.game_paused.connect(_on_hud_game_paused)
 	hud.player_died.connect(_on_hud_player_died)
@@ -48,6 +49,9 @@ func _ready():
 	
 	for child in item_container.get_children():
 		correct_items.push_back(str(child.name))
+
+
+func start_level(): hud.start()
 
 
 func _process(_delta):
@@ -91,7 +95,11 @@ func _show_room(index: int):
 
 
 func _on_hud_game_paused(pause_state):
-	texture_rect.visible = !pause_state
+	if current_quest == "Comm":
+		comm_plans.visible = !pause_state
+		comm_plans.set_paused(pause_state)
+	else:
+		texture_rect.visible = !pause_state
 	interaction_panel.visible = !pause_state
 
 
@@ -211,4 +219,3 @@ func _level_ends():
 	var prep_quests = interaction_panel.get_quests_progress()
 	var prep_time = hud.get_time_left()
 	prepare_ends.emit(hud.score, prep_quests, prep_time)
-	print(prep_quests+" "+prep_time)

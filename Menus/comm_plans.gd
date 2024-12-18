@@ -15,6 +15,7 @@ var no_people_added = 0
 var curr_opt_ind = 0
 var wait_for_input = false
 var opt_eval = false
+var pause = false
 
 func _ready():
 	
@@ -93,6 +94,9 @@ func _add_people(person: String):
 func _messages_start():
 	var next_message = false
 	for message in messages.get_children():
+		while pause:
+			await get_tree().create_timer(0.1).timeout
+		
 		var is_correct = message.name.contains("Correct")
 		var is_wrong = message.name.contains("Wrong")
 		var is_choice = message.name.contains("Choice")
@@ -125,6 +129,9 @@ func _messages_start():
 			await get_tree().create_timer(0.8).timeout
 	
 	emit_signal("comm_plans_completed")
+
+
+func set_paused(is_paused: bool): pause = is_paused
 
 
 func _on_chat_selected(opt_name, text):
