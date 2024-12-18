@@ -8,13 +8,10 @@ Repository for DisAPrep (v3). Part of Final Year Project for Laila Mastura 12005
 
 - An educational Android mobile game for disaster preparedness.
 - Has a 'game' section and 'information' section.
-- Includes 3 disasters:
-  - Flood
-  - Extreme Heat
-  - Disease Outbreak
-- Each disasters have 3 phases:
+- Flood disaster
+- 3 phases:
   - Prepare (Emergency kit preparation, Hazard mitigation, Property protection, Communication and evacuation plan)
-  - Respond (Evacuation, Health and hygiene management, Rationing, First aid and medical assistance)
+  - Respond (Evacuation)
   - Recover (Damage assessment, Health recovery, Insurance claims, Future planning)
 - Information section will include
   - Emergency numbers
@@ -45,7 +42,7 @@ Repository for DisAPrep (v3). Part of Final Year Project for Laila Mastura 12005
 | -------- | :------: |
 | Flood Prepare | 🐛 |
 | Flood Respond | ✔️ |
-| Flood Recover | ✔️ |
+| Flood Recover | ⌛ |
 | Notes | 🔜 |
 | Menus | ⏳ |
 | Tutorial | 🔜 |
