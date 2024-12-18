@@ -128,7 +128,8 @@ func _messages_start():
 			message.visible = true
 			await get_tree().create_timer(0.8).timeout
 	
-	emit_signal("comm_plans_completed")
+	if !wait_for_input:
+		comm_plans_completed.emit()
 
 
 func set_paused(is_paused: bool): pause = is_paused
@@ -140,4 +141,3 @@ func _on_chat_selected(opt_name, text):
 	next_message.update_chat()
 	chat_selected.emit(opt_name)
 	wait_for_input = false
-

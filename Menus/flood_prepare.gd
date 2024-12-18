@@ -31,7 +31,6 @@ var current_opt = 0
 func _ready():
 	hud.set_level_name(level_phase)
 	hud.set_timer(hud_timer)
-	start_level()
 	
 	hud.game_paused.connect(_on_hud_game_paused)
 	hud.player_died.connect(_on_hud_player_died)
@@ -49,6 +48,8 @@ func _ready():
 	
 	for child in item_container.get_children():
 		correct_items.push_back(str(child.name))
+	
+	current_quest = interaction_panel.get_current_quest()
 
 
 func start_level(): hud.start()
@@ -64,14 +65,14 @@ func _process(_delta):
 		elif camera.position.x < 13.5:
 			room_ind += 1
 			_show_room(room_ind)
-			if camera.position.x == 13.5:
-				right.visible = false
 		
 		else: 
 			room_ind = 5
 			_show_room(room_ind)
 		
 		house.move_right()
+		if camera.position.x == 13.5:
+			right.visible = false
 	
 	if Input.is_action_just_pressed("ui_left"):
 		if camera.position.x <= 1.5:
@@ -95,11 +96,17 @@ func _show_room(index: int):
 
 
 func _on_hud_game_paused(pause_state):
-	if current_quest == "Comm":
-		comm_plans.visible = !pause_state
-		comm_plans.set_paused(pause_state)
-	else:
-		texture_rect.visible = !pause_state
+	current_quest = interaction_panel.get_current_quest()
+	match current_quest:
+		"Kit":
+			kit_items.visible = !pause_state
+			texture_rect.visible = !pause_state
+		"Hazards":
+			hazards.visible = !pause_state
+			texture_rect.visible = !pause_state
+		"Comm":
+			comm_plans.visible = !pause_state
+			comm_plans.set_paused(pause_state)
 	interaction_panel.visible = !pause_state
 
 
@@ -113,12 +120,8 @@ func _on_int_panel_quest_completed(q_name: String):
 	match q_name:
 		"Kit":
 			_kit_items_done()
-			interaction_panel.set_next_quest()
-			interaction_panel.set_next_quest_items(1)
 		"Hazards":
 			_hazards_done()
-			interaction_panel.set_next_quest()
-			interaction_panel.set_next_quest_items(2)
 		"Comm":
 			_comm_plans_done()
 
@@ -137,14 +140,19 @@ func _on_kit_items_collected(items: Array):
 
 
 func _kit_items_done():
+	print("kit done")
 	camera.position = Vector3(1.5, 0.6, 3.1)
 	room_ind = 1
 	_show_room(room_ind)
-	left.visible = true
-	right.visible = true
-	hazards.visible = true
+	#left.visible = true
+	#right.visible = true
+	#hazards.visible = true
+	comm_plans.visible = true
 	kit_items.visible = false
-	kit_items.queue_free()
+	texture_rect.visible = false
+	interaction_panel.set_next_quest()
+	interaction_panel.set_next_quest()
+	interaction_panel.set_next_quest_items(2)
 
 
 func _on_hazards_hazard_managed(hazard: String, status: bool):
@@ -171,10 +179,13 @@ func _on_hazards_hazard_managed(hazard: String, status: bool):
 
 
 func _hazards_done():
+	print("hazard done")
 	comm_plans.visible = true
 	hazards.visible = false
 	texture_rect.visible = false
 	hazards.queue_free()
+	interaction_panel.set_next_quest()
+	interaction_panel.set_next_quest_items(2)
 
 
 func _on_comm_plans_keypad_ok(number: String):
@@ -212,6 +223,8 @@ func _on_comm_plans_chat_selected(option: String):
 
 
 func _comm_plans_done():
+	print("comm done")
+	await get_tree().create_timer(4.0).timeout
 	_level_ends()
 
 

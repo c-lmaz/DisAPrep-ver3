@@ -19,6 +19,10 @@ func _on_pressed():
 		texture.texture = normal_tex
 
 
+func toggled(toggle_on): 
+	set_pressed_no_signal(toggle_on)
+	_on_toggled(toggle_on)
+
 func _on_toggled(toggled_on):
 	if toggled_on:
 		texture.texture = toggled_tex

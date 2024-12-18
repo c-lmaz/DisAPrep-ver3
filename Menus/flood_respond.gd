@@ -65,6 +65,7 @@ func _on_maze_path_ended(pathname: String):
 	
 	elif next_path.match("GOAL"):
 		interaction_panel.update_current_quest(1)
+		hud.update_score(50)
 		_level_ends()
 	
 	else:
@@ -105,4 +106,3 @@ func _on_int_panel_quest_completed(_q_name):
 func _level_ends():
 	var resp_time = hud.get_time_left()
 	respond_ends.emit(hud.score, resp_time)
-	print(hud.score+" "+resp_time)

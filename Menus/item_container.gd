@@ -29,3 +29,8 @@ func _sort_checked_items():
 			items[i+1] = a
 			states[i] = b_state
 			states[i+1] = a_state
+
+
+func clear_children():
+	for child in get_children():
+		child.free()

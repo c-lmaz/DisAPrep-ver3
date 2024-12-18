@@ -9,7 +9,7 @@ var default_progress = {
 			"Hazards": 0,
 			"Comm": 0,
 		},
-		"RespondEvac": {
+		"Respond": {
 			"Score": 0,
 			"TimeLeft": 0,
 			"Evac": 0,
@@ -17,6 +17,9 @@ var default_progress = {
 		"Recover": {
 			"Score": 0,
 			"TimeLeft": 0,
+			"Health": 0,
+			"Repair": 0,
+			"Future": 0,
 		},
 	},
 }
@@ -38,15 +41,12 @@ func read_json_file(path: String):
 func save_level_progress(level: String, phase: String, data: Dictionary):
 	var save_path = "user://user_progress.save"
 	var json_string
+	var current_progress = default_progress
 	
-	if !FileAccess.file_exists(save_path):
-		var create_file = FileAccess.open(save_path, FileAccess.WRITE)
-		json_string = JSON.stringify(default_progress, "\t")
-		create_file.store_line(json_string)
-		create_file.close()
-	
-	var save_file = FileAccess.open(save_path, FileAccess.READ_WRITE)
-	var current_progress = read_json_file(save_path)
+	if FileAccess.file_exists(save_path):
+		current_progress = read_json_file(save_path)
+		if current_progress == null:
+			current_progress = default_progress
 	
 	if current_progress.has(level) and current_progress[level] is Dictionary:
 		var level_dict = current_progress[level]
@@ -55,6 +55,17 @@ func save_level_progress(level: String, phase: String, data: Dictionary):
 			for key in data:
 				phase_dict[key] = data[key]
 	
+	else:
+		if !current_progress.has(level):
+			current_progress[level] = {}
+		if !current_progress[level].has(phase):
+			current_progress[level][phase] = {}
+		
+		for key in data:
+			current_progress[level][phase][key] = data[key]
+	
 	json_string = JSON.stringify(current_progress, "\t")
+	var save_file = FileAccess.open(save_path, FileAccess.WRITE)
 	save_file.store_string(json_string)
+	print_debug(json_string)
 	save_file.close()

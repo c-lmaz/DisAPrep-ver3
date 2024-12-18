@@ -90,13 +90,12 @@ func set_next_quest():
 	next_quest.current = true
 	
 	match next_quest.name:
-		"Hazards":
-			item_container.columns = 1
+		"Hazards": item_container.columns = 1
+		"Comm": item_container.columns = 1
 
 
 func set_next_quest_items(ind: int):
-	for child in item_container.get_children():
-		child.queue_free()
+	item_container.clear_children()
 	
 	match phase:
 		Phases.PREPARE:
@@ -113,11 +112,11 @@ func set_next_quest_items(ind: int):
 			
 			for i in range(prep_items.size()):
 				var child = item_node.instantiate()
-				item_container.add_child(child)
 				child.item_name = prep_items[i]["name"]
 				child.item_icon = load(prep_items[i]["icon"])
 				if prep_items[i].has("short"):
 					child.short_name = prep_items[i]["short"]
+				item_container.add_child(child)
 		
 		Phases.RESPOND:
 			pass

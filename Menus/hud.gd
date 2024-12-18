@@ -20,6 +20,7 @@ signal player_died
 # Pause and Exit variables
 @onready var pause_menu = $PauseMenu
 @onready var exit_menu = $ExitMenu
+@onready var pause = $Pause
 
 var life = 6
 var score = 0
@@ -73,13 +74,16 @@ func update_score(add_score):
 
 func _on_pause_toggled(toggled_on):
 	game_paused.emit(toggled_on)
+	pause.toggled(toggled_on)
 	pause_menu.visible = toggled_on
+	exit_menu.visible = false
 	get_tree().paused = toggled_on
 
 
 func _on_exit_pressed():
 	pause_menu.visible = false
-	exit_menu.visible = false
+	exit_menu.visible = true
+	get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
 
 
 func _on_timer_timeout():

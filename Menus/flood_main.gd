@@ -72,6 +72,8 @@ func _on_prepare_phase_ends(score: int, quests: Dictionary, time: int):
 	_display_score(score)
 	phase.visible = false
 	phase.queue_free()
+	for child in quest_list.get_children():
+		child.queue_free()
 
 
 func _on_respond_phase_ends(score: int, time: int):
@@ -87,8 +89,21 @@ func _on_respond_phase_ends(score: int, time: int):
 	phase.queue_free()
 
 
-func _on_recover_phase_ends():
-	pass
+func _on_recover_phase_ends(score: int, quests: Dictionary, time: int):
+	var phase_progress = {
+			"Score": score,
+			"TimeLeft": time,
+			"Kit": quests["Kit"],
+			"Hazards": quests["Hazards"],
+			"Comm": quests["Comm"],
+		}
+	
+	Global.save_level_progress("Flood", "Recover", phase_progress)
+	_display_score(score)
+	phase.visible = false
+	phase.queue_free()
+	for child in quest_list.get_children():
+		child.queue_free()
 
 
 func _on_start_pressed():
@@ -107,6 +122,7 @@ func _on_start_pressed():
 			phase = flood_recover.instantiate()
 			add_child(phase)
 			phase.recover_ends.connect(_on_recover_phase_ends)
+			$LevelEndMenu/VBoxContainer/Button.text = "Go to Home"
 	
 	phase.visible = true
 	phase.start_level()
@@ -120,6 +136,8 @@ func _on_next_pressed():
 		Phases.RESPOND:
 			curr_phase = Phases.RECOVER
 			curr_quests = all_quests["Recover"]
+		Phases.RECOVER:
+			get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
 	
 	_manage_quest_list(curr_quests)
 	level_end_menu.visible = false

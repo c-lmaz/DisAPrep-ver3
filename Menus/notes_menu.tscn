@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfvxls7w24en0"]
+
+[ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_go6bf"]
+[ext_resource type="Texture2D" uid="uid://dsuh3qll5d6jp" path="res://Icons/Controls/home.png" id="2_rkgqn"]
+[ext_resource type="Script" path="res://Menus/home_button.gd" id="3_28se4"]
+
+[node name="Notes" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_go6bf")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -23.5
+offset_right = 20.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Notes"
+
+[node name="Home" type="Button" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 91.0
+offset_bottom = 90.0
+icon = ExtResource("2_rkgqn")
+script = ExtResource("3_28se4")
+
+[connection signal="pressed" from="Home" to="Home" method="_on_pressed"]
