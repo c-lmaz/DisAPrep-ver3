@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cfvxls7w24en0"]
+[gd_scene load_steps=70 format=3 uid="uid://cfvxls7w24en0"]
 
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_go6bf"]
 [ext_resource type="StyleBox" uid="uid://bklx8rfkh3fko" path="res://Themes/Styleboxes/default_blue.stylebox" id="2_08xwj"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dy2qsu8wl6r8g" path="res://Icons/Controls/transparentLight10.png" id="5_wvj0r"]
 [ext_resource type="Texture2D" uid="uid://bh0d238ijm7xx" path="res://Icons/Notes/GovAgencies/NADMA.png" id="6_718ou"]
 [ext_resource type="Texture2D" uid="uid://d1rnnownjcpyg" path="res://Icons/Notes/GovAgencies/KKM.png" id="7_60433"]
+[ext_resource type="StyleBox" uid="uid://ev2mbtfnm0jq" path="res://Themes/Styleboxes/default.stylebox" id="7_yfqva"]
 [ext_resource type="Texture2D" uid="uid://iyh3aet43bf2" path="res://Icons/Notes/GovAgencies/MET_Malaysia.png" id="8_58bhj"]
 [ext_resource type="Texture2D" uid="uid://7bkl7sgcy70d" path="res://Icons/Notes/GovAgencies/JPS.png" id="9_tsm4j"]
 [ext_resource type="Texture2D" uid="uid://cs3btkt1bwjk5" path="res://Icons/Notes/GovAgencies/JKM.png" id="10_o4qvp"]
@@ -47,8 +48,12 @@
 [ext_resource type="Texture2D" uid="uid://bclis2fnxcuv6" path="res://Icons/Notes/Kit/teddy-bear.png" id="44_8vbnu"]
 [ext_resource type="Texture2D" uid="uid://ghrg7rf4kq2y" path="res://Icons/Notes/letter_d.png" id="45_q0j16"]
 [ext_resource type="Texture2D" uid="uid://upi6vqtn006a" path="res://Icons/Notes/letter_r.png" id="46_3sxin"]
+[ext_resource type="Texture2D" uid="uid://bxtyrwxpiynw3" path="res://Icons/Communication/neighborhood.png" id="46_dv7i6"]
+[ext_resource type="Script" path="res://addons/GameGUI/GGFiller.gd" id="46_ypm0a"]
 [ext_resource type="Texture2D" uid="uid://bl8dhy26o6jck" path="res://Icons/Notes/letter_s.png" id="47_sxx2o"]
+[ext_resource type="Texture2D" uid="uid://blfh0yd3tphb0" path="res://Icons/Hazards/desktop.png" id="47_y1h6o"]
 [ext_resource type="Texture2D" uid="uid://ct10iihm5ajyo" path="res://Icons/Notes/letter_a.png" id="48_fs3fp"]
+[ext_resource type="Texture2D" uid="uid://dseetjvr1mprg" path="res://Icons/Notes/car.png" id="48_jym8c"]
 [ext_resource type="Texture2D" uid="uid://ca3trobo7ftgt" path="res://Icons/Notes/letter_b.png" id="49_c607h"]
 [ext_resource type="Texture2D" uid="uid://dp3eph7snsdhx" path="res://Icons/Notes/letter_c.png" id="50_nrchq"]
 [ext_resource type="Texture2D" uid="uid://cnhos7vxas26s" path="res://Icons/Notes/letter_v.png" id="51_860pn"]
@@ -86,10 +91,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 17.0
-offset_top = 16.0
-offset_right = 17.0
-offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
@@ -138,6 +139,9 @@ theme_override_constants/separation = 10
 
 [node name="999" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.219608, 0.219608, 0.219608, 1)
+theme_override_styles/pressed = ExtResource("7_yfqva")
+toggle_mode = true
 text = "999"
 
 [node name="999N" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
@@ -145,6 +149,7 @@ visible = false
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/999N"]
@@ -174,6 +179,9 @@ fit_content = true
 
 [node name="InfoSource" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.219608, 0.219608, 0.219608, 1)
+theme_override_styles/pressed = ExtResource("7_yfqva")
+toggle_mode = true
 text = "Information Sources"
 
 [node name="InfoSourceN" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
@@ -181,16 +189,19 @@ visible = false
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 theme_override_constants/separation = 30
 
 [node name="NADMA" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/InfoSourceN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/InfoSourceN/NADMA"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("6_718ou")
 expand_mode = 1
 stretch_mode = 5
@@ -198,6 +209,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/InfoSourceN/NADMA"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -213,12 +225,14 @@ fit_content = true
 
 [node name="KKM" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/InfoSourceN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/InfoSourceN/KKM"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("7_60433")
 expand_mode = 1
 stretch_mode = 5
@@ -226,6 +240,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/InfoSourceN/KKM"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -241,12 +256,14 @@ fit_content = true
 
 [node name="MET" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/InfoSourceN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/InfoSourceN/MET"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("8_58bhj")
 expand_mode = 1
 stretch_mode = 5
@@ -254,6 +271,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/InfoSourceN/MET"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -271,12 +289,14 @@ fit_content = true
 
 [node name="JPS" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/InfoSourceN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/InfoSourceN/JPS"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("9_tsm4j")
 expand_mode = 1
 stretch_mode = 5
@@ -284,6 +304,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/InfoSourceN/JPS"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -297,12 +318,14 @@ fit_content = true
 
 [node name="JKM" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/InfoSourceN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/InfoSourceN/JKM"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("10_o4qvp")
 expand_mode = 1
 stretch_mode = 5
@@ -310,6 +333,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/InfoSourceN/JKM"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -323,12 +347,14 @@ fit_content = true
 
 [node name="JUPEM" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/InfoSourceN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/InfoSourceN/JUPEM"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("11_yxtag")
 expand_mode = 1
 stretch_mode = 5
@@ -336,6 +362,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/InfoSourceN/JUPEM"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -349,12 +376,14 @@ fit_content = true
 
 [node name="JKR" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/InfoSourceN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/InfoSourceN/JKR"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("12_s21yn")
 expand_mode = 1
 stretch_mode = 5
@@ -362,6 +391,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/InfoSourceN/JKR"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -375,12 +405,14 @@ fit_content = true
 
 [node name="TNB" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/InfoSourceN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/InfoSourceN/TNB"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("13_eg1o4")
 expand_mode = 1
 stretch_mode = 5
@@ -388,6 +420,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/InfoSourceN/TNB"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -403,6 +436,9 @@ fit_content = true
 
 [node name="EmergencyKit" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.219608, 0.219608, 0.219608, 1)
+theme_override_styles/pressed = ExtResource("7_yfqva")
+toggle_mode = true
 text = "Emergency Kit"
 
 [node name="EmergencyKitN" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
@@ -410,10 +446,12 @@ visible = false
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 20
+mouse_filter = 2
+theme_override_constants/separation = 10
 
 [node name="Info" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/EmergencyKitN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
@@ -427,6 +465,7 @@ fit_content = true
 [node name="GridContainer" type="GridContainer" parent="ScrollContainer/VBoxContainer/EmergencyKitN"]
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 theme_override_constants/h_separation = 7
 theme_override_constants/v_separation = 5
 columns = 4
@@ -436,6 +475,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -451,6 +491,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -466,6 +507,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -481,6 +523,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 16
@@ -497,6 +540,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -513,6 +557,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -528,6 +573,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 17
@@ -544,6 +590,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 17
@@ -560,6 +607,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -575,6 +623,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -591,6 +640,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 17
@@ -606,6 +656,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -621,6 +672,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 16
@@ -636,6 +688,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -651,6 +704,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -666,6 +720,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -681,6 +736,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -693,6 +749,7 @@ vertical_icon_alignment = 0
 
 [node name="Extra" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/EmergencyKitN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
@@ -704,6 +761,7 @@ fit_content = true
 [node name="GridContainer2" type="GridContainer" parent="ScrollContainer/VBoxContainer/EmergencyKitN"]
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 theme_override_constants/h_separation = 7
 theme_override_constants/v_separation = 5
 columns = 4
@@ -713,6 +771,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -728,6 +787,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -744,6 +804,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -760,6 +821,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -775,6 +837,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -791,6 +854,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -807,6 +871,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 17
@@ -822,6 +887,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 17
@@ -837,6 +903,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -853,6 +920,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -868,6 +936,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 17
@@ -883,6 +952,7 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/icon_max_width = 40
 theme_override_fonts/font = ExtResource("14_rpqyr")
 theme_override_font_sizes/font_size = 18
@@ -894,33 +964,153 @@ flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
 
+[node name="GGFiller" type="Container" parent="ScrollContainer/VBoxContainer/EmergencyKitN"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+script = ExtResource("46_ypm0a")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
 [node name="Maintenance" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/EmergencyKitN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
 theme_override_font_sizes/bold_italics_font_size = 20
 bbcode_enabled = true
-text = "[b]Emergency Kit Maintenance[/b]
-- Keep canned food in a cool, dry place.
+text = "[b]Emergency Kit Maintenance[/b]"
+fit_content = true
+
+[node name="Maintenance2" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/EmergencyKitN"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "- Keep canned food in a cool, dry place.
 - Store boxed food in tightly closed plastic or metal containers.
 - Replace expired items as needed.
-- Re-think your needs at least annually and update your kit as your family's needs change.
+- Re-think your needs at least annually and update your kit as your family's needs change."
+fit_content = true
 
-[b]Kit Storage Locations[/b]
-[b]Home[/b]: 
+[node name="GGFiller2" type="Container" parent="ScrollContainer/VBoxContainer/EmergencyKitN"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+script = ExtResource("46_ypm0a")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
+[node name="Maintenance3" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/EmergencyKitN"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Kit Storage Locations[/b]"
+fit_content = true
+
+[node name="Home" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/EmergencyKitN"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/EmergencyKitN/Home"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("46_dv7i6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/EmergencyKitN/Home"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Home[/b]: 
 - Keep your kit in a designated place and have it ready in case you have to evacuate fast.
-- Make sure all family members know where the kit is kept.
-[b]Work[/b]: 
+- Make sure all family members know where the kit is kept."
+fit_content = true
+
+[node name="Work" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/EmergencyKitN"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/EmergencyKitN/Work"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("47_y1h6o")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/EmergencyKitN/Work"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Work[/b]: 
 - Be prepared to shelter at work for at least 24 hours.
-- Your work kit should include food, water, medicines, and comfortable walking shoes, stored in a [i]'grab and go'[/i] case.
-[b]Car[/b]: 
+- Your work kit should include food, water, medicines, and comfortable walking shoes, stored in a [i]'grab and go'[/i] case."
+fit_content = true
+
+[node name="Car" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/EmergencyKitN"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/EmergencyKitN/Car"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("48_jym8c")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/EmergencyKitN/Car"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Car[/b]: 
 - In case you are stranded, keep an emergency kit in your car. 
 - Your car kit should include the essentials, with the additions of jumper cables, reflective triangle, car phone charger, blanket, and map."
 fit_content = true
 
 [node name="FirstAid" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.219608, 0.219608, 0.219608, 1)
+theme_override_styles/pressed = ExtResource("7_yfqva")
+toggle_mode = true
 text = "First Aid"
 
 [node name="FirstAidN" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
@@ -933,6 +1123,9 @@ theme_override_constants/separation = 10
 [node name="DRS" type="Button" parent="ScrollContainer/VBoxContainer/FirstAidN"]
 self_modulate = Color(0.960784, 0.960784, 0.960784, 1)
 layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.219608, 0.219608, 0.219608, 1)
+theme_override_styles/pressed = ExtResource("7_yfqva")
+toggle_mode = true
 text = "DRSABCD"
 
 [node name="DRSN" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN"]
@@ -940,10 +1133,12 @@ visible = false
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 20
+mouse_filter = 2
+theme_override_constants/separation = 10
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
@@ -955,6 +1150,7 @@ fit_content = true
 
 [node name="D" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/D"]
@@ -980,6 +1176,7 @@ fit_content = true
 
 [node name="R" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/R"]
@@ -1005,6 +1202,7 @@ fit_content = true
 
 [node name="S" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/S"]
@@ -1030,6 +1228,7 @@ fit_content = true
 
 [node name="A" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/A"]
@@ -1055,6 +1254,7 @@ fit_content = true
 
 [node name="B" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/B"]
@@ -1080,6 +1280,7 @@ fit_content = true
 
 [node name="C" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/C"]
@@ -1105,6 +1306,7 @@ fit_content = true
 
 [node name="D2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/D2"]
@@ -1131,6 +1333,9 @@ fit_content = true
 [node name="AVPU" type="Button" parent="ScrollContainer/VBoxContainer/FirstAidN"]
 self_modulate = Color(0.960784, 0.960784, 0.960784, 1)
 layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.219608, 0.219608, 0.219608, 1)
+theme_override_styles/pressed = ExtResource("7_yfqva")
+toggle_mode = true
 text = "AVPU"
 
 [node name="AVPUN" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN"]
@@ -1138,10 +1343,12 @@ visible = false
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 20
+mouse_filter = 2
+theme_override_constants/separation = 10
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
@@ -1154,6 +1361,7 @@ fit_content = true
 
 [node name="A" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN/A"]
@@ -1161,6 +1369,7 @@ self_modulate = Color(0.231373, 0.921569, 0.368627, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("48_fs3fp")
 expand_mode = 1
 stretch_mode = 5
@@ -1168,6 +1377,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN/A"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1179,6 +1389,7 @@ fit_content = true
 
 [node name="V" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN/V"]
@@ -1186,6 +1397,7 @@ self_modulate = Color(0.945098, 0.968627, 0.0352941, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("51_860pn")
 expand_mode = 1
 stretch_mode = 5
@@ -1193,6 +1405,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN/V"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1204,6 +1417,7 @@ fit_content = true
 
 [node name="P" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN/P"]
@@ -1211,6 +1425,7 @@ self_modulate = Color(1, 0.647059, 0, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("52_w74s3")
 expand_mode = 1
 stretch_mode = 5
@@ -1218,6 +1433,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN/P"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1229,6 +1445,7 @@ fit_content = true
 
 [node name="U" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN/U"]
@@ -1236,6 +1453,7 @@ self_modulate = Color(1, 0.129412, 0.0784314, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("53_ryxc5")
 expand_mode = 1
 stretch_mode = 5
@@ -1243,6 +1461,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN/U"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1255,6 +1474,9 @@ fit_content = true
 [node name="Wounds" type="Button" parent="ScrollContainer/VBoxContainer/FirstAidN"]
 self_modulate = Color(0.960784, 0.960784, 0.960784, 1)
 layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.219608, 0.219608, 0.219608, 1)
+theme_override_styles/pressed = ExtResource("7_yfqva")
+toggle_mode = true
 text = "Wounds and Bleeding"
 
 [node name="WoundsN" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN"]
@@ -1262,27 +1484,51 @@ visible = false
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 20
+mouse_filter = 2
+theme_override_constants/separation = 10
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
 theme_override_font_sizes/bold_italics_font_size = 20
 bbcode_enabled = true
-text = "No images of wounds are shown as it can be disturbing and upsetting. However, you can search for [i]'medical diagrams of wound types'[/i] for the pictures. Do search and learn responsibly."
+text = "No images of wounds are shown as it can be disturbing and upsetting. However, you can search for [i]'medical diagrams of wound types'[/i] for the pictures."
 fit_content = true
+
+[node name="GGFiller" type="Container" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+script = ExtResource("46_ypm0a")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
 theme_override_font_sizes/bold_italics_font_size = 20
 bbcode_enabled = true
-text = "[b]Types of Wounds[/b]
-1. Abrasion:
+text = "[b]Types of Wounds[/b]"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "1. Abrasion:
 	- Superficial damage to the skin, due to friction or scraping.
 	- Clean, apply antiseptic, and cover with sterile bandage.
 
@@ -1310,8 +1556,20 @@ text = "[b]Types of Wounds[/b]
 	- [b]Seek immediate medical attention[/b]. Surgery may be necessary."
 fit_content = true
 
+[node name="GGFiller2" type="Container" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+script = ExtResource("46_ypm0a")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
 [node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1322,6 +1580,7 @@ fit_content = true
 
 [node name="1" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/1"]
@@ -1329,6 +1588,7 @@ self_modulate = Color(1, 0.647059, 0, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("54_k82o0")
 expand_mode = 1
 stretch_mode = 5
@@ -1336,6 +1596,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/1"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1346,6 +1607,7 @@ fit_content = true
 
 [node name="2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/2"]
@@ -1353,6 +1615,7 @@ self_modulate = Color(1, 0.647059, 0, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("55_l8xus")
 expand_mode = 1
 stretch_mode = 5
@@ -1360,6 +1623,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/2"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1373,6 +1637,7 @@ fit_content = true
 
 [node name="3" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/3"]
@@ -1380,6 +1645,7 @@ self_modulate = Color(1, 0.647059, 0, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("56_ewaug")
 expand_mode = 1
 stretch_mode = 5
@@ -1387,6 +1653,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/3"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1403,6 +1670,7 @@ fit_content = true
 
 [node name="4" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/4"]
@@ -1410,6 +1678,7 @@ self_modulate = Color(1, 0.647059, 0, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("56_ewaug")
 expand_mode = 1
 stretch_mode = 5
@@ -1417,6 +1686,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/4"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1435,6 +1705,7 @@ fit_content = true
 
 [node name="5" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/5"]
@@ -1442,6 +1713,7 @@ self_modulate = Color(1, 0.647059, 0, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("57_uhk7b")
 expand_mode = 1
 stretch_mode = 5
@@ -1449,22 +1721,47 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/5"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
 theme_override_font_sizes/bold_italics_font_size = 20
 bbcode_enabled = true
-text = "[b]Clean and Dress the Wound[/b]
+text = "[b]Clean and Dress Minor Wound[/b]
+Wash gently with mild soap and clean water. Remove any debris. Pat dry with a clean lint-free cloth. Apply a breathable bandage."
+fit_content = true
 
-[b]Minor wounds[/b]
-Wash gently with mild soap and clean water. Remove any debris. Pat dry with a clean lint-free cloth. Apply a breathable bandage.
+[node name="14" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
 
-[b]Major wounds[/b]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/14"]
+self_modulate = Color(1, 0.647059, 0, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("57_uhk7b")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/14"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Clean and Dress Major Wound[/b]
 Cover with a sterile dressing without applying pressure. Do not attempt to clean deep wounds or remove embedded objects."
 fit_content = true
 
 [node name="6" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/6"]
@@ -1472,6 +1769,7 @@ self_modulate = Color(1, 0.647059, 0, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("58_ueatf")
 expand_mode = 1
 stretch_mode = 5
@@ -1479,6 +1777,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/6"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1492,8 +1791,20 @@ Seek immediate medical attention for:
 - any wound in doubt, especially for vulnerable individuals (children, pregnant women, or those with compromised immunity)."
 fit_content = true
 
+[node name="GGFiller3" type="Container" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+script = ExtResource("46_ypm0a")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
 [node name="RichTextLabel4" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1504,6 +1815,7 @@ fit_content = true
 
 [node name="7" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/7"]
@@ -1511,6 +1823,7 @@ self_modulate = Color(0, 0.686275, 0, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("54_k82o0")
 expand_mode = 1
 stretch_mode = 5
@@ -1518,6 +1831,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/7"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1528,6 +1842,7 @@ fit_content = true
 
 [node name="8" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/8"]
@@ -1535,6 +1850,7 @@ self_modulate = Color(0, 0.686275, 0, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("55_l8xus")
 expand_mode = 1
 stretch_mode = 5
@@ -1542,6 +1858,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/8"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1552,6 +1869,7 @@ fit_content = true
 
 [node name="9" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/9"]
@@ -1559,6 +1877,7 @@ self_modulate = Color(0, 0.686275, 0, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("56_ewaug")
 expand_mode = 1
 stretch_mode = 5
@@ -1566,6 +1885,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/9"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1576,6 +1896,7 @@ fit_content = true
 
 [node name="10" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/10"]
@@ -1583,6 +1904,7 @@ self_modulate = Color(0, 0.686275, 0, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("57_uhk7b")
 expand_mode = 1
 stretch_mode = 5
@@ -1590,6 +1912,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/10"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1600,6 +1923,7 @@ fit_content = true
 
 [node name="11" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/11"]
@@ -1607,6 +1931,7 @@ self_modulate = Color(0, 0.686275, 0, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("58_ueatf")
 expand_mode = 1
 stretch_mode = 5
@@ -1614,6 +1939,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/11"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1624,6 +1950,7 @@ fit_content = true
 
 [node name="12" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/12"]
@@ -1631,6 +1958,7 @@ self_modulate = Color(0, 0.686275, 0, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("59_c373f")
 expand_mode = 1
 stretch_mode = 5
@@ -1638,6 +1966,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/12"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1648,6 +1977,7 @@ fit_content = true
 
 [node name="13" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/13"]
@@ -1655,6 +1985,7 @@ self_modulate = Color(0, 0.686275, 0, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("60_8wo58")
 expand_mode = 1
 stretch_mode = 5
@@ -1662,6 +1993,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/13"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1673,6 +2005,9 @@ fit_content = true
 [node name="Sprain" type="Button" parent="ScrollContainer/VBoxContainer/FirstAidN"]
 self_modulate = Color(0.960784, 0.960784, 0.960784, 1)
 layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.219608, 0.219608, 0.219608, 1)
+theme_override_styles/pressed = ExtResource("7_yfqva")
+toggle_mode = true
 text = "Sprains"
 
 [node name="SprainN" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN"]
@@ -1680,52 +2015,108 @@ visible = false
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 20
+mouse_filter = 2
+theme_override_constants/separation = 10
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
 theme_override_font_sizes/bold_italics_font_size = 20
 bbcode_enabled = true
 text = "[b]Sprains[/b]
-A sprain is an injury to the ligaments - the tough fibrous tissue connecting bones at a joint.
-It happens when a joint is forced beyond its normal range of motion.
-Commonly affect ankls, knees, or wrists."
+A sprain is an injury to the ligaments - the tough fibrous tissue connecting bones at a joint. It happens when a joint is forced beyond its normal range of motion. Commonly affect ankles, knees, or wrists."
 fit_content = true
+
+[node name="GGFiller" type="Container" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+script = ExtResource("46_ypm0a")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
 theme_override_font_sizes/bold_italics_font_size = 20
 bbcode_enabled = true
-text = "[b]Causes of Sprains[/b]
-1. Sudden [b]twisting or turning[/b].
+text = "[b]Causes of Sprains[/b]"
+fit_content = true
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "1. Sudden [b]twisting or turning[/b].
 2. [b]Falling[/b] and landing in an awkward position.
 3. [b]Direct impact[/b] on a joint.
 4. repeated stress on a joint due to [b]overuse[/b] or repetitive movements."
 fit_content = true
 
+[node name="GGFiller2" type="Container" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+script = ExtResource("46_ypm0a")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
 [node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
 theme_override_font_sizes/bold_italics_font_size = 20
 bbcode_enabled = true
-text = "[b]Sign of Sprains[/b]
-1. [b]Pain[/b] around the injured joint.
+text = "[b]Sign of Sprains[/b]"
+fit_content = true
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "1. [b]Pain[/b] around the injured joint.
 2. [b]Swelling[/b] and tenderness.
 3. [b]Bruising[/b] or discolouration.
 4. [b]Difficulty moving[/b] the joint.
 5.  [b]Instability[/b] or feeling 'looseness' in the joint."
 fit_content = true
 
+[node name="GGFiller3" type="Container" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+script = ExtResource("46_ypm0a")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
 [node name="RichTextLabel4" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1736,6 +2127,7 @@ fit_content = true
 
 [node name="R" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/R"]
@@ -1743,6 +2135,7 @@ self_modulate = Color(0, 0.929412, 0.184314, 1)
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("46_3sxin")
 expand_mode = 1
 stretch_mode = 5
@@ -1750,6 +2143,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/R"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1761,6 +2155,7 @@ fit_content = true
 
 [node name="I" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/I"]
@@ -1768,6 +2163,7 @@ self_modulate = Color(0.0117647, 0.784314, 1, 1)
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("61_d60dw")
 expand_mode = 1
 stretch_mode = 5
@@ -1775,6 +2171,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/I"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1786,6 +2183,7 @@ fit_content = true
 
 [node name="C" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/C"]
@@ -1793,6 +2191,7 @@ self_modulate = Color(0.784314, 0, 1, 1)
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("50_nrchq")
 expand_mode = 1
 stretch_mode = 5
@@ -1800,6 +2199,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/C"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1811,6 +2211,7 @@ fit_content = true
 
 [node name="E" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/E"]
@@ -1818,6 +2219,7 @@ self_modulate = Color(1, 0.407843, 0.670588, 1)
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("62_x32l4")
 expand_mode = 1
 stretch_mode = 5
@@ -1825,6 +2227,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/E"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1834,8 +2237,20 @@ text = "[b]Elevation[/b]
 Elevate the injured area above the heart level."
 fit_content = true
 
+[node name="GGFiller4" type="Container" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+script = ExtResource("46_ypm0a")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
 [node name="RichTextLabel5" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1846,6 +2261,7 @@ fit_content = true
 
 [node name="1" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/1"]
@@ -1853,6 +2269,7 @@ self_modulate = Color(0.960784, 0.537255, 0.305882, 1)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("54_k82o0")
 expand_mode = 1
 stretch_mode = 5
@@ -1860,6 +2277,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/1"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1871,6 +2289,7 @@ fit_content = true
 
 [node name="2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/2"]
@@ -1878,6 +2297,7 @@ self_modulate = Color(0.8, 0.447059, 0.254902, 1)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("55_l8xus")
 expand_mode = 1
 stretch_mode = 5
@@ -1885,6 +2305,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/2"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1896,6 +2317,7 @@ fit_content = true
 
 [node name="3" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/3"]
@@ -1919,8 +2341,20 @@ text = "[b]Physical Therapy[/b]
 After pain and sweeling subside, physical therapy exercises can help regain strength, flexibility and stability."
 fit_content = true
 
+[node name="GGFiller5" type="Container" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+script = ExtResource("46_ypm0a")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
 [node name="RichTextLabel6" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1931,6 +2365,7 @@ fit_content = true
 
 [node name="4" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/4"]
@@ -1938,6 +2373,7 @@ self_modulate = Color(1, 0.498039, 0.654902, 1)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("54_k82o0")
 expand_mode = 1
 stretch_mode = 5
@@ -1945,6 +2381,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/4"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1955,6 +2392,7 @@ fit_content = true
 
 [node name="5" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/5"]
@@ -1962,6 +2400,7 @@ self_modulate = Color(0.921569, 0.458824, 0.603922, 1)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("55_l8xus")
 expand_mode = 1
 stretch_mode = 5
@@ -1969,6 +2408,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/5"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -1979,6 +2419,7 @@ fit_content = true
 
 [node name="6" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/6"]
@@ -1986,6 +2427,7 @@ self_modulate = Color(0.921569, 0.458824, 0.603922, 1)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("56_ewaug")
 expand_mode = 1
 stretch_mode = 5
@@ -1993,6 +2435,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/6"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -2003,6 +2446,7 @@ fit_content = true
 
 [node name="7" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/7"]
@@ -2010,6 +2454,7 @@ self_modulate = Color(0.921569, 0.458824, 0.603922, 1)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("57_uhk7b")
 expand_mode = 1
 stretch_mode = 5
@@ -2017,6 +2462,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/7"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
@@ -2027,6 +2473,7 @@ fit_content = true
 
 [node name="8" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/8"]
@@ -2034,6 +2481,7 @@ self_modulate = Color(0.921569, 0.458824, 0.603922, 1)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("58_ueatf")
 expand_mode = 1
 stretch_mode = 5
@@ -2041,6 +2489,7 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/8"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/italics_font_size = 18
