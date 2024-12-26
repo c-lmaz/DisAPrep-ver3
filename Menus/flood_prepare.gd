@@ -151,8 +151,7 @@ func _kit_items_done():
 	kit_items.visible = false
 	texture_rect.visible = false
 	interaction_panel.set_next_quest()
-	interaction_panel.set_next_quest()
-	interaction_panel.set_next_quest_items(2)
+	interaction_panel.set_next_quest_items(1)
 
 
 func _on_hazards_hazard_managed(hazard: String, status: bool):

@@ -1,0 +1,518 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmk8ukbtq4l0q"]
+
+[ext_resource type="Texture2D" uid="uid://red3to85khip" path="res://Icons/Levels/exclamation1.png" id="1_1pfv2"]
+[ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_smowr"]
+[ext_resource type="Script" path="res://Menus/repair.gd" id="2_an0o3"]
+[ext_resource type="StyleBox" uid="uid://c4lrh7ayx0rtf" path="res://Themes/Styleboxes/inverse_transparent.stylebox" id="2_oa776"]
+[ext_resource type="FontFile" uid="uid://c4o05i4pa21je" path="res://Themes/Fonts/InriaSans-Regular.otf" id="3_dnwn7"]
+[ext_resource type="StyleBox" uid="uid://bnorgblhsf46e" path="res://Themes/Styleboxes/inverse.stylebox" id="4_0sua3"]
+[ext_resource type="StyleBox" uid="uid://ev2mbtfnm0jq" path="res://Themes/Styleboxes/default.stylebox" id="5_a7dkr"]
+
+[node name="Repair" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_smowr")
+script = ExtResource("2_an0o3")
+
+[node name="Debris" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 436.0
+offset_right = 94.0
+offset_bottom = 486.0
+texture_normal = ExtResource("1_1pfv2")
+
+[node name="Dry" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 433.0
+offset_right = 478.0
+offset_bottom = 483.0
+texture_normal = ExtResource("1_1pfv2")
+
+[node name="Patch" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 151.0
+offset_right = 99.0
+offset_bottom = 201.0
+texture_normal = ExtResource("1_1pfv2")
+
+[node name="Electricity" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 253.0
+offset_right = 460.0
+offset_bottom = 303.0
+texture_normal = ExtResource("1_1pfv2")
+
+[node name="Pipes" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 501.0
+offset_right = 226.0
+offset_bottom = 551.0
+texture_normal = ExtResource("1_1pfv2")
+
+[node name="RepairMenu" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(540, 450)
+layout_mode = 0
+offset_top = 140.0
+offset_right = 540.0
+offset_bottom = 590.0
+theme_override_styles/panel = ExtResource("2_oa776")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RepairMenu"]
+custom_minimum_size = Vector2(520, 350)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -175.0
+offset_right = 260.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Debris" type="VBoxContainer" parent="RepairMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Description" type="Label" parent="RepairMenu/VBoxContainer/Debris"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 26
+text = "Cleaning debris after a flood is crucial for safety."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Prompt" type="Label" parent="RepairMenu/VBoxContainer/Debris"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_font_sizes/font_size = 26
+text = "What is essential when cleaning debris after a flood?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ItemList" type="GridContainer" parent="RepairMenu/VBoxContainer/Debris"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Hands" type="CheckBox" parent="RepairMenu/VBoxContainer/Debris/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Bare hands"
+alignment = 1
+
+[node name="Gloves" type="CheckBox" parent="RepairMenu/VBoxContainer/Debris/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Gloves"
+alignment = 1
+
+[node name="Heavy" type="CheckBox" parent="RepairMenu/VBoxContainer/Debris/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Heavy tools"
+alignment = 1
+
+[node name="Mask" type="CheckBox" parent="RepairMenu/VBoxContainer/Debris/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Mask"
+alignment = 1
+
+[node name="Dry" type="VBoxContainer" parent="RepairMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Description" type="Label" parent="RepairMenu/VBoxContainer/Dry"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 26
+text = "Floodwater cause damages to furnitures."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Prompt" type="Label" parent="RepairMenu/VBoxContainer/Dry"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_font_sizes/font_size = 26
+text = "How should you handle water-damaged furnitures?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ItemList" type="GridContainer" parent="RepairMenu/VBoxContainer/Dry"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Dry" type="CheckBox" parent="RepairMenu/VBoxContainer/Dry/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Dry quickly"
+alignment = 1
+
+[node name="Fans" type="CheckBox" parent="RepairMenu/VBoxContainer/Dry/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Use fans"
+alignment = 1
+
+[node name="Throw" type="CheckBox" parent="RepairMenu/VBoxContainer/Dry/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Throw everything"
+alignment = 1
+
+[node name="Wash" type="CheckBox" parent="RepairMenu/VBoxContainer/Dry/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Wash carefully"
+alignment = 1
+
+[node name="Patch" type="VBoxContainer" parent="RepairMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Description" type="Label" parent="RepairMenu/VBoxContainer/Patch"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 26
+text = "Heavy rains can damage the roofs."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Prompt" type="Label" parent="RepairMenu/VBoxContainer/Patch"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_font_sizes/font_size = 26
+text = "What should you focus on when repairing roofs?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ItemList" type="GridContainer" parent="RepairMenu/VBoxContainer/Patch"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Inspect" type="CheckBox" parent="RepairMenu/VBoxContainer/Patch/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Inspect damages"
+alignment = 1
+
+[node name="Seal" type="CheckBox" parent="RepairMenu/VBoxContainer/Patch/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Seal leaks"
+alignment = 1
+
+[node name="Ignore" type="CheckBox" parent="RepairMenu/VBoxContainer/Patch/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Ignore issues"
+alignment = 1
+
+[node name="Plastic" type="CheckBox" parent="RepairMenu/VBoxContainer/Patch/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Use plastic sheets"
+alignment = 1
+
+[node name="Electricity" type="VBoxContainer" parent="RepairMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Description" type="Label" parent="RepairMenu/VBoxContainer/Electricity"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 26
+text = "Restoring electrical systems after a flood requires caution."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Prompt" type="Label" parent="RepairMenu/VBoxContainer/Electricity"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_font_sizes/font_size = 26
+text = "How can you restore electricity safely after a flood?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ItemList" type="GridContainer" parent="RepairMenu/VBoxContainer/Electricity"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Power" type="CheckBox" parent="RepairMenu/VBoxContainer/Electricity/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Power off"
+alignment = 1
+
+[node name="Wiring" type="CheckBox" parent="RepairMenu/VBoxContainer/Electricity/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Inspect wiring"
+alignment = 1
+
+[node name="DIY" type="CheckBox" parent="RepairMenu/VBoxContainer/Electricity/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "DIY repairs"
+alignment = 1
+
+[node name="Hire" type="CheckBox" parent="RepairMenu/VBoxContainer/Electricity/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Hire electrician"
+alignment = 1
+
+[node name="Pipes" type="VBoxContainer" parent="RepairMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Description" type="Label" parent="RepairMenu/VBoxContainer/Pipes"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 26
+text = "Inspecting and repairing water supply systems after a flood is a must."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Prompt" type="Label" parent="RepairMenu/VBoxContainer/Pipes"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_font_sizes/font_size = 26
+text = "What actions are necessary for restoring water systems?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ItemList" type="GridContainer" parent="RepairMenu/VBoxContainer/Pipes"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Leaks" type="CheckBox" parent="RepairMenu/VBoxContainer/Pipes/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Fix leaks"
+alignment = 1
+
+[node name="Clean" type="CheckBox" parent="RepairMenu/VBoxContainer/Pipes/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Use clean water"
+alignment = 1
+
+[node name="Flush" type="CheckBox" parent="RepairMenu/VBoxContainer/Pipes/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Use floodwater"
+alignment = 1
+
+[node name="Test" type="CheckBox" parent="RepairMenu/VBoxContainer/Pipes/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dnwn7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_0sua3")
+theme_override_styles/pressed = ExtResource("5_a7dkr")
+text = "Test slowly"
+alignment = 1
+
+[node name="SubmitButton" type="Button" parent="RepairMenu/VBoxContainer"]
+self_modulate = Color(1, 1, 0.5, 1)
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 26
+text = "Submit"
+
+[connection signal="pressed" from="RepairMenu/VBoxContainer/SubmitButton" to="." method="_on_submit_button_pressed"]

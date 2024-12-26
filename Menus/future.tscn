@@ -1,0 +1,366 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4osv7ladbr4o"]
+
+[ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_npfxx"]
+[ext_resource type="Script" path="res://Menus/future.gd" id="2_1ev8r"]
+[ext_resource type="Texture2D" uid="uid://red3to85khip" path="res://Icons/Levels/exclamation1.png" id="2_37he3"]
+[ext_resource type="StyleBox" uid="uid://c4lrh7ayx0rtf" path="res://Themes/Styleboxes/inverse_transparent.stylebox" id="3_kn3rq"]
+[ext_resource type="FontFile" uid="uid://c4o05i4pa21je" path="res://Themes/Fonts/InriaSans-Regular.otf" id="4_xx2tu"]
+[ext_resource type="StyleBox" uid="uid://bnorgblhsf46e" path="res://Themes/Styleboxes/inverse.stylebox" id="5_fbtu6"]
+[ext_resource type="StyleBox" uid="uid://ev2mbtfnm0jq" path="res://Themes/Styleboxes/default.stylebox" id="6_ooshe"]
+
+[node name="Future" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_npfxx")
+script = ExtResource("2_1ev8r")
+
+[node name="Checklist" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 305.0
+offset_right = 227.0
+offset_bottom = 355.0
+texture_normal = ExtResource("2_37he3")
+
+[node name="Drills" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 385.0
+offset_top = 412.0
+offset_right = 435.0
+offset_bottom = 462.0
+texture_normal = ExtResource("2_37he3")
+
+[node name="Insurance" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 346.0
+offset_right = 170.0
+offset_bottom = 396.0
+texture_normal = ExtResource("2_37he3")
+
+[node name="FutureMenu" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(540, 450)
+offset_top = 140.0
+offset_right = 540.0
+offset_bottom = 590.0
+theme_override_styles/panel = ExtResource("3_kn3rq")
+
+[node name="Reading" type="VBoxContainer" parent="FutureMenu"]
+visible = false
+custom_minimum_size = Vector2(520, 350)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -175.0
+offset_right = 260.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Checklist" type="Label" parent="FutureMenu/Reading"]
+visible = false
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_fonts/font = ExtResource("4_xx2tu")
+theme_override_font_sizes/font_size = 22
+text = "You have learned how to prepare for a flood by collecting an emergency kit, creating a communication plan, and identifying evacuation routes.
+
+To stay ready, create a checklist that includes preparing the emergency kit, securing the home, and rehearsing flood safety drills. Review this checklist regularly to ensure you are always prepared."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Drills" type="Label" parent="FutureMenu/Reading"]
+visible = false
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_fonts/font = ExtResource("4_xx2tu")
+theme_override_font_sizes/font_size = 22
+text = "Flood safety drills reinforce what you have learned: knowing when and how to evacuate, shutting off utilities, and communicating with others during emergencies.
+
+Practice these drills regularly with all household members to ensure everyone is confident in their roles during a flood."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Insurance" type="Label" parent="FutureMenu/Reading"]
+visible = false
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_fonts/font = ExtResource("4_xx2tu")
+theme_override_font_sizes/font_size = 22
+text = "Flood insurance is a key part of recovery planning. It helps cover the costs of repairing property and replacing lost belongings.
+
+Having flood insurance reduces financial strain and ensures a quicker recovery. Consider adding it to your long-term preparedness plan."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="NextButton" type="Button" parent="FutureMenu/Reading"]
+self_modulate = Color(1, 1, 0.5, 1)
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 26
+text = "Next"
+
+[node name="Question" type="VBoxContainer" parent="FutureMenu"]
+custom_minimum_size = Vector2(520, 350)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -175.0
+offset_right = 260.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Checklist" type="VBoxContainer" parent="FutureMenu/Question"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Prompt" type="Label" parent="FutureMenu/Question/Checklist"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_font_sizes/font_size = 26
+text = "Which actions should be included in a flood preparedness checklist?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ItemList" type="GridContainer" parent="FutureMenu/Question/Checklist"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 5
+
+[node name="Kit" type="CheckBox" parent="FutureMenu/Question/Checklist/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xx2tu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_fbtu6")
+theme_override_styles/pressed = ExtResource("6_ooshe")
+text = "Prepare emergency kit"
+alignment = 1
+
+[node name="Route" type="CheckBox" parent="FutureMenu/Question/Checklist/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xx2tu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_fbtu6")
+theme_override_styles/pressed = ExtResource("6_ooshe")
+text = "Identify evacuation route"
+alignment = 1
+
+[node name="Food" type="CheckBox" parent="FutureMenu/Question/Checklist/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xx2tu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_fbtu6")
+theme_override_styles/pressed = ExtResource("6_ooshe")
+text = "Stockpile perishable food"
+alignment = 1
+
+[node name="Drill" type="CheckBox" parent="FutureMenu/Question/Checklist/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xx2tu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_fbtu6")
+theme_override_styles/pressed = ExtResource("6_ooshe")
+text = "Practice safety drills"
+alignment = 1
+
+[node name="Drills" type="VBoxContainer" parent="FutureMenu/Question"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Prompt" type="Label" parent="FutureMenu/Question/Drills"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_font_sizes/font_size = 26
+text = "What are important components of a flood safety drill?
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ItemList" type="GridContainer" parent="FutureMenu/Question/Drills"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 5
+
+[node name="Timing" type="CheckBox" parent="FutureMenu/Question/Drills/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xx2tu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_fbtu6")
+theme_override_styles/pressed = ExtResource("6_ooshe")
+text = "Evacuation timing"
+alignment = 1
+
+[node name="Utilities" type="CheckBox" parent="FutureMenu/Question/Drills/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xx2tu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_fbtu6")
+theme_override_styles/pressed = ExtResource("6_ooshe")
+text = "Turning off utilities"
+alignment = 1
+
+[node name="Valuables" type="CheckBox" parent="FutureMenu/Question/Drills/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xx2tu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_fbtu6")
+theme_override_styles/pressed = ExtResource("6_ooshe")
+text = "Collecting valuables"
+alignment = 1
+
+[node name="Comm" type="CheckBox" parent="FutureMenu/Question/Drills/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xx2tu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_fbtu6")
+theme_override_styles/pressed = ExtResource("6_ooshe")
+text = "Communication with family"
+alignment = 1
+
+[node name="Insurance" type="VBoxContainer" parent="FutureMenu/Question"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Prompt" type="Label" parent="FutureMenu/Question/Insurance"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_font_sizes/font_size = 26
+text = "What are the benefits of flood insurance?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ItemList" type="GridContainer" parent="FutureMenu/Question/Insurance"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 5
+
+[node name="Recovery" type="CheckBox" parent="FutureMenu/Question/Insurance/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xx2tu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_fbtu6")
+theme_override_styles/pressed = ExtResource("6_ooshe")
+text = "Faster recovery"
+alignment = 1
+
+[node name="Financial" type="CheckBox" parent="FutureMenu/Question/Insurance/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xx2tu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_fbtu6")
+theme_override_styles/pressed = ExtResource("6_ooshe")
+text = "Reduced financial burden"
+alignment = 1
+
+[node name="Evacuation" type="CheckBox" parent="FutureMenu/Question/Insurance/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xx2tu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_fbtu6")
+theme_override_styles/pressed = ExtResource("6_ooshe")
+text = "Avoiding evacuation"
+alignment = 1
+
+[node name="Damage" type="CheckBox" parent="FutureMenu/Question/Insurance/ItemList"]
+custom_minimum_size = Vector2(230, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xx2tu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_fbtu6")
+theme_override_styles/pressed = ExtResource("6_ooshe")
+text = "Coverage for flood-related damage"
+alignment = 1
+
+[node name="SubmitButton" type="Button" parent="FutureMenu/Question"]
+self_modulate = Color(1, 1, 0.5, 1)
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 26
+text = "Submit"
+
+[connection signal="pressed" from="FutureMenu/Reading/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="FutureMenu/Question/SubmitButton" to="." method="_on_submit_button_pressed"]

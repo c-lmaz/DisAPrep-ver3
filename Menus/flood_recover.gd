@@ -16,6 +16,12 @@ var hud_timer = 120
 @onready var health = $Health
 var health_correct = Global.read_json_file("res://Data/Flood/rec_items.json")["correct"]["health"]
 
+@onready var repair = $Repair
+var repair_correct = Global.read_json_file("res://Data/Flood/rec_items.json")["correct"]["repair"]
+
+@onready var future = $Future
+var future_correct = Global.read_json_file("res://Data/Flood/rec_items.json")["correct"]["future"]
+
 
 func _ready():
 	hud.set_level_name(level_phase)
@@ -25,6 +31,13 @@ func _ready():
 	hud.player_died.connect(_on_hud_player_died)
 	
 	health.items_selected.connect(_on_health_items_selected)
+	health.all_spots_done.connect(_on_health_done)
+	
+	repair.items_selected.connect(_on_repair_items_selected)
+	repair.all_spots_done.connect(_on_repair_done)
+	
+	future.items_selected.connect(_on_future_items_selected)
+	future.all_spots_done.connect(_on_future_done)
 	
 	interaction_panel.quest_completed.connect(_on_int_panel_quest_completed)
 
@@ -32,6 +45,9 @@ func _ready():
 func _on_hud_game_paused(pause_state):
 	texture_rect.visible = !pause_state
 	interaction_panel.visible = !pause_state
+	health.visible = !pause_state
+	repair.visible = !pause_state
+	future.visible = !pause_state
 
 
 func start_level(): hud.start()
@@ -72,6 +88,58 @@ func _on_health_items_selected(items: Array, spot: String):
 	
 	interaction_panel.update_current_quest(1)
 
+
+func _on_health_done():
+	print("health done")
+	health.visible = false
+	repair.visible = true
+	health.queue_free()
+	interaction_panel.set_next_quest()
+	interaction_panel.set_next_quest_items(1)
+
+
+func _on_repair_items_selected(items: Array, spot: String):
+	for i in items:
+		if repair_correct.has(i):
+			hud.update_score(5)
+			var node = item_container.get_node(spot)
+			node.item_collected()
+			item_container.sort_items()
+		else:
+			hud.update_score(-1)
+			hud.update_life(-1)
+	
+	interaction_panel.update_current_quest(1)
+
+
+func _on_repair_done():
+	print("repair done")
+	repair.visible = false
+	future.visible = true
+	repair.queue_free()
+	interaction_panel.set_next_quest()
+	interaction_panel.set_next_quest_items(2)
+
+
+func _on_future_items_selected(items: Array, spot: String):
+	for i in items:
+		if future_correct.has(i):
+			hud.update_score(5)
+			var node = item_container.get_node(spot)
+			node.item_collected()
+			item_container.sort_items()
+		else:
+			hud.update_score(-1)
+			hud.update_life(-1)
+	
+	interaction_panel.update_current_quest(1)
+
+
+func _on_future_done():
+	print("future done")
+	future.visible = false
+	future.queue_free()
+	_level_ends()
 
 
 func _level_ends():

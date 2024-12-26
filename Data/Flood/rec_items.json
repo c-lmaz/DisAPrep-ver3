@@ -8,20 +8,22 @@
 	],
 	
 	"repair" : [
-		{"name": "Clean debris from the house", "icon": "", "short": "Debris"},
-		{"name": "Dry out flooded furniture and belongings", "icon": "", "short": "Dry"},
-		{"name": "Patch leaks and repair damaged roofs", "icon": "", "short": "Patch"},
-		{"name": "Restore electrical systems safely", "icon": "", "short": "Electricity"},
-		{"name": "Inspect and repair water supply systems", "icon": "", "short": "Pipes"},
+		{"name": "Clean debris from the house", "icon": "res://Icons/Recover/debris.png", "short": "Debris"},
+		{"name": "Dry out flooded furniture and belongings", "icon": "res://Icons/Recover/furniture.png", "short": "Dry"},
+		{"name": "Patch leaks and repair damaged roofs", "icon": "res://Icons/Recover/roof.png", "short": "Patch"},
+		{"name": "Restore electrical systems safely", "icon": "res://Icons/Recover/electric.png", "short": "Electricity"},
+		{"name": "Inspect and repair water supply systems", "icon": "res://Icons/Recover/pipe.png", "short": "Pipes"},
 	],
 	
 	"future" : [
-		{"name": "Make a checklist", "icon": "", "short": "Checklist"},
-		{"name": "Learn and practice flood safety drills", "icon": "", "short": "Drills"},
-		{"name": "Understand the benefits of flood insurance", "icon": "", "short": "Insurance"}
+		{"name": "Make a checklist", "icon": "res://Icons/Recover/checklist.png", "short": "Checklist"},
+		{"name": "Learn and practice flood safety drills", "icon": "res://Icons/Recover/drill.png", "short": "Drills"},
+		{"name": "Understand the benefits of flood insurance", "icon": "res://Icons/Recover/insurance.png", "short": "Insurance"}
 	],
 	
 	"correct" : {
-		"health": [ "Drinking", "Arm", "Leg", "Cholera", "Leptospirosis", "Malaria", "Typhoid", "Iodine", "Water", "Antibiotics", "IV"],
+		"health": ["Drinking", "Arm", "Leg", "Cholera", "Leptospirosis", "Malaria", "Typhoid", "Iodine", "Water", "Antibiotics", "IV"],
+		"repair": ["Gloves", "Mask", "Dry", "Fans", "Wash", "Inspect", "Seal", "Power", "Wiring", "Hire", "Leaks", "Clean"],
+		"future": ["Kit", "Route", "Drill", "Timing", "Utilities", "Comm", "Recovery", "Financial", "Damage"],
 	},
 }

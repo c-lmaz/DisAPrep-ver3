@@ -87,6 +87,8 @@ func _on_respond_phase_ends(score: int, time: int):
 	_display_score(score)
 	phase.visible = false
 	phase.queue_free()
+	for child in quest_list.get_children():
+		child.queue_free()
 
 
 func _on_recover_phase_ends(score: int, quests: Dictionary, time: int):

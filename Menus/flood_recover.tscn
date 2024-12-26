@@ -1,12 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://lvl78x7od1k"]
+[gd_scene load_steps=9 format=3 uid="uid://lvl78x7od1k"]
 
 [ext_resource type="Script" path="res://Menus/flood_recover.gd" id="1_k4sc6"]
 [ext_resource type="PackedScene" uid="uid://ibyaf1gif81x" path="res://Models/human.tscn" id="2_h3f4u"]
 [ext_resource type="PackedScene" uid="uid://bgavp51io7dp5" path="res://Menus/health.tscn" id="4_8nhhu"]
 [ext_resource type="PackedScene" uid="uid://chpdu7tfk38or" path="res://Menus/hud.tscn" id="4_teu3r"]
+[ext_resource type="PackedScene" uid="uid://dmk8ukbtq4l0q" path="res://Menus/repair.tscn" id="5_gue0r"]
 [ext_resource type="PackedScene" uid="uid://dtc51relpmt3x" path="res://Menus/interaction_panel.tscn" id="5_lwhef"]
+[ext_resource type="PackedScene" uid="uid://b4osv7ladbr4o" path="res://Menus/future.tscn" id="6_bc0gk"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_muv62"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_jwcxt"]
 viewport_path = NodePath("SubViewport")
 
 [node name="FloodRecover" type="CanvasLayer"]
@@ -23,13 +25,19 @@ size = Vector2i(540, 512)
 custom_minimum_size = Vector2(540, 0)
 offset_top = 140.0
 offset_bottom = 616.69
-texture = SubResource("ViewportTexture_muv62")
+texture = SubResource("ViewportTexture_jwcxt")
 expand_mode = 1
 stretch_mode = 6
 
 [node name="HUD" parent="." instance=ExtResource("4_teu3r")]
 
 [node name="Health" parent="." instance=ExtResource("4_8nhhu")]
+
+[node name="Repair" parent="." instance=ExtResource("5_gue0r")]
+visible = false
+
+[node name="Future" parent="." instance=ExtResource("6_bc0gk")]
+visible = false
 
 [node name="InteractionPanel" parent="." instance=ExtResource("5_lwhef")]
 phase = 2
