@@ -22,11 +22,11 @@ func _on_button_pressed(button):
 		"Wound": get_node("Sanitise").visible = true
 		"Infection": get_node("Treatment").visible = true
 	
-	for menu in health_menu_cont.get_children():
-		if menu.name == current_spot:
-			menu.visible = true
-			health_menu.visible = true
-			button.queue_free()
+	var menu = health_menu_cont.get_node(current_spot)
+	if menu:
+		menu.visible = true
+		health_menu.visible = true
+		button.queue_free()
 
 
 func _on_submit_button_pressed():

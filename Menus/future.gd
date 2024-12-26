@@ -19,20 +19,24 @@ func _ready():
 func _on_button_pressed(button):
 	current_spot = button.name
 	
-	for menu in future_menu_reading.get_children():
-		if menu.name == current_spot:
-			menu.visible = true
-			future_menu.visible = true
-			future_menu_reading.visible = true
-			button.queue_free()
+	var menu = future_menu_reading.get_node(current_spot)
+	if menu:
+		menu.visible = true
+		future_menu.visible = true
+		future_menu_reading.visible = true
+		button.queue_free()
 
 
 func _on_next_button_pressed():
-	future_menu_reading.visible = false
-	for menu in future_menu_question.get_children():
-		if menu.name == current_spot:
-			menu.visible = true
-			future_menu_question.visible = true
+	var menu_reading = future_menu_reading.get_node(current_spot)
+	if menu_reading:
+		menu_reading.visible = false
+		future_menu_reading.visible = false
+	
+	var menu_question = future_menu_question.get_node(current_spot)
+	if menu_question:
+		menu_question.visible = true
+		future_menu_question.visible = true
 
 
 func _on_submit_button_pressed():

@@ -18,11 +18,11 @@ func _ready():
 func _on_button_pressed(button):
 	current_spot = button.name
 	
-	for menu in repair_menu_cont.get_children():
-		if menu.name == current_spot:
-			menu.visible = true
-			repair_menu.visible = true
-			button.queue_free()
+	var menu = repair_menu_cont.get_node(current_spot)
+	if menu:
+		menu.visible = true
+		repair_menu.visible = true
+		button.queue_free()
 
 
 func _on_submit_button_pressed():

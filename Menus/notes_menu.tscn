@@ -1,48 +1,2052 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfvxls7w24en0"]
+[gd_scene load_steps=65 format=3 uid="uid://cfvxls7w24en0"]
 
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_go6bf"]
+[ext_resource type="StyleBox" uid="uid://bklx8rfkh3fko" path="res://Themes/Styleboxes/default_blue.stylebox" id="2_08xwj"]
 [ext_resource type="Texture2D" uid="uid://dsuh3qll5d6jp" path="res://Icons/Controls/home.png" id="2_rkgqn"]
 [ext_resource type="Script" path="res://Menus/home_button.gd" id="3_28se4"]
+[ext_resource type="Script" path="res://Menus/notes_menu.gd" id="3_h3ccs"]
+[ext_resource type="Texture2D" uid="uid://bikoxh8ope2lw" path="res://Icons/Notes/GovAgencies/MERS_999.png" id="5_fhagb"]
+[ext_resource type="Texture2D" uid="uid://dy2qsu8wl6r8g" path="res://Icons/Controls/transparentLight10.png" id="5_wvj0r"]
+[ext_resource type="Texture2D" uid="uid://bh0d238ijm7xx" path="res://Icons/Notes/GovAgencies/NADMA.png" id="6_718ou"]
+[ext_resource type="Texture2D" uid="uid://d1rnnownjcpyg" path="res://Icons/Notes/GovAgencies/KKM.png" id="7_60433"]
+[ext_resource type="Texture2D" uid="uid://iyh3aet43bf2" path="res://Icons/Notes/GovAgencies/MET_Malaysia.png" id="8_58bhj"]
+[ext_resource type="Texture2D" uid="uid://7bkl7sgcy70d" path="res://Icons/Notes/GovAgencies/JPS.png" id="9_tsm4j"]
+[ext_resource type="Texture2D" uid="uid://cs3btkt1bwjk5" path="res://Icons/Notes/GovAgencies/JKM.png" id="10_o4qvp"]
+[ext_resource type="Texture2D" uid="uid://bx1jg16i7pad4" path="res://Icons/Notes/GovAgencies/JUPEM.svg" id="11_yxtag"]
+[ext_resource type="Texture2D" uid="uid://qbnfufqg1s3k" path="res://Icons/Notes/GovAgencies/JKR.png" id="12_s21yn"]
+[ext_resource type="Texture2D" uid="uid://ny3y5dv1cx0q" path="res://Icons/Notes/GovAgencies/TNB.png" id="13_eg1o4"]
+[ext_resource type="FontFile" uid="uid://c4o05i4pa21je" path="res://Themes/Fonts/InriaSans-Regular.otf" id="14_rpqyr"]
+[ext_resource type="Texture2D" uid="uid://dbopx8yd145ad" path="res://Icons/Emergency Kit/phone.png" id="15_1ki2p"]
+[ext_resource type="Texture2D" uid="uid://crphkgtyjaiom" path="res://Icons/Emergency Kit/battery.png" id="16_bnsxc"]
+[ext_resource type="Texture2D" uid="uid://dkfdcea66xs05" path="res://Icons/Emergency Kit/blanket.png" id="17_wd6kl"]
+[ext_resource type="Texture2D" uid="uid://ckgfiofgrbacj" path="res://Icons/Emergency Kit/canned-food.png" id="18_5kmsl"]
+[ext_resource type="Texture2D" uid="uid://diti6nwqlon2e" path="res://Icons/Emergency Kit/clean-water.png" id="19_qh45m"]
+[ext_resource type="Texture2D" uid="uid://bhwrcienc7swd" path="res://Icons/Emergency Kit/clothes.png" id="20_8nv1c"]
+[ext_resource type="Texture2D" uid="uid://dwx28eke3qns2" path="res://Icons/Emergency Kit/documents.png" id="21_lt0an"]
+[ext_resource type="Texture2D" uid="uid://cmrxtc4shk4vf" path="res://Icons/Emergency Kit/first-aid-kit.png" id="22_7sjv6"]
+[ext_resource type="Texture2D" uid="uid://bwpfur0l6t3dc" path="res://Icons/Emergency Kit/flashlight.png" id="23_4wth1"]
+[ext_resource type="Texture2D" uid="uid://b6p48g83pue4p" path="res://Icons/Emergency Kit/id.png" id="24_7p37x"]
+[ext_resource type="Texture2D" uid="uid://0a4m6wmmbtpl" path="res://Icons/Emergency Kit/medicine.png" id="25_n8nwy"]
+[ext_resource type="Texture2D" uid="uid://d2gpj3xpn8we0" path="res://Icons/Emergency Kit/money.png" id="26_iceph"]
+[ext_resource type="Texture2D" uid="uid://1f5ktcs6rkvh" path="res://Icons/Emergency Kit/power-bank.png" id="27_0ireq"]
+[ext_resource type="Texture2D" uid="uid://cs8nbabiap26t" path="res://Icons/Emergency Kit/radio.png" id="28_718ng"]
+[ext_resource type="Texture2D" uid="uid://bik0foi1fue2x" path="res://Icons/Emergency Kit/shoes.png" id="29_bsmad"]
+[ext_resource type="Texture2D" uid="uid://c5uxswvhtekfs" path="res://Icons/Emergency Kit/toiletries.png" id="30_tdm0j"]
+[ext_resource type="Texture2D" uid="uid://diwkqbx7olrqh" path="res://Icons/Emergency Kit/whistle.png" id="31_b3b8y"]
+[ext_resource type="Texture2D" uid="uid://bnekj7hpncx8o" path="res://Icons/Notes/Kit/face-mask.png" id="33_pd4jh"]
+[ext_resource type="Texture2D" uid="uid://d0hbmrvi667i6" path="res://Icons/Notes/Kit/wheelchair.png" id="34_4bgtu"]
+[ext_resource type="Texture2D" uid="uid://cd0m86hlyewrg" path="res://Icons/Notes/Kit/cradle.png" id="35_jjsnp"]
+[ext_resource type="Texture2D" uid="uid://u6fodg4t403s" path="res://Icons/Notes/Kit/pets.png" id="36_ky4mg"]
+[ext_resource type="Texture2D" uid="uid://dnr5tepcuhlob" path="res://Icons/Notes/Kit/sanitary-towel.png" id="37_2h57v"]
+[ext_resource type="Texture2D" uid="uid://dvpds73fvdec3" path="res://Icons/Notes/Kit/disinfectant.png" id="38_v13s5"]
+[ext_resource type="Texture2D" uid="uid://dgx2oyny2i48s" path="res://Icons/Notes/Kit/swiss-knife.png" id="39_nr1df"]
+[ext_resource type="Texture2D" uid="uid://c1f4rvofecu8r" path="res://Icons/Notes/Kit/umbrella.png" id="40_0n70h"]
+[ext_resource type="Texture2D" uid="uid://jv6bm2e6xvvk" path="res://Icons/Notes/Kit/sleeping-bag.png" id="41_3hnn4"]
+[ext_resource type="Texture2D" uid="uid://dci1q5db0fc24" path="res://Icons/Notes/Kit/gadgets.png" id="42_w12y4"]
+[ext_resource type="Texture2D" uid="uid://b6mhbqn04n71i" path="res://Icons/Notes/Kit/notebook.png" id="43_wgt1n"]
+[ext_resource type="Texture2D" uid="uid://bclis2fnxcuv6" path="res://Icons/Notes/Kit/teddy-bear.png" id="44_8vbnu"]
+[ext_resource type="Texture2D" uid="uid://ghrg7rf4kq2y" path="res://Icons/Notes/letter_d.png" id="45_q0j16"]
+[ext_resource type="Texture2D" uid="uid://upi6vqtn006a" path="res://Icons/Notes/letter_r.png" id="46_3sxin"]
+[ext_resource type="Texture2D" uid="uid://bl8dhy26o6jck" path="res://Icons/Notes/letter_s.png" id="47_sxx2o"]
+[ext_resource type="Texture2D" uid="uid://ct10iihm5ajyo" path="res://Icons/Notes/letter_a.png" id="48_fs3fp"]
+[ext_resource type="Texture2D" uid="uid://ca3trobo7ftgt" path="res://Icons/Notes/letter_b.png" id="49_c607h"]
+[ext_resource type="Texture2D" uid="uid://dp3eph7snsdhx" path="res://Icons/Notes/letter_c.png" id="50_nrchq"]
+[ext_resource type="Texture2D" uid="uid://cnhos7vxas26s" path="res://Icons/Notes/letter_v.png" id="51_860pn"]
+[ext_resource type="Texture2D" uid="uid://bb73pjwqh58w5" path="res://Icons/Notes/letter_p.png" id="52_w74s3"]
+[ext_resource type="Texture2D" uid="uid://dkdvdgs82oyii" path="res://Icons/Notes/letter_u.png" id="53_ryxc5"]
+[ext_resource type="Texture2D" uid="uid://cexoaq733npp2" path="res://Icons/Notes/number-1.png" id="54_k82o0"]
+[ext_resource type="Texture2D" uid="uid://bx0qwl48i264t" path="res://Icons/Notes/number-2.png" id="55_l8xus"]
+[ext_resource type="Texture2D" uid="uid://dkxyfkb46jl72" path="res://Icons/Notes/number-3.png" id="56_ewaug"]
+[ext_resource type="Texture2D" uid="uid://dc1didlla4p0" path="res://Icons/Notes/number-4.png" id="57_uhk7b"]
+[ext_resource type="Texture2D" uid="uid://c6gk2kow7s8mp" path="res://Icons/Notes/number-5.png" id="58_ueatf"]
+[ext_resource type="Texture2D" uid="uid://djb6co0uqk2rq" path="res://Icons/Notes/number-6.png" id="59_c373f"]
+[ext_resource type="Texture2D" uid="uid://datcevfrw3fgi" path="res://Icons/Notes/number-7.png" id="60_8wo58"]
+[ext_resource type="Texture2D" uid="uid://coqd7h7rdynku" path="res://Icons/Notes/letter_i.png" id="61_d60dw"]
+[ext_resource type="Texture2D" uid="uid://bmlxncbgqtoql" path="res://Icons/Notes/letter_e.png" id="62_x32l4"]
 
-[node name="Notes" type="Control"]
-layout_mode = 3
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k14wd"]
+texture = ExtResource("5_wvj0r")
+texture_margin_left = 4.0
+texture_margin_top = 5.0
+texture_margin_right = 7.0
+texture_margin_bottom = 5.0
+
+[node name="Notes" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_go6bf")
+theme_override_styles/panel = ExtResource("2_08xwj")
+script = ExtResource("3_h3ccs")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 16.0
+offset_right = 17.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Home" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+icon = ExtResource("2_rkgqn")
+script = ExtResource("3_28se4")
+
+[node name="Label" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Notes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(500, 850)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -23.5
-offset_right = 20.0
-offset_bottom = 23.5
+offset_left = -259.0
+offset_top = -380.0
+offset_right = 260.0
+offset_bottom = 470.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Notes"
+theme_override_styles/panel = SubResource("StyleBoxTexture_k14wd")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
-[node name="Home" type="Button" parent="."]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 30.0
-offset_right = 91.0
-offset_bottom = 90.0
-icon = ExtResource("2_rkgqn")
-script = ExtResource("3_28se4")
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(500, 840)
+layout_mode = 2
+theme_override_constants/separation = 10
 
-[connection signal="pressed" from="Home" to="Home" method="_on_pressed"]
+[node name="999" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "999"
+
+[node name="999N" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/999N"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_fhagb")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/999N"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Malaysian Emergency Response Services (MERS) 999[/b]
+[color=red]Call for emergencies: [b]999[/b][/color]
+Phone No. (Non-emergency): +603-22407593
+
+[i]Notes:
+- Calling this number indicates an emergency on your part. Emergency services will be dispatched soon.
+- Stay calm. Give clear information on your location, phone number and what happened. Stay on the line and follow instructions given by the operator.
+- Related agencies include: PDRM, JBPM, KKM, APM, and APMM"
+fit_content = true
+
+[node name="InfoSource" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Information Sources"
+
+[node name="InfoSourceN" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="NADMA" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/InfoSourceN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/InfoSourceN/NADMA"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("6_718ou")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/InfoSourceN/NADMA"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]National Disaster Management Agency (NADMA)[/b]
+Phone No.: +603-22407593
+Website: www.nadma.gov.my
+Email: admin@nadma.gov.my
+
+[i]Source of information on disasters and disaster management[/i]"
+fit_content = true
+
+[node name="KKM" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/InfoSourceN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/InfoSourceN/KKM"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("7_60433")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/InfoSourceN/KKM"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]InfoSihat[/b]
+Phone No: +603-8883 4562
+Website: www.infosihat.gov.my
+Email: infosihat@moh.gov.my
+
+[i]Ministry of Health's initiative on public health education[/i]"
+fit_content = true
+
+[node name="MET" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/InfoSourceN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/InfoSourceN/MET"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("8_58bhj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/InfoSourceN/MET"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Malaysian Meteorological Department (METMalaysia)[/b]
+Phone No: +603-79678000
+Hotline: 1-300-22-1638
+Website: www.met.gov.my
+Email: mmd.met.gov.my
+Application: MyCuaca
+
+[i]Source of information on weather forecasts[/i]"
+fit_content = true
+
+[node name="JPS" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/InfoSourceN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/InfoSourceN/JPS"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("9_tsm4j")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/InfoSourceN/JPS"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Public InfoBanjir[/b]
+Website: publicinfobanjir.water.gov.my
+
+[i]Source of information on rainfall and water levels[/i]"
+fit_content = true
+
+[node name="JKM" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/InfoSourceN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/InfoSourceN/JKM"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("10_o4qvp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/InfoSourceN/JKM"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Evacuation Centers[/b]
+Website: infobencanajkmv2.jkm.gov.my
+
+[i]Source of information on evacuation centers, including its location and capacity.[/i]"
+fit_content = true
+
+[node name="JUPEM" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/InfoSourceN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/InfoSourceN/JUPEM"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("11_yxtag")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/InfoSourceN/JUPEM"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Tide Forecast[/b]
+Website: www.jupem.gov.my
+
+[i]Source of information on weather forecasts[/i]"
+fit_content = true
+
+[node name="JKR" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/InfoSourceN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/InfoSourceN/JKR"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("12_s21yn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/InfoSourceN/JKR"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Malaysian Public Works Department (JKR)[/b]
+Website: bencanaalam.jkr.gov.my
+
+[i]Source of information on damaged roads and alternative routes[/i]"
+fit_content = true
+
+[node name="TNB" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/InfoSourceN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/InfoSourceN/TNB"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("13_eg1o4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/InfoSourceN/TNB"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Tenaga Nasional Berhad (TNB)[/b]
+Phone No.: +603-22965566
+Careline: 15454
+Website: www.tnb.com.my
+
+[i]Call TNB to enquire on power outages or breakdowns.[/i]"
+fit_content = true
+
+[node name="EmergencyKit" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Emergency Kit"
+
+[node name="EmergencyKitN" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Info" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/EmergencyKitN"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "Emergency kit or a [i]go-bag[/i] is a backpack of essential items prepared in advanced to help individuals and families respond to unexpected situations or disasters. Items included in a go-bag should be able to keep you safe and comfortable for at least three days.
+
+[b]These are the most important things you must have in your emergency kit:[/b]"
+fit_content = true
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer/VBoxContainer/EmergencyKitN"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 7
+theme_override_constants/v_separation = 5
+columns = 4
+
+[node name="Phone" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Phone"
+icon = ExtResource("15_1ki2p")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Battery" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Battery"
+icon = ExtResource("16_bnsxc")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Blanket" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Blanket"
+icon = ExtResource("17_wd6kl")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Food" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 16
+button_mask = 0
+text = "Nonperishable
+Food"
+icon = ExtResource("18_5kmsl")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Water" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Clean
+water"
+icon = ExtResource("19_qh45m")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Clothes" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Clothes"
+icon = ExtResource("20_8nv1c")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Documents" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 17
+button_mask = 0
+text = "Important
+Documents"
+icon = ExtResource("21_lt0an")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="FirstAid" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 17
+button_mask = 0
+text = "First Aid
+Kit"
+icon = ExtResource("22_7sjv6")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Flashlight" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Flashlight"
+icon = ExtResource("23_4wth1")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="ID" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Identification
+Documents"
+icon = ExtResource("24_7p37x")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Medicine" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 17
+button_mask = 0
+text = "Medications"
+icon = ExtResource("25_n8nwy")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Money" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Money"
+icon = ExtResource("26_iceph")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Powerbank" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 16
+button_mask = 0
+text = "Powerbank"
+icon = ExtResource("27_0ireq")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Radio" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Radio"
+icon = ExtResource("28_718ng")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Shoes" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Shoes"
+icon = ExtResource("29_bsmad")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Toiletries" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Toiletries"
+icon = ExtResource("30_tdm0j")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Whistle" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Whistle"
+icon = ExtResource("31_b3b8y")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Extra" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/EmergencyKitN"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "These are items you might need to consider to include in your emergency kit. Remember, different households have different needs. Prepare your kit accordingly."
+fit_content = true
+
+[node name="GridContainer2" type="GridContainer" parent="ScrollContainer/VBoxContainer/EmergencyKitN"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 7
+theme_override_constants/v_separation = 5
+columns = 4
+
+[node name="FaceMask" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Face Mask"
+icon = ExtResource("33_pd4jh")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="MobilityAid" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Mobility
+Aid"
+icon = ExtResource("34_4bgtu")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="BabySupplies" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Baby
+Supplies"
+icon = ExtResource("35_jjsnp")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="PetNeeds" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Pet Needs"
+icon = ExtResource("36_ky4mg")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="FeminineSupplies" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Feminine
+Supplies"
+icon = ExtResource("37_2h57v")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="HandSanitiser" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Hand
+Sanitiser"
+icon = ExtResource("38_v13s5")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Multitool" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 17
+button_mask = 0
+text = "Multitool"
+icon = ExtResource("39_nr1df")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Umbrella" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 17
+button_mask = 0
+text = "Umbrella"
+icon = ExtResource("40_0n70h")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="SleepingBag" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Sleeping
+Bag"
+icon = ExtResource("41_3hnn4")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Gadgets" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Gadgets"
+icon = ExtResource("42_w12y4")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Notepad" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 17
+button_mask = 0
+text = "Notepad"
+icon = ExtResource("43_wgt1n")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Comfort" type="Button" parent="ScrollContainer/VBoxContainer/EmergencyKitN/GridContainer2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/icon_max_width = 40
+theme_override_fonts/font = ExtResource("14_rpqyr")
+theme_override_font_sizes/font_size = 18
+button_mask = 0
+text = "Comfort
+Items"
+icon = ExtResource("44_8vbnu")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Maintenance" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/EmergencyKitN"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Emergency Kit Maintenance[/b]
+- Keep canned food in a cool, dry place.
+- Store boxed food in tightly closed plastic or metal containers.
+- Replace expired items as needed.
+- Re-think your needs at least annually and update your kit as your family's needs change.
+
+[b]Kit Storage Locations[/b]
+[b]Home[/b]: 
+- Keep your kit in a designated place and have it ready in case you have to evacuate fast.
+- Make sure all family members know where the kit is kept.
+[b]Work[/b]: 
+- Be prepared to shelter at work for at least 24 hours.
+- Your work kit should include food, water, medicines, and comfortable walking shoes, stored in a [i]'grab and go'[/i] case.
+[b]Car[/b]: 
+- In case you are stranded, keep an emergency kit in your car. 
+- Your car kit should include the essentials, with the additions of jumper cables, reflective triangle, car phone charger, blanket, and map."
+fit_content = true
+
+[node name="FirstAid" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "First Aid"
+
+[node name="FirstAidN" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="DRS" type="Button" parent="ScrollContainer/VBoxContainer/FirstAidN"]
+self_modulate = Color(0.960784, 0.960784, 0.960784, 1)
+layout_mode = 2
+text = "DRSABCD"
+
+[node name="DRSN" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN"]
+visible = false
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Step-by-step on giving first aid.[/b]
+Remember this acronym [b]DRSABCD[/b]."
+fit_content = true
+
+[node name="D" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/D"]
+self_modulate = Color(1, 0.301961, 0.301961, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("45_q0j16")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/D"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Danger[/b]
+Assess the situation for any potential dangers to yourself, the victim, or others. Ensure the area is safe before proceeding."
+fit_content = true
+
+[node name="R" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/R"]
+self_modulate = Color(1, 0.647059, 0, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("46_3sxin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/R"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Response[/b]
+Check the victim for responsiveness by tapping them gently and asking if they are okay. If unresponsive, call for help immediately. Refer to AVPU scale."
+fit_content = true
+
+[node name="S" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/S"]
+self_modulate = Color(1, 0.913725, 0.00392157, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("47_sxx2o")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/S"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Send for Help[/b]
+Call emergency services [color=red]999[/color] and provide clear information about the situation. If there are others nearby, instruct someone specific to call for help."
+fit_content = true
+
+[node name="A" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/A"]
+self_modulate = Color(0.231373, 0.921569, 0.368627, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("48_fs3fp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/A"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Airway[/b]
+Check the victim's airway to ensure it is clear from obstructions. Tilt the head back slightly and lift the chin to open the airway."
+fit_content = true
+
+[node name="B" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/B"]
+self_modulate = Color(0.301961, 0.498039, 1, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("49_c607h")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/B"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Breathing[/b]
+Look, listen and feel for normal breathing for no more than 10 seconds. Gasping is not normal breathing. If the victim is not breathing, start CPR."
+fit_content = true
+
+[node name="C" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/C"]
+self_modulate = Color(0.658824, 0.207843, 0.941176, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("50_nrchq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/C"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Circulation[/b]
+Check for pulse in the wrist or neck. If there is no pulse, start CPR."
+fit_content = true
+
+[node name="D2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/D2"]
+self_modulate = Color(1, 0.568627, 0.643137, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("45_q0j16")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/DRSN/D2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Defibrillation[/b]
+If victim is unresponsive, there is an Automated External Defibrillator (AED) and you are trained to use it, use it."
+fit_content = true
+
+[node name="AVPU" type="Button" parent="ScrollContainer/VBoxContainer/FirstAidN"]
+self_modulate = Color(0.960784, 0.960784, 0.960784, 1)
+layout_mode = 2
+text = "AVPU"
+
+[node name="AVPUN" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN"]
+visible = false
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]AVPU Responsiveness Scale[/b]
+AVPU scale is always used in conjunction with other assessments, such as checking the patient's vital signs and pupillary reflexes.
+The victim's level of consciousness can change over time, so it is important to repeat the AVPU assessment regularly."
+fit_content = true
+
+[node name="A" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN/A"]
+self_modulate = Color(0.231373, 0.921569, 0.368627, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("48_fs3fp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN/A"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Alert[/b]
+The victim is fully awake and aware of their surroundings. They can respond to questions and follow directions."
+fit_content = true
+
+[node name="V" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN/V"]
+self_modulate = Color(0.945098, 0.968627, 0.0352941, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("51_860pn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN/V"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Verbal[/b]
+The victim responds to verbal stimuli. They may be confused or disoriented, but they are making some attempt to communicate."
+fit_content = true
+
+[node name="P" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN/P"]
+self_modulate = Color(1, 0.647059, 0, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("52_w74s3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN/P"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Pain[/b]
+The victim responds to painful stimuli. They may not be fully conscious, but they are still showing some level of responsiveness."
+fit_content = true
+
+[node name="U" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN/U"]
+self_modulate = Color(1, 0.129412, 0.0784314, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("53_ryxc5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/AVPUN/U"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Unresponsive[/b]
+The victim does not respond to any stinuli. They may be unconscious or in a coma."
+fit_content = true
+
+[node name="Wounds" type="Button" parent="ScrollContainer/VBoxContainer/FirstAidN"]
+self_modulate = Color(0.960784, 0.960784, 0.960784, 1)
+layout_mode = 2
+text = "Wounds and Bleeding"
+
+[node name="WoundsN" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN"]
+visible = false
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "No images of wounds are shown as it can be disturbing and upsetting. However, you can search for [i]'medical diagrams of wound types'[/i] for the pictures. Do search and learn responsibly."
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Types of Wounds[/b]
+1. Abrasion:
+	- Superficial damage to the skin, due to friction or scraping.
+	- Clean, apply antiseptic, and cover with sterile bandage.
+
+2. Laceration: 
+	- A deep cut or tear in the skin, often with jagged edges.
+	- Apply direct pressure and elevate the injured area.
+	- Get medical attention for cleaning, stitches and tetanus shot.
+
+3. Incision: 
+	- A clean straight cut, often caused by a sharp object.
+	- Apply direct pressure and elevate the injured area.
+	- Seek medical attention for cleaning and stitches.
+
+4. Puncture: 
+	- A deep hole caused by a sharp object like a nail or needle.
+	- [b]No direct pressure[/b].
+	- [b]Do not remove any objects stuck in the wound[/b].
+	- Cover with sterile bandage, elevate the injured area, apply cold compress on surrounding area, and watch for signs of infection. 
+	- [b]Seek immediate medical attention.[/b]
+
+5. Avulsion: 
+	- A partial or complete tearing away of skin and tissue.
+	- [b]Do not touch or try to reattach the torn tissue[/b]. 
+	- Cover with sterile dressing. 
+	- [b]Seek immediate medical attention[/b]. Surgery may be necessary."
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Step-by-Step to Treat Bleeding Wounds[/b]"
+fit_content = true
+
+[node name="1" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/1"]
+self_modulate = Color(1, 0.647059, 0, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("54_k82o0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Apply DRSABCD[/b]"
+fit_content = true
+
+[node name="2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/2"]
+self_modulate = Color(1, 0.647059, 0, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("55_l8xus")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Assess the Wound[/b]
+Is it minor (abrasion, scratch) or major wound (deep cut, puncture, severe bleeding)?
+Look for signs of infection.
+Determine if it involves bones, joints, or tendons."
+fit_content = true
+
+[node name="3" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/3"]
+self_modulate = Color(1, 0.647059, 0, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("56_ewaug")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Stop Minor External bleeding[/b]
+Use direct pressure.
+Apply firm constant pressure with a clean cloth directly over the source of the bleeding.
+Elevate the injured area.
+Maintain pressure for at least 5 minutes. 
+Recheck for bleeding periodically.
+If bleeding does not stop after 5 minutes of direct pressure, seek immediate medical help."
+fit_content = true
+
+[node name="4" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/4"]
+self_modulate = Color(1, 0.647059, 0, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("56_ewaug")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Stop Severe Bleeding[/b]:
+Use indirect pressure.
+Locate pressure points: 
+- femoral artery (groin area), 
+- brachial artery (inner arm, between elbow and armpit), 
+- carotid artery (neck, either side of the windpipe)
+Apply firm with your fingers against the pressure point on the side of the wound closest to the heart.
+Do not apply pressure directly on the wound.
+Maintain pressure until medical help arrives."
+fit_content = true
+
+[node name="5" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/5"]
+self_modulate = Color(1, 0.647059, 0, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("57_uhk7b")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Clean and Dress the Wound[/b]
+
+[b]Minor wounds[/b]
+Wash gently with mild soap and clean water. Remove any debris. Pat dry with a clean lint-free cloth. Apply a breathable bandage.
+
+[b]Major wounds[/b]
+Cover with a sterile dressing without applying pressure. Do not attempt to clean deep wounds or remove embedded objects."
+fit_content = true
+
+[node name="6" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/6"]
+self_modulate = Color(1, 0.647059, 0, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("58_ueatf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/6"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Seek Medical Attention[/b]
+Seek immediate medical attention for:
+- major wounds.
+- signs of infection.
+- non-stop bleeding after 5 minutes of direct pressure.
+- any wound in doubt, especially for vulnerable individuals (children, pregnant women, or those with compromised immunity)."
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Managing Wounds[/b]"
+fit_content = true
+
+[node name="7" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/7"]
+self_modulate = Color(0, 0.686275, 0, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("54_k82o0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/7"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "Monitor for signs of infections (redness, swelling, pus, fever, or foul odour)."
+fit_content = true
+
+[node name="8" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/8"]
+self_modulate = Color(0, 0.686275, 0, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("55_l8xus")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/8"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "Keep the wound clean and dry. Change the dressing regularly."
+fit_content = true
+
+[node name="9" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/9"]
+self_modulate = Color(0, 0.686275, 0, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("56_ewaug")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/9"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "Avoid picking at the scab or touching the wound unnecessarily."
+fit_content = true
+
+[node name="10" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/10"]
+self_modulate = Color(0, 0.686275, 0, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("57_uhk7b")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/10"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "Elevate the injured area whenever possible."
+fit_content = true
+
+[node name="11" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/11"]
+self_modulate = Color(0, 0.686275, 0, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("58_ueatf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/11"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "Follow any specific instructions provided by your doctor."
+fit_content = true
+
+[node name="12" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/12"]
+self_modulate = Color(0, 0.686275, 0, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("59_c373f")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/12"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "Maintain a healthy diet and adequate rest."
+fit_content = true
+
+[node name="13" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/13"]
+self_modulate = Color(0, 0.686275, 0, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("60_8wo58")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/WoundsN/13"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "Get vaccinated against tetanus if not already immune."
+fit_content = true
+
+[node name="Sprain" type="Button" parent="ScrollContainer/VBoxContainer/FirstAidN"]
+self_modulate = Color(0.960784, 0.960784, 0.960784, 1)
+layout_mode = 2
+text = "Sprains"
+
+[node name="SprainN" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN"]
+visible = false
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Sprains[/b]
+A sprain is an injury to the ligaments - the tough fibrous tissue connecting bones at a joint.
+It happens when a joint is forced beyond its normal range of motion.
+Commonly affect ankls, knees, or wrists."
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Causes of Sprains[/b]
+1. Sudden [b]twisting or turning[/b].
+2. [b]Falling[/b] and landing in an awkward position.
+3. [b]Direct impact[/b] on a joint.
+4. repeated stress on a joint due to [b]overuse[/b] or repetitive movements."
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Sign of Sprains[/b]
+1. [b]Pain[/b] around the injured joint.
+2. [b]Swelling[/b] and tenderness.
+3. [b]Bruising[/b] or discolouration.
+4. [b]Difficulty moving[/b] the joint.
+5.  [b]Instability[/b] or feeling 'looseness' in the joint."
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]First Aid for Sprains[/b]"
+fit_content = true
+
+[node name="R" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/R"]
+self_modulate = Color(0, 0.929412, 0.184314, 1)
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("46_3sxin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/R"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Rest[/b]
+Minimise movement of the injured area. Have the person stay still in a comfortable position."
+fit_content = true
+
+[node name="I" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/I"]
+self_modulate = Color(0.0117647, 0.784314, 1, 1)
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("61_d60dw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/I"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Ice[/b]
+Wrap ice pack in a thin cloth. Apply the ice pack to the injured area for 15-20 minutes."
+fit_content = true
+
+[node name="C" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/C"]
+self_modulate = Color(0.784314, 0, 1, 1)
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("50_nrchq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/C"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Compression[/b]
+Wrap the injured area with an elastic bandage or compression wrap. Ensure that it is not too tight."
+fit_content = true
+
+[node name="E" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/E"]
+self_modulate = Color(1, 0.407843, 0.670588, 1)
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("62_x32l4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/E"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Elevation[/b]
+Elevate the injured area above the heart level."
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Treatment for Sprains[/b]"
+fit_content = true
+
+[node name="1" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/1"]
+self_modulate = Color(0.960784, 0.537255, 0.305882, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("54_k82o0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Pain Relievers[/b]
+Over-the-counter pain relievers, like ibuprofen or acetaminophen, can be used to manage pain."
+fit_content = true
+
+[node name="2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/2"]
+self_modulate = Color(0.8, 0.447059, 0.254902, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("55_l8xus")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Immobilisation[/b]
+Splints or braces may be recommended for severe sprains to prevent further movements."
+fit_content = true
+
+[node name="3" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/3"]
+self_modulate = Color(0.6, 0.333333, 0.192157, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("56_ewaug")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Physical Therapy[/b]
+After pain and sweeling subside, physical therapy exercises can help regain strength, flexibility and stability."
+fit_content = true
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "[b]Prevention of Sprains[/b]"
+fit_content = true
+
+[node name="4" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/4"]
+self_modulate = Color(1, 0.498039, 0.654902, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("54_k82o0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "Warm up and stretch before exercise."
+fit_content = true
+
+[node name="5" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/5"]
+self_modulate = Color(0.921569, 0.458824, 0.603922, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("55_l8xus")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "Wear proper footwear for your activity."
+fit_content = true
+
+[node name="6" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/6"]
+self_modulate = Color(0.921569, 0.458824, 0.603922, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("56_ewaug")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/6"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "Maintain good muscle strength and flexibility."
+fit_content = true
+
+[node name="7" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/7"]
+self_modulate = Color(0.921569, 0.458824, 0.603922, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("57_uhk7b")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/7"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "Avoid risky movements and sudden changes in direction."
+fit_content = true
+
+[node name="8" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/8"]
+self_modulate = Color(0.921569, 0.458824, 0.603922, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("58_ueatf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/FirstAidN/SprainN/8"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 20
+bbcode_enabled = true
+text = "Be mindful of uneven surfaces and potential tripping hazards."
+fit_content = true
+
+[connection signal="pressed" from="MarginContainer/Home" to="MarginContainer/Home" method="_on_pressed"]
