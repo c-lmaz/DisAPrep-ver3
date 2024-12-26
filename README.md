@@ -18,11 +18,6 @@ Repository for DisAPrep (v3). Part of Final Year Project for Laila Mastura 12005
   - Information sources
   - Emergency kit preparation
   - First aid
-  - Communication plans
-  - Evacuation plans
-  - Flood
-  - Extreme Heat
-  - Disease outbreak
 
 </details>
 
@@ -42,8 +37,8 @@ Repository for DisAPrep (v3). Part of Final Year Project for Laila Mastura 12005
 | -------- | :------: |
 | Flood Prepare | 🐛 |
 | Flood Respond | ✔️ |
-| Flood Recover | ⌛ |
-| Notes | 🔜 |
+| Flood Recover | ✔️ |
+| Notes | ✔️ |
 | Menus | ⏳ |
 | Tutorial | 🔜 |
 | Settings | 🔜 |
@@ -75,9 +70,39 @@ Repository for DisAPrep (v3). Part of Final Year Project for Laila Mastura 12005
 | Elements | Progress |
 | -------- | :------: |
 | Health Assessment | ✔️ |
-| Property Assessment | ⏳ |
-| Future Planning | ⏳ |
-| Level logic | ⏳ |
+| Property Assessment | ✔️ |
+| Future Planning | ✔️ |
+| Level logic | ✔️ |
+
+
+### Notes
+
+| Elements | Progress |
+| -------- | :------: |
+| Emergency numbers | ✔️ |
+| Information sources | ✔️ |
+| Emergency kit preparation | ✔️ | 
+| First aid | ✔️ |
+| Flood | 🔜 |
+
+
+### Settings
+
+| Elements | Progress |
+| -------- | :------: |
+| Register | 🔜 |
+| Login | 🔜 |
+| Highscore | 🔜 | 
+| Volume | 🔜 |
+
+
+### Tutorial
+
+| Elements | Progress |
+| -------- | :------: |
+| Prepare | 🔜 |
+| Respond | 🔜 |
+| Recover | 🔜 | 
 
 </details>
 
