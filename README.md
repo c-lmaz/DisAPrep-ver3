@@ -47,6 +47,36 @@ Repository for DisAPrep (v3). Part of Final Year Project for Laila Mastura 12005
 <details>
 <summary>Current Progress (Detailed)</summary>
 
+### Menus
+
+| Elements | Progress |
+| -------- | :------: |
+| Main Menu | 🔜 |
+| Level Selection | 🔜 |
+| Tutorial | 🔜 | 
+| Notes | ✔️ |
+| Settings | 🔜 |
+
+
+### Settings
+
+| Elements | Progress |
+| -------- | :------: |
+| Register | 🔜 |
+| Login | 🔜 |
+| Highscore | 🔜 | 
+| Volume | 🔜 |
+
+
+### Tutorial
+
+| Elements | Progress |
+| -------- | :------: |
+| Prepare | 🔜 |
+| Respond | 🔜 |
+| Recover | 🔜 | 
+
+
 ### Flood Prepare
 
 | Elements | Progress |
@@ -84,25 +114,6 @@ Repository for DisAPrep (v3). Part of Final Year Project for Laila Mastura 12005
 | Emergency kit preparation | ✔️ | 
 | First aid | ✔️ |
 | Flood | 🔜 |
-
-
-### Settings
-
-| Elements | Progress |
-| -------- | :------: |
-| Register | 🔜 |
-| Login | 🔜 |
-| Highscore | 🔜 | 
-| Volume | 🔜 |
-
-
-### Tutorial
-
-| Elements | Progress |
-| -------- | :------: |
-| Prepare | 🔜 |
-| Respond | 🔜 |
-| Recover | 🔜 | 
 
 </details>
 
