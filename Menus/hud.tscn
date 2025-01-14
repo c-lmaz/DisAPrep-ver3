@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://chpdu7tfk38or"]
+[gd_scene load_steps=13 format=3 uid="uid://chpdu7tfk38or"]
 
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_1jsw5"]
 [ext_resource type="Texture2D" uid="uid://f8eflxks6yso" path="res://Icons/Controls/shadedLight_Empty.png" id="1_j5qpj"]
 [ext_resource type="Script" path="res://Menus/hud.gd" id="2_tygji"]
 [ext_resource type="FontFile" uid="uid://det7dyh78eox" path="res://Themes/Fonts/InriaSans-Bold.otf" id="3_lb3w8"]
 [ext_resource type="PackedScene" uid="uid://c55wd2pk0aj8j" path="res://Menus/pause_menu.tscn" id="3_qp2dc"]
+[ext_resource type="PackedScene" uid="uid://tarl4w3fwfu8" path="res://Menus/exit_menu.tscn" id="4_eptpp"]
 [ext_resource type="Script" path="res://Menus/life_display.gd" id="4_ntydd"]
 [ext_resource type="Texture2D" uid="uid://bf68lggu4phmy" path="res://Icons/Controls/heartFull.png" id="4_qn0yn"]
 [ext_resource type="FontFile" uid="uid://c4o05i4pa21je" path="res://Themes/Fonts/InriaSans-Regular.otf" id="5_u60di"]
@@ -43,16 +44,20 @@ offset_bottom = 960.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="ExitMenu" type="Panel" parent="."]
-process_mode = 2
+[node name="ExitMenu" parent="." instance=ExtResource("4_eptpp")]
 visible = false
-self_modulate = Color(1, 1, 1, 0.588235)
-top_level = true
-custom_minimum_size = Vector2(540, 820)
-layout_mode = 0
-offset_top = 140.0
-offset_right = 540.0
-offset_bottom = 960.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = -820.0
+offset_right = 270.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="LevelEndMenu" type="Panel" parent="."]
 visible = false

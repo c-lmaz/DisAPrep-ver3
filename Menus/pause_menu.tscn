@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c55wd2pk0aj8j"]
+[gd_scene load_steps=11 format=3 uid="uid://c55wd2pk0aj8j"]
 
 [ext_resource type="FontFile" uid="uid://det7dyh78eox" path="res://Themes/Fonts/InriaSans-Bold.otf" id="1_7iguw"]
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_dx0dg"]
@@ -6,9 +6,13 @@
 [ext_resource type="StyleBox" uid="uid://2mhryh7aobpp" path="res://Themes/Styleboxes/button_texticon.stylebox" id="2_w0gfe"]
 [ext_resource type="Texture2D" uid="uid://driirg0onppl4" path="res://Icons/Controls/forward.png" id="3_s2fkx"]
 [ext_resource type="Texture2D" uid="uid://ojlciqwyxbex" path="res://Icons/Controls/exitRight.png" id="4_2ej00"]
-[ext_resource type="Texture2D" uid="uid://yqordmem2beg" path="res://Icons/Controls/audioOn.png" id="5_405p3"]
-[ext_resource type="Texture2D" uid="uid://bn5a0amv6wk64" path="res://Icons/Controls/musicOn.png" id="6_aynbn"]
-[ext_resource type="PackedScene" uid="uid://cx8def184ppmk" path="res://Themes/Customs/vol_slider.tscn" id="8_wtw0w"]
+[ext_resource type="Texture2D" uid="uid://bukb0oqmf38y5" path="res://Icons/Controls/musicOn.png" id="6_aynbn"]
+[ext_resource type="FontFile" uid="uid://c4o05i4pa21je" path="res://Themes/Fonts/InriaSans-Regular.otf" id="8_min51"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ak8n"]
+texture = ExtResource("6_aynbn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uq20r"]
 
 [node name="PauseMenu" type="Panel"]
 self_modulate = Color(1, 1, 1, 0.588235)
@@ -81,27 +85,10 @@ theme_override_fonts/font = ExtResource("1_7iguw")
 theme_override_font_sizes/font_size = 34
 text = "Audio Settings"
 
-[node name="SFX" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/SFX"]
-custom_minimum_size = Vector2(70, 0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "SFX"
-horizontal_alignment = 1
-
-[node name="SFXIcon" type="TextureRect" parent="VBoxContainer/SFX"]
-layout_mode = 2
-texture = ExtResource("5_405p3")
-
-[node name="SFXSlider" parent="VBoxContainer/SFX" instance=ExtResource("8_wtw0w")]
-layout_mode = 2
-size_flags_vertical = 4
-bus_name = "SFX"
-
 [node name="BGM" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/BGM"]
 custom_minimum_size = Vector2(70, 0)
@@ -110,14 +97,12 @@ theme_override_font_sizes/font_size = 32
 text = "BGM"
 horizontal_alignment = 1
 
-[node name="BGMIcon" type="TextureRect" parent="VBoxContainer/BGM"]
+[node name="TextureButton" type="Button" parent="VBoxContainer/BGM"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("6_aynbn")
-
-[node name="BGMSlider" parent="VBoxContainer/BGM" instance=ExtResource("8_wtw0w")]
-layout_mode = 2
-size_flags_vertical = 4
-bus_name = "BGM"
+theme_override_styles/normal = SubResource("StyleBoxTexture_0ak8n")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_uq20r")
+toggle_mode = true
 
 [node name="Spacer2" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
@@ -134,11 +119,16 @@ theme_override_font_sizes/font_size = 34
 text = "Random Tip"
 
 [node name="Tip" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 32
-text = "Tip1"
+theme_override_fonts/font = ExtResource("8_min51")
+theme_override_font_sizes/font_size = 28
+text = "Tip"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="toggled" from="VBoxContainer/BGM/TextureButton" to="." method="_on_bgm_button_toggled"]

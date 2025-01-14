@@ -20,10 +20,10 @@ script = ExtResource("2_1ev8r")
 
 [node name="Checklist" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 177.0
-offset_top = 305.0
-offset_right = 227.0
-offset_bottom = 355.0
+offset_left = 202.0
+offset_top = 288.0
+offset_right = 252.0
+offset_bottom = 338.0
 texture_normal = ExtResource("2_37he3")
 
 [node name="Drills" type="TextureButton" parent="."]
@@ -45,6 +45,7 @@ texture_normal = ExtResource("2_37he3")
 [node name="FutureMenu" type="Panel" parent="."]
 visible = false
 custom_minimum_size = Vector2(540, 450)
+layout_mode = 0
 offset_top = 140.0
 offset_right = 540.0
 offset_bottom = 590.0
@@ -119,6 +120,7 @@ theme_override_font_sizes/font_size = 26
 text = "Next"
 
 [node name="Question" type="VBoxContainer" parent="FutureMenu"]
+visible = false
 custom_minimum_size = Vector2(520, 350)
 layout_mode = 1
 anchors_preset = 8

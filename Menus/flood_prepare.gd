@@ -13,7 +13,7 @@ var room_ind = 1
 @onready var hud = $HUD
 var level_phase = ["Flood", "Prepare"]
 var current_quest : String
-var hud_timer = 300
+var hud_timer = 180
 
 @onready var interaction_panel = $InteractionPanel
 @onready var item_container = $InteractionPanel/ScrollContainer/ItemContainer
@@ -26,6 +26,10 @@ var correct_items: Array
 @onready var comm_plans = $CommPlans
 var correct_chat = [2, 1, 1]
 var current_opt = 0
+
+@onready var start_panel = $StartPanel
+@onready var end_panel = $EndPanel
+@onready var hs_label = $StartPanel/MarginContainer/VBoxContainer/HighscoreLabel
 
 
 func _ready():
@@ -50,9 +54,18 @@ func _ready():
 		correct_items.push_back(str(child.name))
 	
 	current_quest = interaction_panel.get_current_quest()
+	
+	var level_hs = Global.read_level_progress()
+	level_hs = level_hs["Flood"]["Prepare"]["Highscore"]
+	if level_hs:
+		hs_label.text = str(level_hs)
+	else:
+		hs_label.text = "0"
 
 
-func start_level(): hud.start()
+func start_level(): 
+	start_panel.visible = false
+	hud.start()
 
 
 func _process(_delta):
@@ -110,9 +123,7 @@ func _on_hud_game_paused(pause_state):
 	interaction_panel.visible = !pause_state
 
 
-# TODO: handle player_died
 func _on_hud_player_died():
-	print("Player died")
 	_level_ends()
 
 
@@ -141,15 +152,15 @@ func _on_kit_items_collected(items: Array):
 
 func _kit_items_done():
 	print("kit done")
+	kit_items.disconnect("all_spots_done", _kit_items_done)
 	camera.position = Vector3(1.5, 0.6, 3.1)
 	room_ind = 1
 	_show_room(room_ind)
-	#left.visible = true
-	#right.visible = true
-	#hazards.visible = true
-	comm_plans.visible = true
+	right.visible = true
+	left.visible = true
+	hazards.visible = true
 	kit_items.visible = false
-	texture_rect.visible = false
+	kit_items.queue_free()
 	interaction_panel.set_next_quest()
 	interaction_panel.set_next_quest_items(1)
 
@@ -230,4 +241,34 @@ func _comm_plans_done():
 func _level_ends():
 	var prep_quests = interaction_panel.get_quests_progress()
 	var prep_time = hud.get_time_left()
-	prepare_ends.emit(hud.score, prep_quests, prep_time)
+	var prep_score = hud.score + (int(prep_time/10)*5)
+	
+	var phase_progress = {
+			"Score": prep_score,
+			"TimeLeft": prep_time,
+			"Kit": prep_quests["Kit"],
+			"Hazards": prep_quests["Hazards"],
+			"Comm": prep_quests["Comm"],
+		}
+	
+	Global.save_level_progress("Flood", "Prepare", phase_progress)
+	
+	$EndPanel/MarginContainer/VBoxContainer/Score/ScoreLabel.text = str(hud.score)
+	$EndPanel/MarginContainer/VBoxContainer/Time/TimeLabel.text = str(prep_time) + " sec"
+	$EndPanel/MarginContainer/VBoxContainer/TotalScore/TScoreLabel.text = str(prep_score)
+	
+	var level_hs = Global.read_level_progress()
+	level_hs = level_hs["Flood"]["Prepare"]["Highscore"]
+	if level_hs:
+		$EndPanel/MarginContainer/VBoxContainer/Highscore/HScoreLabel.text = str(level_hs)
+	else:
+		$EndPanel/MarginContainer/VBoxContainer/Highscore/HScoreLabel.text = "0"
+	end_panel.visible = true
+
+
+func _on_start_button_pressed():
+	start_level()
+
+func _on_back_button_pressed():
+	get_tree().change_scene_to_file("res://Menus/level_menu.tscn")
+

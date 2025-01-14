@@ -117,6 +117,7 @@ func set_next_quest_items(ind: int):
 				if prep_items[i].has("short"):
 					child.short_name = prep_items[i]["short"]
 				item_container.add_child(child)
+				child.mouse_filter = 2
 		
 		Phases.RESPOND:
 			pass
@@ -134,6 +135,7 @@ func set_next_quest_items(ind: int):
 				child.item_icon = load(rec_items[i]["icon"])
 				if rec_items[i].has("short"):
 					child.short_name = rec_items[i]["short"]
+				child.mouse_filter = 2
 	
 	_draw_small()
 

@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://h3ravbr0s3b1"]
+[gd_scene load_steps=11 format=3 uid="uid://h3ravbr0s3b1"]
 
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_dmwtc"]
 [ext_resource type="Script" path="res://Menus/main_menu.gd" id="2_pj8el"]
+[ext_resource type="Texture2D" uid="uid://dvs0ggivl0sag" path="res://Icons/bg.png" id="3_4s1fe"]
+[ext_resource type="Script" path="res://addons/GameGUI/GGFiller.gd" id="3_tc8um"]
+[ext_resource type="Texture2D" uid="uid://dqbe3blufndxa" path="res://Icons/DisAPrep1.png" id="4_xqccb"]
+[ext_resource type="Texture2D" uid="uid://driirg0onppl4" path="res://Icons/Controls/forward.png" id="5_yul6w"]
+[ext_resource type="Texture2D" uid="uid://bpm0m0fxmw4uq" path="res://Icons/Controls/question.png" id="6_pwp1h"]
+[ext_resource type="Texture2D" uid="uid://b86n84ayfwjon" path="res://Icons/Controls/information.png" id="7_bq7xg"]
+[ext_resource type="Texture2D" uid="uid://b47gi4ojwvdut" path="res://Icons/Controls/wrench.png" id="8_c0uad"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nflfc"]
+texture = ExtResource("3_4s1fe")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -14,50 +24,142 @@ theme = ExtResource("1_dmwtc")
 script = ExtResource("2_pj8el")
 
 [node name="Panel" type="Panel" parent="."]
-self_modulate = Color(1, 1, 0.776471, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nflfc")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -72.0
-offset_top = -22.0
-offset_right = 72.0
-offset_bottom = 22.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="StartLevel" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(200, 60)
+[node name="GGFiller" type="Container" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+script = ExtResource("3_tc8um")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_xqccb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StartLevel" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 60)
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Start Level"
+icon_alignment = 2
 
-[node name="Tutorial" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(200, 60)
-layout_mode = 2
-text = "Tutorial"
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/StartLevel"]
+self_modulate = Color(0, 0.823529, 0.14902, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("5_yul6w")
+stretch_mode = 5
 
-[node name="Notes" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(200, 60)
+[node name="Tutorial" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
+size_flags_horizontal = 4
+text = "How to Play"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Tutorial"]
+self_modulate = Color(0.960784, 0.768627, 0.278431, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("6_pwp1h")
+stretch_mode = 5
+
+[node name="Notes" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 60)
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Notes"
 
-[node name="Settings" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(200, 60)
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Notes"]
+self_modulate = Color(0.0784314, 0.788235, 0.839216, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("7_bq7xg")
+stretch_mode = 5
+
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Settings"
 
-[connection signal="pressed" from="VBoxContainer/StartLevel" to="." method="_on_start_level_pressed"]
-[connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="VBoxContainer/Notes" to="." method="_on_notes_pressed"]
-[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Settings"]
+self_modulate = Color(0.501961, 0.529412, 0.509804, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("8_c0uad")
+stretch_mode = 5
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartLevel" to="." method="_on_start_level_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Notes" to="." method="_on_notes_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]

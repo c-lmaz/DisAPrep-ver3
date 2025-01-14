@@ -95,9 +95,9 @@ func _on_recover_phase_ends(score: int, quests: Dictionary, time: int):
 	var phase_progress = {
 			"Score": score,
 			"TimeLeft": time,
-			"Kit": quests["Kit"],
-			"Hazards": quests["Hazards"],
-			"Comm": quests["Comm"],
+			"Health": quests["Health"],
+			"Repair": quests["Repair"],
+			"Future": quests["Future"],
 		}
 	
 	Global.save_level_progress("Flood", "Recover", phase_progress)

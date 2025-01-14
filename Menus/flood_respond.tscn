@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dn2gu6554kow1"]
+[gd_scene load_steps=16 format=3 uid="uid://dn2gu6554kow1"]
 
 [ext_resource type="Script" path="res://Menus/flood_respond.gd" id="1_ng378"]
 [ext_resource type="PackedScene" uid="uid://c1hnk81d5s5ud" path="res://Models/maze.tscn" id="2_yvcwq"]
@@ -8,6 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://3jjo3avpedoc" path="res://Icons/Controls/shadedLight_Right.png" id="4_uo7ip"]
 [ext_resource type="Texture2D" uid="uid://bpw2sj63t72ur" path="res://Icons/Controls/shadedLight_Left.png" id="5_y2tli"]
 [ext_resource type="Texture2D" uid="uid://cnwus1y8vvk7i" path="res://Icons/Controls/shadedLight_Down.png" id="6_ltnig"]
+[ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="9_ihhhf"]
+[ext_resource type="FontFile" uid="uid://det7dyh78eox" path="res://Themes/Fonts/InriaSans-Bold.otf" id="10_evquj"]
+[ext_resource type="FontFile" uid="uid://c4o05i4pa21je" path="res://Themes/Fonts/InriaSans-Regular.otf" id="11_phxc8"]
+[ext_resource type="Script" path="res://addons/GameGUI/GGFiller.gd" id="12_oofpp"]
+[ext_resource type="StyleBox" uid="uid://bklx8rfkh3fko" path="res://Themes/Styleboxes/default_blue.stylebox" id="13_4607r"]
+[ext_resource type="Texture2D" uid="uid://c2dwlxl2oqyjk" path="res://Icons/Controls/exitLeft.png" id="14_d0tl3"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ht0hi"]
 viewport_path = NodePath("SubViewport")
@@ -58,3 +64,329 @@ action = "ui_down"
 custom_minimum_size = Vector2(540, 80)
 phase = 1
 is_small = true
+
+[node name="StartPanel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0.941176)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_ihhhf")
+
+[node name="MarginContainer" type="MarginContainer" parent="StartPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartPanel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="LevelPhase" type="HBoxContainer" parent="StartPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Level" type="Label" parent="StartPanel/MarginContainer/VBoxContainer/LevelPhase"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.133333, 0.694118, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.894118, 0.894118, 0.894118, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_evquj")
+theme_override_font_sizes/font_size = 34
+text = "Flood"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="StartPanel/MarginContainer/VBoxContainer/LevelPhase"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.894118, 0.894118, 0.894118, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_evquj")
+theme_override_font_sizes/font_size = 34
+text = "-"
+
+[node name="Phase" type="Label" parent="StartPanel/MarginContainer/VBoxContainer/LevelPhase"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.133333, 0.694118, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.894118, 0.894118, 0.894118, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_evquj")
+theme_override_font_sizes/font_size = 34
+text = "Respond"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quest" type="Label" parent="StartPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quests"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quests" type="Label" parent="StartPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_phxc8")
+theme_override_font_sizes/font_size = 28
+text = "Evacuate to the evacuation center"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GGFiller" type="Container" parent="StartPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+script = ExtResource("12_oofpp")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
+[node name="Timer" type="Label" parent="StartPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Time Limit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="StartPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_phxc8")
+theme_override_font_sizes/font_size = 28
+text = "1 minute"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GGFiller2" type="Container" parent="StartPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+script = ExtResource("12_oofpp")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
+[node name="Highscore" type="Label" parent="StartPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Highscore"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighscoreLabel" type="Label" parent="StartPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_phxc8")
+theme_override_font_sizes/font_size = 28
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GGFiller3" type="Container" parent="StartPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+script = ExtResource("12_oofpp")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
+[node name="StartButton" type="Button" parent="StartPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = ExtResource("13_4607r")
+text = "START LEVEL"
+
+[node name="BackButton" type="Button" parent="StartPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+icon = ExtResource("14_d0tl3")
+
+[node name="EndPanel" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.941176)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_ihhhf")
+
+[node name="MarginContainer" type="MarginContainer" parent="EndPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndPanel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="LevelPhase" type="HBoxContainer" parent="EndPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Level" type="Label" parent="EndPanel/MarginContainer/VBoxContainer/LevelPhase"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.133333, 0.694118, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.894118, 0.894118, 0.894118, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_evquj")
+theme_override_font_sizes/font_size = 34
+text = "Flood"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="EndPanel/MarginContainer/VBoxContainer/LevelPhase"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.894118, 0.894118, 0.894118, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_evquj")
+theme_override_font_sizes/font_size = 34
+text = "-"
+
+[node name="Phase" type="Label" parent="EndPanel/MarginContainer/VBoxContainer/LevelPhase"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.133333, 0.694118, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.894118, 0.894118, 0.894118, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_evquj")
+theme_override_font_sizes/font_size = 34
+text = "Prepare"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="HBoxContainer" parent="EndPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Score" type="Label" parent="EndPanel/MarginContainer/VBoxContainer/Score"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="EndPanel/MarginContainer/VBoxContainer/Score"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_phxc8")
+theme_override_font_sizes/font_size = 28
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="HBoxContainer" parent="EndPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Score" type="Label" parent="EndPanel/MarginContainer/VBoxContainer/Time"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Time Left"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="EndPanel/MarginContainer/VBoxContainer/Time"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_phxc8")
+theme_override_font_sizes/font_size = 28
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalScore" type="HBoxContainer" parent="EndPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Score" type="Label" parent="EndPanel/MarginContainer/VBoxContainer/TotalScore"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Total Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TScoreLabel" type="Label" parent="EndPanel/MarginContainer/VBoxContainer/TotalScore"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_phxc8")
+theme_override_font_sizes/font_size = 28
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Highscore" type="HBoxContainer" parent="EndPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Score" type="Label" parent="EndPanel/MarginContainer/VBoxContainer/Highscore"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Highscore"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HScoreLabel" type="Label" parent="EndPanel/MarginContainer/VBoxContainer/Highscore"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_phxc8")
+theme_override_font_sizes/font_size = 28
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GGFiller3" type="Container" parent="EndPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+script = ExtResource("12_oofpp")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
+[node name="ExitButton" type="Button" parent="EndPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = ExtResource("13_4607r")
+text = "EXIT LEVEL"
+
+[connection signal="pressed" from="StartPanel/MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="StartPanel/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="EndPanel/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_back_button_pressed"]

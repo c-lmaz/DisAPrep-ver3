@@ -8,7 +8,7 @@ signal recover_ends(score: int, quests: Dictionary, time_left: int)
 @onready var hud = $HUD
 var level_phase = ["Flood", "Recover"]
 var current_quest : String
-var hud_timer = 120
+var hud_timer = 180
 
 @onready var interaction_panel = $InteractionPanel
 @onready var item_container = $InteractionPanel/ScrollContainer/ItemContainer
@@ -21,6 +21,10 @@ var repair_correct = Global.read_json_file("res://Data/Flood/rec_items.json")["c
 
 @onready var future = $Future
 var future_correct = Global.read_json_file("res://Data/Flood/rec_items.json")["correct"]["future"]
+
+@onready var start_panel = $StartPanel
+@onready var end_panel = $EndPanel
+@onready var hs_label = $StartPanel/MarginContainer/VBoxContainer/HighscoreLabel
 
 
 func _ready():
@@ -39,7 +43,12 @@ func _ready():
 	future.items_selected.connect(_on_future_items_selected)
 	future.all_spots_done.connect(_on_future_done)
 	
-	interaction_panel.quest_completed.connect(_on_int_panel_quest_completed)
+	var level_hs = Global.read_level_progress()
+	level_hs = level_hs["Flood"]["Recover"]["Highscore"]
+	if level_hs:
+		hs_label.text = str(level_hs)
+	else:
+		hs_label.text = "0"
 
 
 func _on_hud_game_paused(pause_state):
@@ -50,29 +59,13 @@ func _on_hud_game_paused(pause_state):
 	future.visible = !pause_state
 
 
-func start_level(): hud.start()
+func start_level(): 
+	start_panel.visible = false
+	hud.start()
 
 
-# TODO: handle player_died
 func _on_hud_player_died():
-	print("Player died")
 	_level_ends()
-
-
-# TODO
-func _on_int_panel_quest_completed(q_name: String):
-	#match q_name:
-		#"Kit":
-			#_kit_items_done()
-			#interaction_panel.set_next_quest()
-			#interaction_panel.set_next_quest_items(1)
-		#"Hazards":
-			#_hazards_done()
-			#interaction_panel.set_next_quest()
-			#interaction_panel.set_next_quest_items(2)
-		#"Comm":
-			#_comm_plans_done()
-	pass
 
 
 func _on_health_items_selected(items: Array, spot: String):
@@ -145,5 +138,34 @@ func _on_future_done():
 func _level_ends():
 	var rec_quests = interaction_panel.get_quests_progress()
 	var rec_time = hud.get_time_left()
-	recover_ends.emit(hud.score, rec_quests, rec_time)
-	print(rec_quests + " " +  rec_time)
+	var rec_score = hud.score + (int(rec_time/10)*5)
+	
+	var phase_progress = {
+			"Score": rec_score,
+			"TimeLeft": rec_time,
+			"Health": rec_quests["Health"],
+			"Repair": rec_quests["Repair"],
+			"Future": rec_quests["Future"],
+		}
+	
+	Global.save_level_progress("Flood", "Recover", phase_progress)
+	
+	$EndPanel/MarginContainer/VBoxContainer/Score/ScoreLabel.text = str(hud.score)
+	$EndPanel/MarginContainer/VBoxContainer/Time/TimeLabel.text = str(rec_time) + " sec"
+	$EndPanel/MarginContainer/VBoxContainer/TotalScore/TScoreLabel.text = str(rec_score)
+	
+	var level_hs = Global.read_level_progress()
+	level_hs = level_hs["Flood"]["Recover"]["Highscore"]
+	if level_hs:
+		$EndPanel/MarginContainer/VBoxContainer/Highscore/HScoreLabel.text = str(level_hs)
+	else:
+		$EndPanel/MarginContainer/VBoxContainer/Highscore/HScoreLabel.text = "0"
+	end_panel.visible = true
+
+
+func _on_start_button_pressed():
+	start_level()
+
+
+func _on_back_button_pressed():
+	get_tree().change_scene_to_file("res://Menus/level_menu.tscn")

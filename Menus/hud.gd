@@ -33,6 +33,8 @@ func _ready():
 	
 	pause_menu.resume_pressed.connect(_on_pause_toggled)
 	pause_menu.exit_pressed.connect(_on_exit_pressed)
+	
+	exit_menu.resume_level.connect(_on_exit_resume)
 
 
 func _process(_delta):
@@ -83,7 +85,11 @@ func _on_pause_toggled(toggled_on):
 func _on_exit_pressed():
 	pause_menu.visible = false
 	exit_menu.visible = true
-	get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
+
+
+func _on_exit_resume():
+	exit_menu.visible = false
+	pause_menu.visible = true
 
 
 func _on_timer_timeout():

@@ -1,10 +1,8 @@
 extends Control
 
 
-
-
 func _on_start_level_pressed():
-	get_tree().change_scene_to_file("res://Menus/flood_main.tscn")
+	get_tree().change_scene_to_file("res://Menus/level_menu.tscn")
 
 
 func _on_tutorial_pressed():

@@ -1,7 +1,7 @@
-[gd_scene load_steps=70 format=3 uid="uid://cfvxls7w24en0"]
+[gd_scene load_steps=71 format=3 uid="uid://cfvxls7w24en0"]
 
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_go6bf"]
-[ext_resource type="StyleBox" uid="uid://bklx8rfkh3fko" path="res://Themes/Styleboxes/default_blue.stylebox" id="2_08xwj"]
+[ext_resource type="Texture2D" uid="uid://dvs0ggivl0sag" path="res://Icons/bg.png" id="2_2eydv"]
 [ext_resource type="Texture2D" uid="uid://dsuh3qll5d6jp" path="res://Icons/Controls/home.png" id="2_rkgqn"]
 [ext_resource type="Script" path="res://Menus/home_button.gd" id="3_28se4"]
 [ext_resource type="Script" path="res://Menus/notes_menu.gd" id="3_h3ccs"]
@@ -69,6 +69,9 @@
 [ext_resource type="Texture2D" uid="uid://coqd7h7rdynku" path="res://Icons/Notes/letter_i.png" id="61_d60dw"]
 [ext_resource type="Texture2D" uid="uid://bmlxncbgqtoql" path="res://Icons/Notes/letter_e.png" id="62_x32l4"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ynwm8"]
+texture = ExtResource("2_2eydv")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k14wd"]
 texture = ExtResource("5_wvj0r")
 texture_margin_left = 4.0
@@ -83,7 +86,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_go6bf")
-theme_override_styles/panel = ExtResource("2_08xwj")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ynwm8")
 script = ExtResource("3_h3ccs")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

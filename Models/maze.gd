@@ -9,7 +9,7 @@ signal path_ended(pathname: String)
 var current_path : String
 var prev_path : Array
 var speed = 0.5
-var moving = true
+var moving = false
 
 
 func _ready():

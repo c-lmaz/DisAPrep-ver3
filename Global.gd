@@ -8,11 +8,13 @@ var default_progress = {
 			"Kit": 0,
 			"Hazards": 0,
 			"Comm": 0,
+			"Highscore": 0
 		},
 		"Respond": {
 			"Score": 0,
 			"TimeLeft": 0,
 			"Evac": 0,
+			"Highscore": 0
 		},
 		"Recover": {
 			"Score": 0,
@@ -20,6 +22,7 @@ var default_progress = {
 			"Health": 0,
 			"Repair": 0,
 			"Future": 0,
+			"Highscore": 0
 		},
 	},
 }
@@ -38,6 +41,18 @@ func read_json_file(path: String):
 		printerr("Error parsing JSON file", path, " : ", json_parse.get_error_message())
 
 
+func read_level_progress():
+	var save_path = "user://user_progress.save"
+	var progress = default_progress
+	
+	if FileAccess.file_exists(save_path):
+		progress = read_json_file(save_path)
+		if progress == null:
+			progress = default_progress
+	
+	return progress
+
+
 func save_level_progress(level: String, phase: String, data: Dictionary):
 	var save_path = "user://user_progress.save"
 	var json_string
@@ -54,6 +69,8 @@ func save_level_progress(level: String, phase: String, data: Dictionary):
 			var phase_dict = level_dict[phase]
 			for key in data:
 				phase_dict[key] = data[key]
+			if phase_dict["Highscore"] < data["Score"]:
+				phase_dict["Highscore"] = data["Score"]
 	
 	else:
 		if !current_progress.has(level):
