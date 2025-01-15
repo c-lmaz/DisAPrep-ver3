@@ -107,7 +107,6 @@ func save_username(username: String):
 	json_string = JSON.stringify(current_progress, "\t")
 	var save_file = FileAccess.open(save_path, FileAccess.WRITE)
 	save_file.store_string(json_string)
-	print_debug(json_string)
 	save_file.close()
 
 

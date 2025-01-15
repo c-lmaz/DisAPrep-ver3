@@ -1,9 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6g2ndlcs01r0"]
+[gd_scene load_steps=36 format=3 uid="uid://b6g2ndlcs01r0"]
 
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_u4hmk"]
 [ext_resource type="Texture2D" uid="uid://dsuh3qll5d6jp" path="res://Icons/Controls/home.png" id="2_kdbpg"]
+[ext_resource type="Script" path="res://Menus/tutorial_menu.gd" id="2_npxql"]
 [ext_resource type="Texture2D" uid="uid://dvs0ggivl0sag" path="res://Icons/bg.png" id="2_pu61q"]
 [ext_resource type="Script" path="res://Menus/home_button.gd" id="3_3ptlw"]
+[ext_resource type="FontFile" uid="uid://c4o05i4pa21je" path="res://Themes/Fonts/InriaSans-Regular.otf" id="5_5mwm7"]
+[ext_resource type="Texture2D" uid="uid://bleuo8mi8q52p" path="res://Icons/Tutorial/SelectLevel1.png" id="6_nye2q"]
+[ext_resource type="Texture2D" uid="uid://cgnge2qvkws73" path="res://Icons/Tutorial/SelectLevel2.png" id="7_ow2ci"]
+[ext_resource type="Texture2D" uid="uid://irlav7jaevr5" path="res://Icons/Tutorial/StartLevel.png" id="8_1ye0m"]
+[ext_resource type="Texture2D" uid="uid://bts3b3g61jenh" path="res://Icons/Controls/shadedLight_Menu.png" id="9_c71r4"]
+[ext_resource type="Texture2D" uid="uid://cmobt3xpey4h0" path="res://Icons/Tutorial/ExitLevel.png" id="9_k4wbw"]
+[ext_resource type="Texture2D" uid="uid://dbmxo72hpc3kn" path="res://Icons/Tutorial/QuestButton1.png" id="10_cptpp"]
+[ext_resource type="Texture2D" uid="uid://dt2cldp76lye6" path="res://Icons/Controls/shadedLight_Pause.png" id="11_668wq"]
+[ext_resource type="Texture2D" uid="uid://0ifo3slvh2lo" path="res://Icons/Controls/shadedLight_Play.png" id="12_l5dlj"]
+[ext_resource type="Texture2D" uid="uid://bukb0oqmf38y5" path="res://Icons/Controls/musicOn.png" id="13_cuaya"]
+[ext_resource type="Texture2D" uid="uid://ojlciqwyxbex" path="res://Icons/Controls/exitRight.png" id="14_ceb4s"]
+[ext_resource type="Texture2D" uid="uid://d2ih7koh3afl" path="res://Icons/Tutorial/PauseMenu.png" id="15_pjya6"]
+[ext_resource type="Texture2D" uid="uid://red3to85khip" path="res://Icons/Levels/exclamation1.png" id="17_2230m"]
+[ext_resource type="Texture2D" uid="uid://bpw2sj63t72ur" path="res://Icons/Controls/shadedLight_Left.png" id="18_vxiby"]
+[ext_resource type="Texture2D" uid="uid://3jjo3avpedoc" path="res://Icons/Controls/shadedLight_Right.png" id="19_klyck"]
+[ext_resource type="Texture2D" uid="uid://cj7g741r8e4q7" path="res://Icons/Tutorial/Prepare.png" id="20_t4rnt"]
+[ext_resource type="Texture2D" uid="uid://53swiodtebnf" path="res://Icons/Tutorial/Kit.png" id="21_fjqhs"]
+[ext_resource type="Texture2D" uid="uid://pmguje2luftq" path="res://Icons/Tutorial/Hazard.png" id="22_r67sg"]
+[ext_resource type="Texture2D" uid="uid://yf3w8vgqjtow" path="res://Icons/Tutorial/999.png" id="23_dvn5g"]
+[ext_resource type="Texture2D" uid="uid://d223ivibt6el7" path="res://Icons/Tutorial/Group.png" id="24_sox0d"]
+[ext_resource type="Texture2D" uid="uid://bcfehywiec6np" path="res://Icons/Tutorial/Message.png" id="25_85jxt"]
+[ext_resource type="Texture2D" uid="uid://d2i2jgm8dnks1" path="res://Icons/Tutorial/Minimap.png" id="26_idlt2"]
+[ext_resource type="Texture2D" uid="uid://2b7ag1pxs0m3" path="res://Icons/Controls/flatLightStar.png" id="27_2f2fb"]
+[ext_resource type="Script" path="res://addons/GameGUI/GGFiller.gd" id="28_4ugpp"]
+[ext_resource type="Texture2D" uid="uid://dhswe1b54bh2l" path="res://Icons/Controls/shadedLight_Up.png" id="29_8eaqm"]
+[ext_resource type="Texture2D" uid="uid://cnwus1y8vvk7i" path="res://Icons/Controls/shadedLight_Down.png" id="30_1apjj"]
+[ext_resource type="Texture2D" uid="uid://p8n7wqbvctqe" path="res://Icons/Tutorial/Maze.png" id="31_vu47c"]
+[ext_resource type="Texture2D" uid="uid://pwrtme10vc8p" path="res://Icons/Tutorial/Recover.png" id="32_p1y6v"]
+[ext_resource type="Texture2D" uid="uid://csqnh8axh4bof" path="res://Icons/Tutorial/Quiz.png" id="33_53d5u"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3l37o"]
 texture = ExtResource("2_pu61q")
@@ -16,6 +46,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_u4hmk")
+script = ExtResource("2_npxql")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -38,6 +69,12 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
+[node name="Panel" type="Panel" parent="MarginContainer"]
+self_modulate = Color(1, 1, 1, 0.588235)
+custom_minimum_size = Vector2(0, 840)
+layout_mode = 2
+size_flags_vertical = 8
+
 [node name="Home" type="Button" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -54,4 +91,840 @@ text = "How to Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 840)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(0, 830)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+theme_override_constants/separation = 20
+
+[node name="Level" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+text = "Level Selection"
+
+[node name="LevelTutorial" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/LevelTutorial"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click on the level button to see the level's detail."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/LevelTutorial"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click 'Play' to play the level."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/LevelTutorial"]
+layout_mode = 2
+theme_override_constants/separation = -30
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/LevelTutorial/HBoxContainer"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_nye2q")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/LevelTutorial/HBoxContainer"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_ow2ci")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GeneralGameplay" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+text = "General Gameplay"
+
+[node name="GeneralTutorial" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="StartLevel" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+text = "Start Level"
+
+[node name="StartTutorial" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/StartTutorial"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click on 'START LEVEL' to start the level."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/StartTutorial"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click on back button to go back to level selection menu."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/StartTutorial"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("8_1ye0m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ExitLevel" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+text = "Exit Level"
+
+[node name="ExitTutorial" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/ExitTutorial"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Once a level is completed, scores will be displayed."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/ExitTutorial"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click on 'EXIT LEVEL' to go to level selection menu."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/ExitTutorial"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("9_k4wbw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Quest" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+text = "View Quests in Level"
+
+[node name="QuestTutorial" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/QuestTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/QuestTutorial/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("9_c71r4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/QuestTutorial/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click to view all available quests."
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/QuestTutorial"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("10_cptpp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Pause" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+text = "Pause Level"
+
+[node name="PauseTutorial" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/PauseTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/PauseTutorial/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("11_668wq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/PauseTutorial/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click to pause the level."
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/PauseTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/PauseTutorial/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("12_l5dlj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/PauseTutorial/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click to resume the level."
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/PauseTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/PauseTutorial/HBoxContainer3"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("13_cuaya")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/PauseTutorial/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click to toggle background music."
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/PauseTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/PauseTutorial/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+icon = ExtResource("14_ceb4s")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/PauseTutorial/HBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click to exit level."
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/PauseTutorial"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("15_pjya6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PrepareLevel" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+text = "Level Prepare"
+
+[node name="PrepareTutorial" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Kit" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+text = "Emergency Kit"
+
+[node name="KitTutorial" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/KitTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/KitTutorial/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("17_2230m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/KitTutorial/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click to collect emergency kit items."
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/KitTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/KitTutorial/HBoxContainer3"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("18_vxiby")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/KitTutorial/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click to go to left."
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/KitTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/KitTutorial/HBoxContainer4"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("19_klyck")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/KitTutorial/HBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click to go to right."
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/KitTutorial"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click on 'Collect items' to collect selected items."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/KitTutorial"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/KitTutorial/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("20_t4rnt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/KitTutorial/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("21_fjqhs")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Hazards" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+text = "Hazards"
+
+[node name="HazardTutorial" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/HazardTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/HazardTutorial/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("17_2230m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/HazardTutorial/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click to interact with hazards."
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/HazardTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/HazardTutorial/HBoxContainer3"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("18_vxiby")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/HazardTutorial/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click to go to left."
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/HazardTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/HazardTutorial/HBoxContainer4"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("19_klyck")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/HazardTutorial/HBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click to go to right."
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/HazardTutorial"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/HazardTutorial/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("20_t4rnt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/HazardTutorial/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("22_r67sg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Contacts" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+text = "Emergency Contacts"
+
+[node name="ContactsTutorial" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/ContactsTutorial"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click on the numpad to key in the emergency number."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/ContactsTutorial"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("23_dvn5g")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/ContactsTutorial"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click on the family members to add them to the group."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/ContactsTutorial"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("24_sox0d")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label3" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/ContactsTutorial"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click on your dialogue choice when prompted."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/ContactsTutorial"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("25_85jxt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RespondLevel" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+text = "Level Respond"
+
+[node name="RespondTutorial" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Navigate through the maze to get to the evacuation center."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("26_idlt2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial/HBoxContainer4"]
+modulate = Color(1, 1, 0, 1)
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("27_2f2fb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial/HBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Goal"
+vertical_alignment = 1
+
+[node name="GGFiller" type="Container" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial/HBoxContainer4"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+script = ExtResource("28_4ugpp")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial/HBoxContainer4"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("27_2f2fb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial/HBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Player"
+vertical_alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial/HBoxContainer5"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("19_klyck")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial/HBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Go right."
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial/HBoxContainer5"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("18_vxiby")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial/HBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Go left."
+vertical_alignment = 1
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial/HBoxContainer7"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("29_8eaqm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial/HBoxContainer7"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Go forward."
+vertical_alignment = 1
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial/HBoxContainer8"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("30_1apjj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial/HBoxContainer8"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Back to last intersection."
+vertical_alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/RespondTutorial"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("31_vu47c")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RecoverLevel" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+text = "Level Recover"
+
+[node name="RecoverTutorial" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/RecoverTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/RecoverTutorial/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("17_2230m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/RecoverTutorial/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click to see the question."
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/RecoverTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/RecoverTutorial/HBoxContainer3"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("18_vxiby")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/RecoverTutorial/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click to go to left."
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/RecoverTutorial"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/RecoverTutorial/HBoxContainer4"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("19_klyck")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/RecoverTutorial/HBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click to go to right."
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/RecoverTutorial"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_5mwm7")
+theme_override_font_sizes/font_size = 24
+text = "Click on 'Submit' to submit answers."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/RecoverTutorial"]
+layout_mode = 2
+theme_override_constants/separation = -20
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/RecoverTutorial/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("32_p1y6v")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/ScrollContainer/VBoxContainer/RecoverTutorial/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("33_53d5u")
+expand_mode = 1
+stretch_mode = 5
+
 [connection signal="pressed" from="MarginContainer/Home" to="MarginContainer/Home" method="_on_pressed"]
+[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/Level" to="." method="_on_level_toggled"]
+[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/GeneralGameplay" to="." method="_on_general_gameplay_toggled"]
+[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/StartLevel" to="." method="_on_start_level_toggled"]
+[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/ExitLevel" to="." method="_on_exit_level_toggled"]
+[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/Quest" to="." method="_on_quest_toggled"]
+[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/GeneralTutorial/Pause" to="." method="_on_pause_toggled"]
+[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/PrepareLevel" to="." method="_on_prepare_level_toggled"]
+[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/Kit" to="." method="_on_kit_toggled"]
+[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/Hazards" to="." method="_on_hazards_toggled"]
+[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/PrepareTutorial/Contacts" to="." method="_on_contacts_toggled"]
+[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/RespondLevel" to="." method="_on_respond_level_toggled"]
+[connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/RecoverLevel" to="." method="_on_recover_level_toggled"]

@@ -44,9 +44,11 @@ func _ready():
 
 
 func _on_login_reg_pressed():
-	if reg_menu_node: reg_menu_node.visible = true
+	if reg_menu_node != null: reg_menu_node.visible = true
 	else:
 		reg_menu_node = register_menu.instantiate()
+		reg_menu_node.reg_login.connect(_on_register_login_pressed)
+		reg_menu_node.registered.connect(_on_login_logged_in)
 		add_child(reg_menu_node)
 	close.visible = true
 
@@ -57,17 +59,19 @@ func _on_register_login_pressed():
 
 
 func _on_login_pressed():
-	if login_menu_node: login_menu_node.visible = true
+	if login_menu_node != null : login_menu_node.visible = true
 	else:
 		login_menu_node = login_menu.instantiate()
+		login_menu_node.login_reg.connect(_on_login_reg_pressed)
+		login_menu_node.logged_in.connect(_on_login_logged_in)
 		add_child(login_menu_node)
 	
 	close.visible = true
 
 
 func _on_close_pressed():
-	login_menu_node.visible = false
-	reg_menu_node.visible = false
+	if login_menu_node != null: login_menu_node.visible = false
+	if reg_menu_node != null: reg_menu_node.visible = false
 	close.visible = false
 
 
@@ -101,8 +105,8 @@ func _on_login_logged_in():
 	close.visible = false
 	$MarginContainer/VBoxContainer/Login.visible = false
 	$MarginContainer/VBoxContainer/Logout.visible = true
-	if login_menu_node: login_menu_node.queue_free()
-	if reg_menu_node: reg_menu_node.queue_free()
+	if login_menu_node != null: login_menu_node.queue_free()
+	if reg_menu_node != null: reg_menu_node.queue_free()
 
 
 func _on_bgm_button_toggled(toggled_on):

@@ -13,6 +13,9 @@ config_version=5
 config/name="DisAPrep ver3"
 run/main_scene="res://Menus/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
+boot_splash/bg_color=Color(0.941176, 0.8, 0.643137, 1)
+boot_splash/image="res://Icons/DisAPrep1.png"
+config/icon="res://Icons/DisAPrep1.png"
 
 [autoload]
 
@@ -26,7 +29,6 @@ window/size/viewport_width=540
 window/size/viewport_height=960
 window/size/resizable=false
 window/stretch/mode="viewport"
-window/stretch/aspect="ignore"
 window/handheld/orientation=1
 
 [editor]
