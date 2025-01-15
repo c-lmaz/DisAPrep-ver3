@@ -3,6 +3,9 @@ extends PanelContainer
 signal login_reg()
 signal logged_in()
 
+@onready var warning = $VBoxContainer/Warning
+
+
 func _ready():
 	Firebase.Auth.login_succeeded.connect(_on_login_succeeded)
 	Firebase.Auth.login_failed.connect(_on_login_failed)
@@ -17,7 +20,15 @@ func _on_login_pressed():
 	var password = $VBoxContainer/Password/Password.text
 	print("logging in")
 	
-	Firebase.Auth.login_with_email_and_password(email, password)
+	if email.is_empty():
+		warning.text = "Please enter your email."
+		warning.visible = true
+	elif password.is_empty():
+		warning.text = "Please enter your password."
+		warning.visible = true
+	else:
+		warning.visible = false
+		Firebase.Auth.login_with_email_and_password(email, password)
 
 
 func _on_login_succeeded(auth):
@@ -29,5 +40,5 @@ func _on_login_succeeded(auth):
 
 
 func _on_login_failed(error_code, message):
-	print(error_code)
-	print(message)
+	warning.text = message.capitalize()
+	warning.visible = true

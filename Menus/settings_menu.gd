@@ -44,7 +44,7 @@ func _ready():
 
 
 func _on_login_reg_pressed():
-	if register_menu: reg_menu_node.visible = true
+	if reg_menu_node: reg_menu_node.visible = true
 	else:
 		reg_menu_node = register_menu.instantiate()
 		add_child(reg_menu_node)
@@ -52,12 +52,12 @@ func _on_login_reg_pressed():
 
 
 func _on_register_login_pressed():
-	register_menu.visible = false
-	login_menu.visible = true
+	reg_menu_node.visible = false
+	login_menu_node.visible = true
 
 
 func _on_login_pressed():
-	if login_menu: login_menu_node.visible = true
+	if login_menu_node: login_menu_node.visible = true
 	else:
 		login_menu_node = login_menu.instantiate()
 		add_child(login_menu_node)
@@ -66,8 +66,8 @@ func _on_login_pressed():
 
 
 func _on_close_pressed():
-	login_menu.visible = false
-	register_menu.visible = false
+	login_menu_node.visible = false
+	reg_menu_node.visible = false
 	close.visible = false
 
 

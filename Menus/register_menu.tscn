@@ -97,6 +97,19 @@ theme_override_font_sizes/font_size = 28
 placeholder_text = "Insert your password"
 secret = true
 
+[node name="Warning" type="Label" parent="VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_yqhmu")
+theme_override_font_sizes/font_size = 24
+text = "Your password must has a minimum of 8 characters, 1 uppercase alphabet, 1 lowercase alphabet, and 1 number."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="GGFiller2" type="Container" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
@@ -139,5 +152,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Log in"
 
+[connection signal="text_changed" from="VBoxContainer/Email/Email" to="." method="_on_line_edit_text_changed"]
 [connection signal="pressed" from="VBoxContainer/Register" to="." method="_on_register_pressed"]
 [connection signal="pressed" from="VBoxContainer/Login" to="." method="_on_login_pressed"]
