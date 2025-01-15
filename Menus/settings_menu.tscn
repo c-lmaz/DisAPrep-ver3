@@ -1,12 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://bo4fu20ydqcor"]
+[gd_scene load_steps=15 format=3 uid="uid://bo4fu20ydqcor"]
 
 [ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_p5w8g"]
 [ext_resource type="Texture2D" uid="uid://dvs0ggivl0sag" path="res://Icons/bg.png" id="2_2nx8n"]
 [ext_resource type="Texture2D" uid="uid://dsuh3qll5d6jp" path="res://Icons/Controls/home.png" id="2_gseox"]
+[ext_resource type="Script" path="res://Menus/settings_menu.gd" id="2_n2pe5"]
 [ext_resource type="Script" path="res://Menus/home_button.gd" id="3_85mpd"]
+[ext_resource type="Texture2D" uid="uid://dgocut07icg5b" path="res://Icons/Controls/singleplayer.png" id="5_mvk24"]
+[ext_resource type="FontFile" uid="uid://c4o05i4pa21je" path="res://Themes/Fonts/InriaSans-Regular.otf" id="6_aur7b"]
+[ext_resource type="Script" path="res://addons/GameGUI/GGFiller.gd" id="7_dt2vj"]
+[ext_resource type="FontFile" uid="uid://det7dyh78eox" path="res://Themes/Fonts/InriaSans-Bold.otf" id="8_o5eby"]
+[ext_resource type="Texture2D" uid="uid://bukb0oqmf38y5" path="res://Icons/Controls/musicOn.png" id="9_6f3kx"]
+[ext_resource type="Texture2D" uid="uid://dpf7og5uml1a7" path="res://Icons/Controls/cross.png" id="13_dk8c1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g05el"]
 texture = ExtResource("2_2nx8n")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a7h4b"]
+texture = ExtResource("9_6f3kx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aw6ny"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -16,6 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_p5w8g")
+script = ExtResource("2_n2pe5")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -54,4 +67,193 @@ text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="Avatar" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Avatar" type="TextureRect" parent="MarginContainer/VBoxContainer/Avatar"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("5_mvk24")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Avatar"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Guest"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Login" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Login"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_aur7b")
+theme_override_font_sizes/font_size = 28
+text = "You are not logged in."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Login" type="Button" parent="MarginContainer/VBoxContainer/Login"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Login"
+
+[node name="Logout" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Logout"
+
+[node name="GGFiller" type="Container" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+script = ExtResource("7_dt2vj")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0.894118, 0.894118, 0.894118, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("8_o5eby")
+theme_override_font_sizes/font_size = 34
+text = "Audio Settings"
+
+[node name="BGM" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/BGM"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Music"
+horizontal_alignment = 1
+
+[node name="TextureButton" type="Button" parent="MarginContainer/VBoxContainer/BGM"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_a7h4b")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_aw6ny")
+toggle_mode = true
+
+[node name="GGFiller2" type="Container" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+script = ExtResource("7_dt2vj")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0.894118, 0.894118, 0.894118, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("8_o5eby")
+theme_override_font_sizes/font_size = 34
+text = "Highscores"
+
+[node name="Prepare" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Prepare"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Prepare"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HScore" type="Label" parent="MarginContainer/VBoxContainer/Prepare"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Respond" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Respond"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Respond"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HScore" type="Label" parent="MarginContainer/VBoxContainer/Respond"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Recover" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Recover"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Recover"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HScore" type="Label" parent="MarginContainer/VBoxContainer/Recover"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close" type="TextureButton" parent="."]
+visible = false
+top_level = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 40.0
+offset_top = 120.0
+offset_right = 90.0
+offset_bottom = 170.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("13_dk8c1")
+stretch_mode = 5
+
 [connection signal="pressed" from="MarginContainer/Home" to="MarginContainer/Home" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Login/Login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Logout" to="." method="_on_logout_pressed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/BGM/TextureButton" to="." method="_on_bgm_button_toggled"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

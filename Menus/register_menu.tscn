@@ -1,0 +1,143 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjv61qx1ebw3"]
+
+[ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_xlxky"]
+[ext_resource type="StyleBox" uid="uid://ev2mbtfnm0jq" path="res://Themes/Styleboxes/default.stylebox" id="2_o1i0e"]
+[ext_resource type="Script" path="res://Menus/register_menu.gd" id="3_n2eb3"]
+[ext_resource type="Script" path="res://addons/GameGUI/GGFiller.gd" id="3_qn2ge"]
+[ext_resource type="FontFile" uid="uid://c4o05i4pa21je" path="res://Themes/Fonts/InriaSans-Regular.otf" id="4_yqhmu"]
+
+[node name="RegisterMenu" type="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0.980392)
+custom_minimum_size = Vector2(500, 840)
+offset_left = 20.0
+offset_top = 100.0
+offset_right = 520.0
+offset_bottom = 940.0
+theme = ExtResource("1_xlxky")
+theme_override_styles/panel = ExtResource("2_o1i0e")
+script = ExtResource("3_n2eb3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Register"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GGFiller" type="Container" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+script = ExtResource("3_qn2ge")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
+[node name="Email" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Email"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_yqhmu")
+theme_override_font_sizes/font_size = 28
+text = "Email"
+vertical_alignment = 1
+
+[node name="Email" type="LineEdit" parent="VBoxContainer/Email"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+placeholder_text = "Insert your email"
+
+[node name="Username" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Username"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_yqhmu")
+theme_override_font_sizes/font_size = 28
+text = "Username"
+vertical_alignment = 1
+
+[node name="Username" type="LineEdit" parent="VBoxContainer/Username"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+placeholder_text = "Insert your username"
+
+[node name="Password" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Password"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_yqhmu")
+theme_override_font_sizes/font_size = 28
+text = "Password"
+vertical_alignment = 1
+
+[node name="Password" type="LineEdit" parent="VBoxContainer/Password"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+placeholder_text = "Insert your password"
+secret = true
+
+[node name="GGFiller2" type="Container" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+script = ExtResource("3_qn2ge")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
+[node name="Register" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Register"
+
+[node name="GGFiller3" type="Container" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+script = ExtResource("3_qn2ge")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_yqhmu")
+theme_override_font_sizes/font_size = 28
+text = "Already have an account?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Login" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Log in"
+
+[connection signal="pressed" from="VBoxContainer/Register" to="." method="_on_register_pressed"]
+[connection signal="pressed" from="VBoxContainer/Login" to="." method="_on_login_pressed"]

@@ -36,7 +36,7 @@ func _ready():
 		button.connect("pressed", _on_direction_pressed.bind(button.name))
 	
 	var level_hs = Global.read_level_progress()
-	level_hs = level_hs["Flood"]["Respond"]["Highscore"]
+	level_hs = level_hs["Flood"]["RespondHighscore"]
 	if level_hs:
 		hs_label.text = str(level_hs)
 	else:
@@ -121,24 +121,17 @@ func _on_int_panel_quest_completed(_q_name):
 func _level_ends():
 	var resp_time = hud.get_time_left()
 	var resp_score = hud.score + (int(resp_time/10)*5)
-	var phase_progress = {
-			"Score": resp_score,
-			"TimeLeft": resp_time,
-			"Evac": 1 if hud.score > 0 else 0,
-		}
 	
-	Global.save_level_progress("Flood", "Respond", phase_progress)
+	Global.save_level_progress("Flood", "Respond", resp_score)
+	Global.save_to_cloud()
 	
 	$EndPanel/MarginContainer/VBoxContainer/Score/ScoreLabel.text = str(hud.score)
 	$EndPanel/MarginContainer/VBoxContainer/Time/TimeLabel.text = str(resp_time) + " sec"
 	$EndPanel/MarginContainer/VBoxContainer/TotalScore/TScoreLabel.text = str(resp_score)
 	
 	var level_hs = Global.read_level_progress()
-	level_hs = level_hs["Flood"]["Respond"]["Highscore"]
-	if level_hs:
-		$EndPanel/MarginContainer/VBoxContainer/Highscore/HScoreLabel.text = str(level_hs)
-	else:
-		$EndPanel/MarginContainer/VBoxContainer/Highscore/HScoreLabel.text = "0"
+	level_hs = level_hs["Flood"]["RespondHighscore"]
+	$EndPanel/MarginContainer/VBoxContainer/Highscore/HScoreLabel.text = str(level_hs)
 	end_panel.visible = true
 
 

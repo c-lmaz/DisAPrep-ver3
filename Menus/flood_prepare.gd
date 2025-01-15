@@ -56,7 +56,7 @@ func _ready():
 	current_quest = interaction_panel.get_current_quest()
 	
 	var level_hs = Global.read_level_progress()
-	level_hs = level_hs["Flood"]["Prepare"]["Highscore"]
+	level_hs = level_hs["Flood"]["PrepareHighscore"]
 	if level_hs:
 		hs_label.text = str(level_hs)
 	else:
@@ -234,35 +234,23 @@ func _on_comm_plans_chat_selected(option: String):
 
 func _comm_plans_done():
 	print("comm done")
-	await get_tree().create_timer(4.0).timeout
 	_level_ends()
 
 
 func _level_ends():
-	var prep_quests = interaction_panel.get_quests_progress()
 	var prep_time = hud.get_time_left()
 	var prep_score = hud.score + (int(prep_time/10)*5)
 	
-	var phase_progress = {
-			"Score": prep_score,
-			"TimeLeft": prep_time,
-			"Kit": prep_quests["Kit"],
-			"Hazards": prep_quests["Hazards"],
-			"Comm": prep_quests["Comm"],
-		}
-	
-	Global.save_level_progress("Flood", "Prepare", phase_progress)
+	Global.save_level_progress("Flood", "Prepare", prep_score)
+	Global.save_to_cloud()
 	
 	$EndPanel/MarginContainer/VBoxContainer/Score/ScoreLabel.text = str(hud.score)
 	$EndPanel/MarginContainer/VBoxContainer/Time/TimeLabel.text = str(prep_time) + " sec"
 	$EndPanel/MarginContainer/VBoxContainer/TotalScore/TScoreLabel.text = str(prep_score)
 	
 	var level_hs = Global.read_level_progress()
-	level_hs = level_hs["Flood"]["Prepare"]["Highscore"]
-	if level_hs:
-		$EndPanel/MarginContainer/VBoxContainer/Highscore/HScoreLabel.text = str(level_hs)
-	else:
-		$EndPanel/MarginContainer/VBoxContainer/Highscore/HScoreLabel.text = "0"
+	level_hs = level_hs["Flood"]["PrepareHighscore"]
+	$EndPanel/MarginContainer/VBoxContainer/Highscore/HScoreLabel.text = str(level_hs)
 	end_panel.visible = true
 
 

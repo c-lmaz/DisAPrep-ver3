@@ -44,7 +44,7 @@ func _ready():
 	future.all_spots_done.connect(_on_future_done)
 	
 	var level_hs = Global.read_level_progress()
-	level_hs = level_hs["Flood"]["Recover"]["Highscore"]
+	level_hs = level_hs["Flood"]["RecoverHighscore"]
 	if level_hs:
 		hs_label.text = str(level_hs)
 	else:
@@ -136,30 +136,19 @@ func _on_future_done():
 
 
 func _level_ends():
-	var rec_quests = interaction_panel.get_quests_progress()
 	var rec_time = hud.get_time_left()
 	var rec_score = hud.score + (int(rec_time/10)*5)
 	
-	var phase_progress = {
-			"Score": rec_score,
-			"TimeLeft": rec_time,
-			"Health": rec_quests["Health"],
-			"Repair": rec_quests["Repair"],
-			"Future": rec_quests["Future"],
-		}
-	
-	Global.save_level_progress("Flood", "Recover", phase_progress)
+	Global.save_level_progress("Flood", "Recover", rec_score)
+	Global.save_to_cloud()
 	
 	$EndPanel/MarginContainer/VBoxContainer/Score/ScoreLabel.text = str(hud.score)
 	$EndPanel/MarginContainer/VBoxContainer/Time/TimeLabel.text = str(rec_time) + " sec"
 	$EndPanel/MarginContainer/VBoxContainer/TotalScore/TScoreLabel.text = str(rec_score)
 	
 	var level_hs = Global.read_level_progress()
-	level_hs = level_hs["Flood"]["Recover"]["Highscore"]
-	if level_hs:
-		$EndPanel/MarginContainer/VBoxContainer/Highscore/HScoreLabel.text = str(level_hs)
-	else:
-		$EndPanel/MarginContainer/VBoxContainer/Highscore/HScoreLabel.text = "0"
+	level_hs = level_hs["Flood"]["RecoverHighscore"]
+	$EndPanel/MarginContainer/VBoxContainer/Highscore/HScoreLabel.text = str(level_hs)
 	end_panel.visible = true
 
 

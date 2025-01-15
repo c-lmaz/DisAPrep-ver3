@@ -1,0 +1,131 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpmgrct7fb1uw"]
+
+[ext_resource type="StyleBox" uid="uid://ev2mbtfnm0jq" path="res://Themes/Styleboxes/default.stylebox" id="1_5kbvk"]
+[ext_resource type="Theme" uid="uid://cimcgg33xdiyd" path="res://Themes/main.theme" id="1_plpmj"]
+[ext_resource type="Script" path="res://addons/GameGUI/GGFiller.gd" id="2_2musm"]
+[ext_resource type="FontFile" uid="uid://c4o05i4pa21je" path="res://Themes/Fonts/InriaSans-Regular.otf" id="3_nerhm"]
+[ext_resource type="Script" path="res://Menus/login_menu.gd" id="3_w43as"]
+
+[node name="LoginMenu" type="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0.980392)
+custom_minimum_size = Vector2(500, 840)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -860.0
+offset_right = 250.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_plpmj")
+theme_override_styles/panel = ExtResource("1_5kbvk")
+script = ExtResource("3_w43as")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Login"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GGFiller" type="Container" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+script = ExtResource("2_2musm")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
+[node name="Email" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Email"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_nerhm")
+theme_override_font_sizes/font_size = 28
+text = "Email"
+vertical_alignment = 1
+
+[node name="Email" type="LineEdit" parent="VBoxContainer/Email"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+placeholder_text = "Insert your email"
+
+[node name="Password" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Password"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_nerhm")
+theme_override_font_sizes/font_size = 28
+text = "Password"
+vertical_alignment = 1
+
+[node name="Password" type="LineEdit" parent="VBoxContainer/Password"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+placeholder_text = "Insert your password"
+secret = true
+
+[node name="GGFiller2" type="Container" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+script = ExtResource("2_2musm")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
+[node name="Login" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Log in"
+
+[node name="GGFiller3" type="Container" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+script = ExtResource("2_2musm")
+parameters = {
+"safe_area_bottom_margin": 0.0,
+"safe_area_left_margin": 0.0,
+"safe_area_right_margin": 0.0,
+"safe_area_top_margin": 0.0
+}
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_nerhm")
+theme_override_font_sizes/font_size = 28
+text = "Don't have an account?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Register" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Register Here"
+
+[connection signal="pressed" from="VBoxContainer/Login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="VBoxContainer/Register" to="." method="_on_register_pressed"]
